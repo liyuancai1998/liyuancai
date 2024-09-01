@@ -74,7 +74,6 @@ static const u32 sTitleScreenBackground2Gfx[] = INCBIN_U32("graphics/title_scree
 static const u32 sTitleScreenBackground3Gfx[] = INCBIN_U32("graphics/title_screen/bg/5.8bpp.lz");
 static const u32 sTitleScreenBackground4Gfx[] = INCBIN_U32("graphics/title_screen/bg/6.8bpp.lz");
 static const u32 sTitleScreenBackground5Gfx[] = INCBIN_U32("graphics/title_screen/bg/7.8bpp.lz");
-static const u32 sTitleScreenBackground6Gfx[] = INCBIN_U32("graphics/title_screen/bg/8.8bpp.lz");
 
 static const u32 sTitleScreenBackgroundTilemap[] = INCBIN_U32("graphics/title_screen/bg/full.bin.lz");
 static const u32 sTitleScreenBackgroundPal[] = INCBIN_U32("graphics/title_screen/bg/2.gbapal");
@@ -84,9 +83,8 @@ static const u32 *const sTitleScreenBackgroundGfxTable[] =
     sTitleScreenBackground0Gfx,
     sTitleScreenBackground1Gfx,
     sTitleScreenBackground2Gfx,
+    sTitleScreenBackground3Gfx,
     sTitleScreenBackground4Gfx,
-    sTitleScreenBackground5Gfx,
-    sTitleScreenBackground6Gfx,
     sTitleScreenBackground5Gfx,
     sTitleScreenBackground4Gfx,
     sTitleScreenBackground3Gfx,
