@@ -62,9 +62,6 @@ static void TryCreateShine(void);
 // const rom data
 static const u16 sUnusedUnknownPal[] = INCBIN_U16("graphics/title_screen/unused.gbapal");
 
-static const u32 sTitleScreenRayquazaGfx[] = INCBIN_U32("graphics/title_screen/2.8bpp.lz");
-static const u16 sTitleScreenRayquazaPal[] = INCBIN_U16("graphics/title_screen/2.gbapal");
-static const u32 sTitleScreenRayquazaTilemap[] = INCBIN_U32("graphics/title_screen/2.bin.lz");
 static const u32 sTitleScreenLogoShineGfx[] = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.lz");
 
 // 粒子效果素材
