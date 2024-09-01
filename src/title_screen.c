@@ -72,6 +72,8 @@ static const u32 sTitleScreenBackground0Gfx[] = INCBIN_U32("graphics/title_scree
 static const u32 sTitleScreenBackground1Gfx[] = INCBIN_U32("graphics/title_screen/bg/3.8bpp.lz");
 static const u32 sTitleScreenBackground2Gfx[] = INCBIN_U32("graphics/title_screen/bg/4.8bpp.lz");
 static const u32 sTitleScreenBackground3Gfx[] = INCBIN_U32("graphics/title_screen/bg/5.8bpp.lz");
+static const u32 sTitleScreenBackground4Gfx[] = INCBIN_U32("graphics/title_screen/bg/6.8bpp.lz");
+static const u32 sTitleScreenBackground5Gfx[] = INCBIN_U32("graphics/title_screen/bg/7.8bpp.lz");
 
 static const u32 sTitleScreenBackgroundTilemap[] = INCBIN_U32("graphics/title_screen/bg/full.bin.lz");
 static const u32 sTitleScreenBackgroundPal[] = INCBIN_U32("graphics/title_screen/bg/2.gbapal");
@@ -81,6 +83,10 @@ static const u32 *const sTitleScreenBackgroundGfxTable[] =
     sTitleScreenBackground0Gfx,
     sTitleScreenBackground1Gfx,
     sTitleScreenBackground2Gfx,
+    sTitleScreenBackground3Gfx,
+    sTitleScreenBackground4Gfx,
+    sTitleScreenBackground5Gfx,
+    sTitleScreenBackground4Gfx,
     sTitleScreenBackground3Gfx,
     sTitleScreenBackground2Gfx,
     sTitleScreenBackground1Gfx,
@@ -812,7 +818,7 @@ static void Task_TitleScreenPhase3(u8 taskId)
         if (gTasks[taskId].tCounter % 8 == 0)
         {
             // TryCreateShine();
-            LZ77UnCompVram(sTitleScreenBackgroundGfxTable[gTasks[taskId].tAnimNum % 6], (void *)(BG_CHAR_ADDR(0)));
+            LZ77UnCompVram(sTitleScreenBackgroundGfxTable[gTasks[taskId].tAnimNum % NELEMS(sTitleScreenBackgroundGfxTable)], (void *)(BG_CHAR_ADDR(0)));
             gTasks[taskId].tAnimNum++;
         }
         if ((gMPlayInfo_BGM.status & 0xFFFF) == 0)
