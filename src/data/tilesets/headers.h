@@ -869,3 +869,14 @@ const struct Tileset gTileset_map01t1 =
     .metatileAttributes = gMetatileAttributes_map01t1,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_MAP02 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_MAP02,
+    .palettes = gTilesetPalettes_MAP02,
+    .metatiles = gMetatiles_MAP02,
+    .metatileAttributes = gMetatileAttributes_MAP02,
+    .callback = NULL,
+};
