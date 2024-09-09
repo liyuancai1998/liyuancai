@@ -24,7 +24,7 @@
     {
       "id": "LAYOUT_MAUVILLE_CITY",
       "name": "MauvilleCity_Layout",
-      "width": 40,
+      "width": 60,
       "height": 20,
       "primary_tileset": "gTileset_MAP02",
       "secondary_tileset": "gTileset_Mauville",
