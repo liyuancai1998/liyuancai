@@ -36,8 +36,8 @@
       "name": "RustboroCity_Layout",
       "width": 40,
       "height": 60,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "primary_tileset": "gTileset_MAP02",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/RustboroCity/border.bin",
       "blockdata_filepath": "data/layouts/RustboroCity/map.bin"
     },
