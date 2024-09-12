@@ -2218,6 +2218,8 @@ static void UpdateSandstormSwirlSprite(struct Sprite *sprite)
 
 void Shade_InitVars(void)
 {
+    if (IsShadowMapLayout())
+        Weather_SetBlendCoeffs(4, 7); // Indoor shadows
     gWeatherPtr->initStep = 0;
     gWeatherPtr->targetColorMapIndex = 3;
     gWeatherPtr->colorMapStepDelay = 20;

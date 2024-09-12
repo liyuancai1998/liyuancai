@@ -847,3 +847,14 @@ const struct Tileset gTileset_Test2 =
     .metatileAttributes = gMetatileAttributes_Test2,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_BubbleTilieset1 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_BubbleTilieset1,
+    .palettes = gTilesetPalettes_BubbleTilieset1,
+    .metatiles = gMetatiles_BubbleTilieset1,
+    .metatileAttributes = gMetatileAttributes_BubbleTilieset1,
+    .callback = NULL,
+};

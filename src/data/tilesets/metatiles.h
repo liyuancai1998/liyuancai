@@ -213,3 +213,6 @@ const u16 gMetatileAttributes_Test[] = INCBIN_U16("data/tilesets/primary/test/me
 
 const u16 gMetatiles_Test2[] = INCBIN_U16("data/tilesets/secondary/test_2/metatiles.bin");
 const u16 gMetatileAttributes_Test2[] = INCBIN_U16("data/tilesets/secondary/test_2/metatile_attributes.bin");
+
+const u16 gMetatiles_BubbleTilieset1[] = INCBIN_U16("data/tilesets/primary/bubble_tilieset_1/metatiles.bin");
+const u16 gMetatileAttributes_BubbleTilieset1[] = INCBIN_U16("data/tilesets/primary/bubble_tilieset_1/metatile_attributes.bin");

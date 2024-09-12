@@ -14,6 +14,7 @@
 #include "secret_base.h"
 #include "trainer_hill.h"
 #include "tv.h"
+#include "constants/layouts.h"
 #include "constants/rgb.h"
 #include "constants/metatile_behaviors.h"
 
@@ -902,6 +903,9 @@ static void LoadTilesetPalette(struct Tileset const *tileset, u16 destOffset, u1
     }
 }
 
+static const u16 shadowTile[] = INCBIN_U16("data/shadow/test.4bpp");
+static const u16 shadowPal[] = INCBIN_U16("data/shadow/test.gbapal");
+
 void CopyPrimaryTilesetToVram(struct MapLayout const *mapLayout)
 {
     CopyTilesetToVram(mapLayout->primaryTileset, NUM_TILES_IN_PRIMARY, 0);
@@ -910,6 +914,10 @@ void CopyPrimaryTilesetToVram(struct MapLayout const *mapLayout)
 void CopySecondaryTilesetToVram(struct MapLayout const *mapLayout)
 {
     CopyTilesetToVram(mapLayout->secondaryTileset, NUM_TILES_TOTAL - NUM_TILES_IN_PRIMARY, NUM_TILES_IN_PRIMARY);
+    if (IsShadowMapLayout())
+    {
+        LoadBgTiles(2, shadowTile, 128 * 112 / 2, 0x240);
+    }
 }
 
 void CopySecondaryTilesetToVramUsingHeap(struct MapLayout const *mapLayout)
@@ -925,6 +933,8 @@ static void LoadPrimaryTilesetPalette(struct MapLayout const *mapLayout)
 void LoadSecondaryTilesetPalette(struct MapLayout const *mapLayout)
 {
     LoadTilesetPalette(mapLayout->secondaryTileset, BG_PLTT_ID(NUM_PALS_IN_PRIMARY), (NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY) * PLTT_SIZE_4BPP);
+    if (IsShadowMapLayout())
+        LoadPalette(shadowPal, BG_PLTT_ID(13), 32);
 }
 
 void CopyMapTilesetsToVram(struct MapLayout const *mapLayout)
@@ -933,6 +943,10 @@ void CopyMapTilesetsToVram(struct MapLayout const *mapLayout)
     {
         CopyTilesetToVramUsingHeap(mapLayout->primaryTileset, NUM_TILES_IN_PRIMARY, 0);
         CopyTilesetToVramUsingHeap(mapLayout->secondaryTileset, NUM_TILES_TOTAL - NUM_TILES_IN_PRIMARY, NUM_TILES_IN_PRIMARY);
+    }
+    if (IsShadowMapLayout())
+    {
+        LoadBgTiles(2, shadowTile, 128 * 112 / 2, 0x240);
     }
 }
 
@@ -943,4 +957,11 @@ void LoadMapTilesetPalettes(struct MapLayout const *mapLayout)
         LoadPrimaryTilesetPalette(mapLayout);
         LoadSecondaryTilesetPalette(mapLayout);
     }
+}
+
+bool8 IsShadowMapLayout(void)
+{
+    if (gMapHeader.mapLayoutId == LAYOUT_SOOTOPOLIS_CITY)
+        return TRUE;
+    return FALSE;
 }

@@ -882,6 +882,9 @@ u8 GetTrainerBattleTransition(void)
     u32 trainerId = SanitizeTrainerId(gTrainerBattleOpponent_A);
     u32 trainerClass = GetTrainerClassFromId(gTrainerBattleOpponent_A);
 
+    if (IsShadowMapLayout())
+        return B_TRANSITION_RIPPLE;
+
     if (DoesTrainerHaveMugshot(trainerId))
         return B_TRANSITION_MUGSHOT;
 

@@ -52,7 +52,8 @@ void CopySecondaryTilesetToVram(const struct MapLayout *);
 const struct MapHeader *const GetMapHeaderFromConnection(const struct MapConnection *connection);
 const struct MapConnection *GetMapConnectionAtPos(s16 x, s16 y);
 void MapGridSetMetatileImpassabilityAt(int x, int y, bool32 impassable);
-
+// 树荫地图判断
+bool8 IsShadowMapLayout(void);
 // field_region_map.c
 void FieldInitRegionMap(MainCallback callback);
 

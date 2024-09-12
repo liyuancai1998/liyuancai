@@ -304,6 +304,46 @@ static const struct BgTemplate sOverworldBgTemplates[] =
     }
 };
 
+static const struct BgTemplate sOverworldBgTemplates_ShadowEffect[] =
+{
+    {
+        .bg = 0,
+        .charBaseIndex = 2,
+        .mapBaseIndex = 31,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 0,
+        .baseTile = 0
+    },
+    {
+        .bg = 1,
+        .charBaseIndex = 0,
+        .mapBaseIndex = 29,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 1,
+        .baseTile = 0
+    },
+    {
+        .bg = 2,
+        .charBaseIndex = 0,
+        .mapBaseIndex = 28,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 0,
+        .baseTile = 0
+    },
+    {
+        .bg = 3,
+        .charBaseIndex = 0,
+        .mapBaseIndex = 30,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 3,
+        .baseTile = 0
+    }
+};
+
 static const struct ScanlineEffectParams sFlashEffectParams =
 {
     &REG_WIN0H,
@@ -1438,7 +1478,10 @@ u8 GetCurrentMapBattleScene(void)
 
 static void InitOverworldBgs(void)
 {
-    InitBgsFromTemplates(0, sOverworldBgTemplates, ARRAY_COUNT(sOverworldBgTemplates));
+    if (IsShadowMapLayout())
+        InitBgsFromTemplates(0, sOverworldBgTemplates_ShadowEffect, ARRAY_COUNT(sOverworldBgTemplates_ShadowEffect));
+    else
+        InitBgsFromTemplates(0, sOverworldBgTemplates, ARRAY_COUNT(sOverworldBgTemplates));
     SetBgAttribute(1, BG_ATTR_MOSAIC, 1);
     SetBgAttribute(2, BG_ATTR_MOSAIC, 1);
     SetBgAttribute(3, BG_ATTR_MOSAIC, 1);
@@ -2142,8 +2185,18 @@ static void InitOverworldGraphicsRegisters(void)
     SetGpuReg(REG_OFFSET_WIN0V, 0xFF);
     SetGpuReg(REG_OFFSET_WIN1H, 0xFFFF);
     SetGpuReg(REG_OFFSET_WIN1V, 0xFFFF);
-    SetGpuReg(REG_OFFSET_BLDCNT, gOverworldBackgroundLayerFlags[1] | gOverworldBackgroundLayerFlags[2] | gOverworldBackgroundLayerFlags[3]
-                               | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
+    if(IsShadowMapLayout())
+    {
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG2 | BLDCNT_TGT2_BG1 | BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
+        SetGpuRegBits(REG_OFFSET_WININ, WININ_WIN0_CLR);
+        SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WIN01_CLR);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(5, 7));
+    }
+    else
+    {
+        SetGpuReg(REG_OFFSET_BLDCNT, gOverworldBackgroundLayerFlags[1] | gOverworldBackgroundLayerFlags[2] | gOverworldBackgroundLayerFlags[3]
+                                | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
+    }
     SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(13, 7));
     InitOverworldBgs();
     ScheduleBgCopyTilemapToVram(1);

@@ -21,6 +21,7 @@
 #include "trig.h"
 #include "util.h"
 #include "battle_setup.h"
+#include "fieldmap.h"
 #include "data.h"
 #include "constants/field_effects.h"
 #include "constants/songs.h"
@@ -994,6 +995,8 @@ static void UNUSED TestBattleTransition(u8 transitionId)
 void BattleTransition_StartOnField(u8 transitionId)
 {
     gMain.callback2 = CB2_OverworldBasic;
+    if (!IsShadowMapLayout())
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0x10);
     LaunchBattleTransitionTask(transitionId);
 }
 

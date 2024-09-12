@@ -11,6 +11,7 @@
 #include "rotating_gate.h"
 #include "sprite.h"
 #include "text.h"
+#include "bg.h"
 
 EWRAM_DATA bool8 gUnusedBikeCameraAheadPanback = FALSE;
 
@@ -223,6 +224,8 @@ void DrawDoorMetatileAt(int x, int y, u16 *tiles)
     }
 }
 
+static const u16 gShadowMap[] = INCBIN_U16("data/shadow/test.bin");
+
 static void DrawMetatileAt(const struct MapLayout *mapLayout, u16 offset, int x, int y)
 {
     u16 metatileId = MapGridGetMetatileIdAt(x, y);
@@ -238,6 +241,16 @@ static void DrawMetatileAt(const struct MapLayout *mapLayout, u16 offset, int x,
         metatileId -= NUM_METATILES_IN_PRIMARY;
     }
     DrawMetatile(MapGridGetMetatileLayerTypeAt(x, y), metatiles + metatileId * NUM_TILES_PER_METATILE, offset);
+    if (IsShadowMapLayout())
+    {
+        u16 shadowOffset = (x % 16) * 2 + (y % 16) * 64;
+
+        gOverworldTilemapBuffer_Bg2[offset] = gShadowMap[shadowOffset];
+        gOverworldTilemapBuffer_Bg2[offset + 1] = gShadowMap[shadowOffset + 1];
+        gOverworldTilemapBuffer_Bg2[offset + 0x20] = gShadowMap[shadowOffset + 32];
+        gOverworldTilemapBuffer_Bg2[offset + 0x21] = gShadowMap[shadowOffset + 32 + 1];
+        ScheduleBgCopyTilemapToVram(2);
+    }
 }
 
 static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
