@@ -891,3 +891,25 @@ const struct Tileset gTileset_MAP02 =
     .metatileAttributes = gMetatileAttributes_MAP02,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_CAVE =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_CAVE,
+    .palettes = gTilesetPalettes_CAVE,
+    .metatiles = gMetatiles_CAVE,
+    .metatileAttributes = gMetatileAttributes_CAVE,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_CAVET1 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CAVET1,
+    .palettes = gTilesetPalettes_CAVET1,
+    .metatiles = gMetatiles_CAVET1,
+    .metatileAttributes = gMetatileAttributes_CAVET1,
+    .callback = NULL,
+};

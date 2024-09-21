@@ -224,3 +224,9 @@ const u16 gMetatileAttributes_map01t1[] = INCBIN_U16("data/tilesets/secondary/ma
 
 const u16 gMetatiles_MAP02[] = INCBIN_U16("data/tilesets/primary/map02/metatiles.bin");
 const u16 gMetatileAttributes_MAP02[] = INCBIN_U16("data/tilesets/primary/map02/metatile_attributes.bin");
+
+const u16 gMetatiles_CAVE[] = INCBIN_U16("data/tilesets/primary/cave/metatiles.bin");
+const u16 gMetatileAttributes_CAVE[] = INCBIN_U16("data/tilesets/primary/cave/metatile_attributes.bin");
+
+const u16 gMetatiles_CAVET1[] = INCBIN_U16("data/tilesets/secondary/cavet1/metatiles.bin");
+const u16 gMetatileAttributes_CAVET1[] = INCBIN_U16("data/tilesets/secondary/cavet1/metatile_attributes.bin");
