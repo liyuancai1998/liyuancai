@@ -230,3 +230,15 @@ const u16 gMetatileAttributes_CAVE[] = INCBIN_U16("data/tilesets/primary/cave/me
 
 const u16 gMetatiles_CAVET1[] = INCBIN_U16("data/tilesets/secondary/cavet1/metatiles.bin");
 const u16 gMetatileAttributes_CAVET1[] = INCBIN_U16("data/tilesets/secondary/cavet1/metatile_attributes.bin");
+
+const u16 gMetatiles_room[] = INCBIN_U16("data/tilesets/primary/room/metatiles.bin");
+const u16 gMetatileAttributes_room[] = INCBIN_U16("data/tilesets/primary/room/metatile_attributes.bin");
+
+const u16 gMetatiles_roomT1[] = INCBIN_U16("data/tilesets/secondary/room_t1/metatiles.bin");
+const u16 gMetatileAttributes_roomT1[] = INCBIN_U16("data/tilesets/secondary/room_t1/metatile_attributes.bin");
+
+const u16 gMetatiles_MAP03[] = INCBIN_U16("data/tilesets/primary/map03/metatiles.bin");
+const u16 gMetatileAttributes_MAP03[] = INCBIN_U16("data/tilesets/primary/map03/metatile_attributes.bin");
+
+const u16 gMetatiles_map03t1[] = INCBIN_U16("data/tilesets/secondary/map_03t_1/metatiles.bin");
+const u16 gMetatileAttributes_map03t1[] = INCBIN_U16("data/tilesets/secondary/map_03t_1/metatile_attributes.bin");

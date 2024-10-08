@@ -913,3 +913,47 @@ const struct Tileset gTileset_CAVET1 =
     .metatileAttributes = gMetatileAttributes_CAVET1,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_room =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_room,
+    .palettes = gTilesetPalettes_room,
+    .metatiles = gMetatiles_room,
+    .metatileAttributes = gMetatileAttributes_room,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_roomT1 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_roomT1,
+    .palettes = gTilesetPalettes_roomT1,
+    .metatiles = gMetatiles_roomT1,
+    .metatileAttributes = gMetatileAttributes_roomT1,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_MAP03 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_MAP03,
+    .palettes = gTilesetPalettes_MAP03,
+    .metatiles = gMetatiles_MAP03,
+    .metatileAttributes = gMetatileAttributes_MAP03,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_map03t1 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_map03t1,
+    .palettes = gTilesetPalettes_map03t1,
+    .metatiles = gMetatiles_map03t1,
+    .metatileAttributes = gMetatileAttributes_map03t1,
+    .callback = NULL,
+};
