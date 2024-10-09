@@ -66,8 +66,8 @@
       "name": "MossdeepCity_Layout",
       "width": 80,
       "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "primary_tileset": "gTileset_map04",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/MossdeepCity/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity/map.bin"
     },
@@ -104,7 +104,7 @@
     {
       "id": "LAYOUT_OLDALE_TOWN",
       "name": "OldaleTown_Layout",
-      "width": 30,
+      "width": 40,
       "height": 30,
       "primary_tileset": "gTileset_MAP02",
       "secondary_tileset": "gTileset_Mauville",

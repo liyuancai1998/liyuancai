@@ -5,8 +5,8 @@ import sys
 from pathlib import Path
 import shutil
 
-first_dir = "primary/map03/"
-seconder_dir = "secondary/map_03t_1/"
+first_dir = "primary/map_04/"
+seconder_dir = "secondary/battle_arena/"
 new_img = Image.open(f"{first_dir}tiles.png")
 new_imgdata = list(new_img.getdata())
 seconder = Image.open(f"{seconder_dir}tiles.png")
