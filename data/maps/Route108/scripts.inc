@@ -1,5 +1,34 @@
 Route108_MapScripts::
-	.byte 0
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Route108_OnEnter
+    .byte 0
+
+Route108_OnEnter:
+	map_script_2 VAR_UNUSED_0x404E, 0, FuckThisTrigger
+	.2byte 0
+
+FuckThisTrigger:
+	lock
+	faceplayer
+	fadescreen FADE_TO_BLACK
+	msgbox Route108_Text_FADE_TO_BLACK MSGBOX_DEFAULT
+	fadescreen FADE_FROM_BLACK
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Movement
+	waitmovement OBJ_EVENT_ID_PLAYER
+	msgbox Route108_Text_SeaFullOfLife MSGBOX_DEFAULT
+	release
+	setvar VAR_UNUSED_0x404E, 1
+	end
+
+Player_Movement:
+	emote_question_mark
+	step_end
+
+Route108_Text_FADE_TO_BLACK:
+	.string "头好晕……$"
+
+Route108_Text_SeaFullOfLife:
+    .string "这是哪儿？\n为什么我什么都想不起来了……$"
+
 
 Route108_EventScript_Jerome::
 	trainerbattle_single TRAINER_JEROME, Route108_Text_JeromeIntro, Route108_Text_JeromeDefeated

@@ -1880,3 +1880,22 @@ const u16 gTilesetPalettes_map04[][16] =
 };
 
 const u32 gTilesetTiles_map04[] = INCBIN_U32("data/tilesets/primary/map_04/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_mapg[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/mapg/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_mapg[] = INCBIN_U32("data/tilesets/primary/mapg/tiles.4bpp.lz");
