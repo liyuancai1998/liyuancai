@@ -979,3 +979,14 @@ const struct Tileset gTileset_mapg =
     .metatileAttributes = gMetatileAttributes_mapg,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_pokecenter =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_pokecenter,
+    .palettes = gTilesetPalettes_pokecenter,
+    .metatiles = gMetatiles_pokecenter,
+    .metatileAttributes = gMetatileAttributes_pokecenter,
+    .callback = NULL,
+};

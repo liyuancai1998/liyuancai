@@ -248,3 +248,6 @@ const u16 gMetatileAttributes_map04[] = INCBIN_U16("data/tilesets/primary/map_04
 
 const u16 gMetatiles_mapg[] = INCBIN_U16("data/tilesets/primary/mapg/metatiles.bin");
 const u16 gMetatileAttributes_mapg[] = INCBIN_U16("data/tilesets/primary/mapg/metatile_attributes.bin");
+
+const u16 gMetatiles_pokecenter[] = INCBIN_U16("data/tilesets/primary/pokecenter/metatiles.bin");
+const u16 gMetatileAttributes_pokecenter[] = INCBIN_U16("data/tilesets/primary/pokecenter/metatile_attributes.bin");

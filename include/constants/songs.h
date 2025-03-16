@@ -278,6 +278,9 @@
 #define SE_SUDOWOODO_SHAKE          269 // SE_USSOKI
 #define END_SE                      SE_SUDOWOODO_SHAKE
 
+//NEW
+#define test                  349 
+
 // Music
 #define START_MUS                   350
 #define MUS_LITTLEROOT_TEST         350 // MUS_TETSUJI          // Unused, likely a test track.

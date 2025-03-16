@@ -2172,3 +2172,10 @@
 	.2byte \status1
 	.2byte \slot
 	.endm
+
+	.macro shownpc species:req, x:req, y:req
+	.byte 0xe5
+	.2byte \species
+	.byte \x
+	.byte \y
+	.endm

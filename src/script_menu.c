@@ -976,7 +976,10 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
         gTasks[taskId].tMonSpriteId = spriteId;
         gSprites[spriteId].callback = SpriteCallbackDummy;
         gSprites[spriteId].oam.priority = 0;
-        SetStandardWindowBorderStyle(gTasks[taskId].tWindowId, TRUE);
+        if (!FlagGet(FLAG_SHOW_NPC_PICTURE))
+            SetStandardWindowBorderStyle(gTasks[taskId].tWindowId, TRUE);
+        else
+            FlagClear(FLAG_SHOW_NPC_PICTURE);
         ScheduleBgCopyTilemapToVram(0);
         return TRUE;
     }

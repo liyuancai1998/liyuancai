@@ -29,6 +29,10 @@
 // These 0x10 vars are used to dynamically control a map object's sprite.
 // For example, the rival's sprite id is dynamically set based on the player's gender.
 // See VarGetObjectEventGraphicsId().
+#define VAR_BAG           0x4001
+
+
+//  X
 #define VAR_OBJ_GFX_ID_0           0x4010
 #define VAR_OBJ_GFX_ID_1           0x4011
 #define VAR_OBJ_GFX_ID_2           0x4012
@@ -95,7 +99,7 @@
 #define VAR_POKELOT_RND1                                 0x404B
 #define VAR_POKELOT_RND2                                 0x404C
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
-#define VAR_UNUSED_0x404E                                0x404E // Unused Var
+#define VAR_UNUSED_0x404E                                0x404E // Unused Var--初始地点
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051

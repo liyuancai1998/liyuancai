@@ -138,6 +138,10 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
+	lockall
+	shownpc 0, 8, 8
+	msgbox Debug_EventScript_Text_OffensiveIVs, MSGBOX_DEFAULT
+	releaseall
 	end
 
 Debug_EventScript_Script_2::

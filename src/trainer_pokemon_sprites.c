@@ -8,6 +8,9 @@
 #include "data.h"
 #include "pokemon.h"
 #include "constants/trainers.h"
+#include "event_data.h"
+#include "constants/flags.h"
+#include "data/graphics/npc_sprite.h"
 
 #define PICS_COUNT 8
 
@@ -61,7 +64,12 @@ static bool16 DecompressPic(u16 species, u32 personality, bool8 isFrontPic, u8 *
 {
     if (!isTrainer)
     {
-        LoadSpecialPokePic(dest, species, personality, isFrontPic);
+        if (FlagGet(FLAG_SHOW_NPC_PICTURE))
+        {
+            DecompressPicFromTable(&gNPCSpriteTable[species].frontPic, dest);
+        }
+        else
+            LoadSpecialPokePic(dest, species, personality, isFrontPic);
     }
     else
     {
@@ -77,15 +85,20 @@ static void LoadPicPaletteByTagOrSlot(u16 species, bool8 isShiny, u32 personalit
 {
     if (!isTrainer)
     {
+        const u32* palData = GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality);
+        if (FlagGet(FLAG_SHOW_NPC_PICTURE))
+        {
+            palData = gNPCSpriteTable[species].palette;
+        }
         if (paletteTag == TAG_NONE)
         {
             sCreatingSpriteTemplate.paletteTag = TAG_NONE;
-            LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+            LoadCompressedPalette(palData, OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
         }
         else
         {
             sCreatingSpriteTemplate.paletteTag = paletteTag;
-            LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), species);
+            LoadCompressedSpritePaletteWithTag(palData, species);
         }
     }
     else

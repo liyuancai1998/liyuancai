@@ -10,8 +10,11 @@ FuckThisTrigger:
 	lock
 	faceplayer
 	fadescreen FADE_TO_BLACK
+	givemon SPECIES_PIKACHU 20, \
+		isShiny=1
 	msgbox Route108_Text_FADE_TO_BLACK MSGBOX_DEFAULT
 	fadescreen FADE_FROM_BLACK
+	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Movement
 	waitmovement OBJ_EVENT_ID_PLAYER
 	msgbox Route108_Text_SeaFullOfLife MSGBOX_DEFAULT
@@ -28,6 +31,56 @@ Route108_Text_FADE_TO_BLACK:
 
 Route108_Text_SeaFullOfLife:
     .string "这是哪儿？\n为什么我什么都想不起来了……$"
+
+
+EventScript_Note_TrainerCard::
+	lock
+	msgbox Text_TrainerBag MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
+	msgbox Text_TrainerCard MSGBOX_DEFAULT
+	fadescreen FADE_FROM_BLACK
+	msgbox Text_TrainerResult MSGBOX_DEFAULT
+	removeobject 8
+	setflag FLAG_TrainerCard
+	setflag FLAG_SYS_POKEMON_GET
+	setvar  VAR_BAG, 1
+	release
+	end
+
+
+Text_TrainerBag:
+	.string "这是什么？$"
+
+Text_TrainerCard:
+	.string "(找到了一张带有名字的卡片)$"
+
+Text_TrainerResult:
+	.string "这是我的么？洛汐……$"
+
+Trigger_Bag_1::
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Movement_2
+	waitmovement OBJ_EVENT_ID_PLAYER
+	compare VAR_BAG, 1
+	goto_if_ne EventScript_Note_TrainerCard
+	end
+
+Trigger_Bag_2::
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Movement_3
+	waitmovement OBJ_EVENT_ID_PLAYER
+	compare VAR_BAG, 1
+	goto_if_ne EventScript_Note_TrainerCard
+	end
+
+	
+Player_Movement_2:
+	 walk_left
+	 walk_down
+	 step_end
+
+Player_Movement_3:
+	 walk_left
+	 face_down
+	 step_end
 
 
 Route108_EventScript_Jerome::
@@ -56,11 +109,8 @@ Route108_EventScript_Carolina::
 	end
 
 Route108_EventScript_Cory::
-	trainerbattle_single TRAINER_CORY_1, Route108_Text_CoryIntro, Route108_Text_CoryDefeated, Route108_EventScript_CoryRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route108_EventScript_CoryRematch
+	shownpc 0, 8, 8
 	msgbox Route108_Text_CoryPostBattle, MSGBOX_DEFAULT
-	release
 	end
 
 Route108_EventScript_CoryRegisterMatchCallAfterBattle::

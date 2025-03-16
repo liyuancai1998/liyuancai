@@ -2409,3 +2409,14 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
     ResetInitialPlayerAvatarState();
     return TRUE;
 }
+
+bool8 ScrCmd_shownpcpic(struct ScriptContext *ctx)
+{
+    u16 species = VarGet(ScriptReadHalfword(ctx));
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+
+    FlagSet(FLAG_SHOW_NPC_PICTURE);
+    ScriptMenu_ShowPokemonPic(species, x, y);
+    return FALSE;
+}

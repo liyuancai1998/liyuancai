@@ -21,6 +21,37 @@
 
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
+EventScript_RiverJump::
+	applymovement OBJ_EVENT_ID_PLAYER, Player_JUMP_Movement_1
+	waitmovement OBJ_EVENT_ID_PLAYER
+	end
+
+Player_JUMP_Movement_1:
+	walk_up
+	walk_up
+	walk_up
+	player_run_down
+	player_run_down
+	player_run_down
+	jump_2_down
+	jump_down
+	step_end
+
+EventScript_RiverJump_2::
+	applymovement OBJ_EVENT_ID_PLAYER, Player_JUMP_Movement_2
+	waitmovement OBJ_EVENT_ID_PLAYER
+	end
+
+Player_JUMP_Movement_2:
+	walk_down
+	walk_down
+	player_run_up
+	player_run_up
+	jump_up
+	jump_2_up
+	step_end
+
+
 SlateportCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SlateportCity_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SlateportCity_OnFrame
