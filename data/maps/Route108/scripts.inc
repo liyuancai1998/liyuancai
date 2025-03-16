@@ -109,8 +109,9 @@ Route108_EventScript_Carolina::
 	end
 
 Route108_EventScript_Cory::
-	shownpc 0, 8, 8
-	msgbox Route108_Text_CoryPostBattle, MSGBOX_DEFAULT
+	shownpc 0, 200, 83
+	msgbox Route108_Text_CoryPostBattle, MSGBOX_AUTOCLOSE
+	hidemonpic
 	end
 
 Route108_EventScript_CoryRegisterMatchCallAfterBattle::

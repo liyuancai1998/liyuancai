@@ -968,7 +968,10 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
     }
     else
     {
-        spriteId = CreateMonSprite_PicBox(species, x * 8 + 40, y * 8 + 40, 0);
+        if (FlagGet(FLAG_SHOW_NPC_PICTURE))
+            spriteId = CreateMonSprite_PicBox(species, x, y, 0);
+        else
+            spriteId = CreateMonSprite_PicBox(species, x * 8 + 40, y * 8 + 40, 0);
         taskId = CreateTask(Task_PokemonPicWindow, 0x50);
         gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 8, 8);
         gTasks[taskId].tState = 0;
