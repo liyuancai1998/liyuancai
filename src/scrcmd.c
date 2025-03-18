@@ -2420,3 +2420,8 @@ bool8 ScrCmd_shownpcpic(struct ScriptContext *ctx)
     ScriptMenu_ShowPokemonPic(species, x, y);
     return FALSE;
 }
+
+bool8 ScrCmd_blacktext()
+{
+    
+}
