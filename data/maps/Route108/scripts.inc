@@ -17,7 +17,9 @@ FuckThisTrigger:
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Movement
 	waitmovement OBJ_EVENT_ID_PLAYER
+	shownpc 0, 200, 83
 	msgbox Route108_Text_SeaFullOfLife MSGBOX_DEFAULT
+	hidemonpic
 	release
 	setvar VAR_UNUSED_0x404E, 1
 	end
