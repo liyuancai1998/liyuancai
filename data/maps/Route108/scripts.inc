@@ -12,21 +12,29 @@ FuckThisTrigger:
 	fadescreen FADE_TO_BLACK
 	givemon SPECIES_PIKACHU 20, \
 		isShiny=1
+	blacktext 0xe0, 50, blackscreentext
+	closeblacktext
 	msgbox Route108_Text_FADE_TO_BLACK MSGBOX_DEFAULT
 	fadescreen FADE_FROM_BLACK
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Movement
-	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement 0
 	shownpc 0, 200, 83
+	shownpcpic2 0, 32, 83, 1
 	msgbox Route108_Text_SeaFullOfLife MSGBOX_DEFAULT
 	hidemonpic
+	hidenpc2
 	release
 	setvar VAR_UNUSED_0x404E, 1
 	end
 
 Player_Movement:
 	emote_question_mark
+	delay_16
 	step_end
+
+blackscreentext:
+	.string "            李元才你真的\n               司马了\p啊啊啊啊啊啊$"
 
 Route108_Text_FADE_TO_BLACK:
 	.string "头好晕……$"
@@ -112,8 +120,10 @@ Route108_EventScript_Carolina::
 
 Route108_EventScript_Cory::
 	shownpc 0, 200, 83
-	msgbox Route108_Text_CoryPostBattle, MSGBOX_AUTOCLOSE
+	shownpcpic2 0, 32, 83, 0
+	msgbox Route108_Text_SeaFullOfLife MSGBOX_AUTOCLOSE
 	hidemonpic
+	hidenpc2
 	end
 
 Route108_EventScript_CoryRegisterMatchCallAfterBattle::

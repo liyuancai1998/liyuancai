@@ -5,11 +5,35 @@
 #include "text.h"
 #include "match_call.h"
 #include "field_message_box.h"
+#include "event_data.h"
+#include "palette.h"
+#include "bg.h"
+#include "constants/rgb.h"
 
 static EWRAM_DATA u8 sFieldMessageBoxMode = 0;
 
 static void ExpandStringAndStartDrawFieldMessage(const u8 *, bool32);
 static void StartDrawFieldMessage(void);
+
+static const u16 gWhiteMsgBoxPalette[] = 
+{
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB(26, 26, 25),
+    RGB(12, 12, 12),
+    RGB(28, 01, 01),
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB_BLACK,
+};
 
 void InitFieldMessageBox(void)
 {
@@ -33,6 +57,11 @@ static void Task_DrawFieldMessage(u8 taskId)
            task->tState++;
            break;
         case 1:
+            if (FlagGet(FLAG_SHOW_BLACK_TEXT))
+            {
+                LoadPalette(gWhiteMsgBoxPalette, BG_PLTT_ID(15), sizeof(gWhiteMsgBoxPalette));
+            }
+            
            DrawDialogueFrame(0, TRUE);
            task->tState++;
            break;

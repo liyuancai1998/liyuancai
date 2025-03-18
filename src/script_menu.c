@@ -957,6 +957,54 @@ static void Task_PokemonPicWindow(u8 taskId)
     }
 }
 
+static void Task_PokemonPicWindowSlot2(u8 taskId)
+{
+    Task_PokemonPicWindow(taskId);
+}
+
+bool8 ScriptMenu_ShowPokemonPicSlot2(u16 species, u8 x, u8 y, u8 isleft)
+{
+    u8 taskId;
+    u8 spriteId;
+
+    if (FindTaskIdByFunc(Task_PokemonPicWindowSlot2) != TASK_NONE)
+    {
+        return FALSE;
+    }
+    else
+    {
+        spriteId = CreateMonSprite_PicBox(species, x, y, 0);
+        taskId = CreateTask(Task_PokemonPicWindowSlot2, 0x50);
+        gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 8, 8);
+        gTasks[taskId].tState = 0;
+        gTasks[taskId].tMonSpecies = species;
+        gTasks[taskId].tMonSpriteId = spriteId;
+        gSprites[spriteId].callback = SpriteCallbackDummy;
+        gSprites[spriteId].oam.priority = 0;
+        gSprites[spriteId].hFlip = isleft;
+        FlagClear(FLAG_SHOW_NPC_PICTURE);
+        return TRUE;
+    }
+}
+
+static bool8 IsPicboxClosedSlot2(void)
+{
+    if (FindTaskIdByFunc(Task_PokemonPicWindowSlot2) == TASK_NONE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 (*ScriptMenu_HidePokemonPicSlot2(void))(void)
+{
+    u8 taskId = FindTaskIdByFunc(Task_PokemonPicWindowSlot2);
+
+    if (taskId == TASK_NONE)
+        return NULL;
+    gTasks[taskId].tState++;
+    return IsPicboxClosedSlot2;
+}
+
 bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
 {
     u8 taskId;

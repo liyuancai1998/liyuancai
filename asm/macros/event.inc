@@ -2179,3 +2179,30 @@
 	.byte \x
 	.byte \y
 	.endm
+
+	.macro blacktext x:req, y:req, text:req
+	.byte 0xe6
+	.byte \x
+	.byte \y
+	.4byte \text
+	waitmessage
+	waitbuttonpress
+	closemessage
+	delay 16
+	.endm
+
+	.macro closeblacktext
+	.byte 0xe7
+	.endm
+
+	.macro shownpcpic2 species:req, x:req, y:req, isleft:req
+	.byte 0xe8
+	.2byte \species
+	.byte \x
+	.byte \y
+	.byte \isleft
+	.endm
+
+	.macro hidenpc2
+	.byte 0xe9
+	.endm

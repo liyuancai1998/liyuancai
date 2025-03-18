@@ -2421,7 +2421,52 @@ bool8 ScrCmd_shownpcpic(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_blacktext()
+bool8 ScrCmd_shownpcpic2(struct ScriptContext *ctx)
 {
+    u16 species = VarGet(ScriptReadHalfword(ctx));
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+    u8 isLeft = ScriptReadByte(ctx);
+
+    FlagSet(FLAG_SHOW_NPC_PICTURE);
+    ScriptMenu_ShowPokemonPicSlot2(species, x, y, isLeft);
+    return FALSE;
+}
+
+bool8 ScrCmd_hidenpc2(struct ScriptContext *ctx)
+{
+    // The hide function returns a pointer to a function
+    // that returns true once the pic is hidden
+    bool8 (*func)(void) = ScriptMenu_HidePokemonPicSlot2();
+
+    if (func == NULL)
+        return FALSE;
+    SetupNativeScript(ctx, func);
+    return TRUE;
+}
+
+#include "bg.h"
+
+bool8 ScrCmd_blacktext(struct ScriptContext *ctx)
+{
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+    const u8 *msg = (const u8 *)ScriptReadWord(ctx);
     
+    FlagSet(FLAG_SHOW_BLACK_TEXT);
+    ChangeBgX(0, x << 8, BG_COORD_SET);
+    ChangeBgY(0, y << 8, BG_COORD_SET);
+
+    ShowFieldMessage(msg);
+
+    return FALSE;
+}
+
+bool8 ScrCmd_closeblacktext(struct ScriptContext *ctx)
+{
+    LoadMessageBoxAndBorderGfx();
+    ChangeBgX(0, 0, BG_COORD_SET);
+    ChangeBgY(0, 0, BG_COORD_SET);
+    FlagClear(FLAG_SHOW_BLACK_TEXT);
+    return FALSE;
 }

@@ -47,4 +47,7 @@ int ScriptMenu_AdjustLeftCoordFromWidth(int left, int width);
 bool16 ScriptMenu_CreatePCMultichoice(void);
 void ScriptMenu_DisplayPCStartupPrompt(void);
 
+bool8 ScriptMenu_ShowPokemonPicSlot2(u16 species, u8 x, u8 y, u8 isleft);
+bool8 (*ScriptMenu_HidePokemonPicSlot2(void))(void);
+
 #endif //GUARD_SCRIPT_MENU_H
