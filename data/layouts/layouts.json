@@ -45,7 +45,7 @@
       "id": "LAYOUT_FORTREE_CITY",
       "name": "FortreeCity_Layout",
       "width": 56,
-      "height": 56,
+      "height": 40,
       "primary_tileset": "gTileset_MAP02",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/FortreeCity/border.bin",
@@ -4420,6 +4420,16 @@
       "secondary_tileset": "gTileset_CAVET1",
       "border_filepath": "data/layouts/NewMap1/border.bin",
       "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_GAME",
+      "name": "NewGame_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/NewGame/border.bin",
+      "blockdata_filepath": "data/layouts/NewGame/map.bin"
     }
   ]
 }

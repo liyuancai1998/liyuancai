@@ -1034,3 +1034,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/NewMap1/scripts.inc"
+
+	.include "data/maps/NewGame/scripts.inc"

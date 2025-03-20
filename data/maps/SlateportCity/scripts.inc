@@ -21,6 +21,41 @@
 
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
+ChunYu_MapEventScript_KaiYi::
+	shownpcpic2 0, 35, 83, 1
+	msgbox ChunYu_MSG_1 MSGBOX_DEFAULT
+	applymovement 34 MapEventScript_KaiYi_IntoPC
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER MapEventScript_KaiYi
+	msgbox ChunYu_MSG_2 MSGBOX_DEFAULT
+	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement 34
+	closemessage
+	removeobject 34
+	hidenpc2
+	setflag FLAG_removeKaiYi_1
+	setvar VAR_ChunYu_KaiYi, 1
+	end
+
+ChunYu_MSG_1:
+	.string "那个人是？$"
+
+MapEventScript_KaiYi_IntoPC:
+	walk_up
+	walk_up
+	step_end
+
+MapEventScript_KaiYi:
+	emote_exclamation_mark
+	step_end
+
+ChunYu_MSG_2:
+	.string "喂！等等！$"
+
+
+
+
+
 EventScript_RiverJump::
 	applymovement OBJ_EVENT_ID_PLAYER, Player_JUMP_Movement_1
 	waitmovement OBJ_EVENT_ID_PLAYER

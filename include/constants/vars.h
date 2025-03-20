@@ -30,6 +30,7 @@
 // For example, the rival's sprite id is dynamically set based on the player's gender.
 // See VarGetObjectEventGraphicsId().
 #define VAR_BAG           0x4001
+#define VAR_ChunYu_KaiYi  0x4002
 
 
 //  X
@@ -103,7 +104,7 @@
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051
-#define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var
+#define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var--Route108
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
 #define VAR_VERDANTURF_TOWN_STATE                        0x4055 // Unused Var

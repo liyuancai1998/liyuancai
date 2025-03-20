@@ -12,7 +12,13 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_FORTREE_CITY",
+      "offset": 24,
+      "direction": "down"
+    }
+  ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
@@ -444,17 +450,17 @@
       "flag": "FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
-      "x": 23,
-      "y": 1,
+      "graphics_id": "OBJ_EVENT_GFX_RIVAL_MAY_NORMAL",
+      "x": 24,
+      "y": 23,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_EventScript_BerryPowderClerk",
-      "flag": "0"
+      "script": "NULL",
+      "flag": "FLAG_removeKaiYi_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
@@ -552,8 +558,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 28,
-      "y": 6,
+      "x": 13,
+      "y": 23,
       "elevation": 3,
       "var": "VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE",
       "var_value": "2",
@@ -576,6 +582,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "EventScript_RiverJump_2"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_ChunYu_KaiYi",
+      "var_value": "0",
+      "script": "ChunYu_MapEventScript_KaiYi"
     }
   ],
   "bg_events": [
@@ -637,15 +652,15 @@
     },
     {
       "type": "sign",
-      "x": 26,
-      "y": 26,
+      "x": 13,
+      "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SlateportCity_EventScript_OceanicMuseumSign"
     },
     {
       "type": "sign",
-      "x": 16,
+      "x": 14,
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
