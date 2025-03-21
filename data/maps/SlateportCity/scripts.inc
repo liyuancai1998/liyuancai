@@ -22,6 +22,7 @@
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
 ChunYu_MapEventScript_KaiYi::
+	shownpc 1, 200, 83
 	shownpcpic2 0, 35, 83, 1
 	msgbox ChunYu_MSG_1 MSGBOX_DEFAULT
 	applymovement 34 MapEventScript_KaiYi_IntoPC
@@ -33,6 +34,7 @@ ChunYu_MapEventScript_KaiYi::
 	closemessage
 	removeobject 34
 	hidenpc2
+	hidemonpic
 	setflag FLAG_removeKaiYi_1
 	setvar VAR_ChunYu_KaiYi, 1
 	end
