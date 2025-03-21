@@ -136,6 +136,15 @@ struct Weather
     u8 loadDroughtPalsOffset;
 };
 
+enum
+{
+    GAMMA_NONE,
+    GAMMA_NORMAL,
+    GAMMA_ALT,
+};
+
+void UpdatePaletteGammaType(u8 index, u8 gammaType);
+
 // field_weather.c
 extern struct Weather gWeather;
 extern struct Weather *const gWeatherPtr;
@@ -154,7 +163,7 @@ void FadeScreen(u8 mode, s8 delay);
 bool8 IsWeatherNotFadingIn(void);
 void UpdateSpritePaletteWithWeather(u8 spritePaletteIndex);
 void ApplyWeatherColorMapToPal(u8 paletteIndex);
-void LoadCustomWeatherSpritePalette(const u16 *palette);
+void LoadCustomWeatherSpritePalette(const struct SpritePalette *palette);
 void ResetDroughtWeatherPaletteLoading(void);
 bool8 LoadDroughtWeatherPalettes(void);
 void DroughtStateInit(void);
