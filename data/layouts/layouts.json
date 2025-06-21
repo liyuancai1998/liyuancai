@@ -196,8 +196,8 @@
       "name": "Route104_Layout",
       "width": 40,
       "height": 80,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "primary_tileset": "gTileset_MAP03",
+      "secondary_tileset": "gTileset_map03t1",
       "border_filepath": "data/layouts/Route104/border.bin",
       "blockdata_filepath": "data/layouts/Route104/map.bin"
     },
@@ -595,9 +595,9 @@
       "id": "LAYOUT_HOUSE2",
       "name": "House2_Layout",
       "width": 11,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/House2/border.bin",
       "blockdata_filepath": "data/layouts/House2/map.bin"
     },
@@ -794,10 +794,10 @@
     {
       "id": "LAYOUT_HOUSE_WITH_BED",
       "name": "HouseWithBed_Layout",
-      "width": 10,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "width": 29,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/HouseWithBed/border.bin",
       "blockdata_filepath": "data/layouts/HouseWithBed/map.bin"
     },
@@ -4430,6 +4430,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/NewGame/border.bin",
       "blockdata_filepath": "data/layouts/NewGame/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_CITY_HOUSE_2F",
+      "name": "SlateportCity_House_2F_Layout",
+      "width": 11,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
+      "border_filepath": "data/layouts/SlateportCity_House_2F/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportCity_House_2F/map.bin"
     }
   ]
 }

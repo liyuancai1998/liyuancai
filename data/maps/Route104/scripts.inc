@@ -49,29 +49,6 @@ Route104_EventScript_Rival::
 	waitmovement 0
 	goto Route104_EventScript_RivalEncounter
 
-Route104_EventScript_RivalTrigger::
-	lockall
-	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
-	setvar VAR_RUSTBORO_CITY_STATE, 8
-	setvar VAR_ROUTE104_STATE, 2
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	delay 10
-	addobject LOCALID_RIVAL
-	clearflag FLAG_HIDE_ROUTE_104_RIVAL
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_PlayerBackUp
-	waitmovement 0
-	applymovement LOCALID_RIVAL, Route104_Movement_RivalExitBrineysCottage
-	waitmovement 0
-	delay 20
-	setvar VAR_0x8008, 0
-	call RustboroCity_EventScript_PlayRivalMusic
-	playse SE_PIN
-	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_RIVAL, Common_Movement_Delay48
-	waitmovement 0
-	goto Route104_EventScript_RivalEncounter
 
 @ Unused, shares script with Rustboro encounter instead
 Route104_EventScript_PlayRivalMusic::

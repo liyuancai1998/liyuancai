@@ -1,34 +1,53 @@
-.set LOCALID_NURSE, 1
-
 SlateportCity_PokemonCenter_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SlateportCity_PokemonCenter_1F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SlateportCity_PokemonCenter_1F_Memories
 	.byte 0
 
-SlateportCity_PokemonCenter_1F_OnTransition:
-	setrespawn HEAL_LOCATION_SLATEPORT_CITY
-	call Common_EventScript_UpdateBrineyLocation
+SlateportCity_PokemonCenter_1F_Memories:
+	map_script_2 VAR_SLATEPORT_CITY_POKEMON_CENTER_1F_MEMORIES, 0, SlateportCity_PokemonCenter_1F_Memories_event
+	.2byte 0
+
+SlateportCity_PokemonCenter_1F_Memories_event:
+	lockall
+	delay 60
+	fadescreen FADE_TO_BLACK
+	delay 60
+	addobject 1, MAP_SLATEPORT_CITY_POKEMON_CENTER_1F
+	setobjectxy 1, 8, 9
+	fadescreen FADE_FROM_BLACK
+	shownpc 3, 200, 83
+	msgbox SlateportCity_PokemonCenter_1F_Text_RaiseDifferentTypesOfPokemon MSGBOX_DEFAULT
+	hidemonpic
+	fadescreen FADE_TO_BLACK
+	delay 60
+	removeobject 1
+	setflag FLAG_SlateportCity_PokemonCenter_1F_Memories_Text 
+	setvar VAR_SLATEPORT_CITY_POKEMON_CENTER_1F_MEMORIES, 1
+	fadescreen FADE_FROM_BLACK
+	shownpcpic2 0, 35, 83, 1
+	msgbox SlateportCity_PokemonCenter_1F_Memories_Text_2 MSGBOX_DEFAULT
+	closemessage
+	hidenpc2
+	releaseall
 	end
 
-SlateportCity_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
-SlateportCity_PokemonCenter_1F_EventScript_Sailor::
-	msgbox SlateportCity_PokemonCenter_1F_Text_RaiseDifferentTypesOfPokemon, MSGBOX_NPC
-	end
-
-SlateportCity_PokemonCenter_1F_EventScript_Woman::
-	msgbox SlateportCity_PokemonCenter_1F_Text_TradedMonWithFriend, MSGBOX_NPC
-	end
+SlateportCity_PokemonCenter_1F_Memories_Text_2:
+	.string "刚刚我脑海里好像闪过什么画面？$"
 
 SlateportCity_PokemonCenter_1F_Text_RaiseDifferentTypesOfPokemon:
-    .string "想要我指点一下怎么战斗吗？\p你应该用较平衡的方式\n培养多种宝可梦。\p仅仅培养一只强大的\n宝可梦并不够，\p如果它的类型被克制，\n战斗会处于相当被动的局面。$"
+    .string "熟悉的声音:想要我指点一下怎么战斗吗？\p你应该用较平衡的方式\n培养多种宝可梦。\p仅仅培养一只强大的\n宝可梦并不够，\p如果它的类型被克制，\n战斗会处于相当被动的局面。$"
 
-SlateportCity_PokemonCenter_1F_Text_TradedMonWithFriend:
-    .string "我和朋友交换宝可梦。\p如果交换来的宝可梦带有物品，\n我会更加兴奋的！$"
+SlateportCity_PokemonCenter_1F_Sign_1::
+	msgbox SlateportCity_PokemonCenter_1F_Sign_1_Text MSGBOX_DEFAULT
+	closemessage
+	end
 
+SlateportCity_PokemonCenter_1F_Sign_2::
+	msgbox SlateportCity_PokemonCenter_1F_Sign_2_Text MSGBOX_DEFAULT
+	closemessage
+	end
+
+SlateportCity_PokemonCenter_1F_Sign_1_Text:
+	.string "一个奇怪的画像，\n看起来像是什么幽灵……$"
+
+SlateportCity_PokemonCenter_1F_Sign_2_Text:
+	.string "从古老的历史上流传下来的祭祀仪式……\n那是一个每隔十年就需要\l加强封印某个东西的仪式……$"

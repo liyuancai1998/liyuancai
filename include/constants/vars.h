@@ -29,9 +29,6 @@
 // These 0x10 vars are used to dynamically control a map object's sprite.
 // For example, the rival's sprite id is dynamically set based on the player's gender.
 // See VarGetObjectEventGraphicsId().
-#define VAR_BAG           0x4001
-#define VAR_ChunYu_KaiYi  0x4002
-
 
 //  X
 #define VAR_OBJ_GFX_ID_0           0x4010
@@ -107,12 +104,12 @@
 #define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var--Route108
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
-#define VAR_VERDANTURF_TOWN_STATE                        0x4055 // Unused Var
-#define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
-#define VAR_PETALBURG_CITY_STATE                         0x4057
-#define VAR_SLATEPORT_CITY_STATE                         0x4058
-#define VAR_MAUVILLE_CITY_STATE                          0x4059 // Unused Var
-#define VAR_RUSTBORO_CITY_STATE                          0x405A
+#define VAR_BAG                        0x4055 // Unused Var    --108号路背包
+#define VAR_ChunYu_KaiYi                        0x4056 // Unused Var   --春雨镇
+#define VAR_SLATEPORT_CITY_POKEMON_CENTER_1F_MEMORIES                         0x4057
+#define VAR_RustboroCity_EventScript_01                         0x4058
+#define VAR_RustboroCity_EventScript_02                          0x4059 // Unused Var
+#define VAR_GuanZhu_1                          0x405A
 #define VAR_FORTREE_CITY_STATE                           0x405B // Unused Var
 #define VAR_LILYCOVE_CITY_STATE                          0x405C // Unused Var
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D

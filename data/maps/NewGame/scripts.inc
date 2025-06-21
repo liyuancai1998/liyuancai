@@ -10,8 +10,7 @@ FuckThisTrigger:
 	lock
 	faceplayer
 	fadescreen FADE_TO_BLACK
-	givemon SPECIES_PIKACHU 20, \
-		isShiny=1
+	givemon SPECIES_PIKACHU, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_SURF, 0, 0, 0, TRUE
 	msgbox NewGame_Text_FADE_TO_BLACK MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_FROM_BLACK
