@@ -48,7 +48,7 @@
 #define FLAG_BADGE05    0x23 // Unused Flag  徽章5号获得
 #define FLAG_RustboroCity_EventScript_01    0x24 // Unused Flag
 #define FLAG_RustboroCity_EventScript_ShiTi    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
+#define FLAG_ROUTE104_01    0x26 // Unused Flag -馆主支线01
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag

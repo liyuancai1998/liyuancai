@@ -66,28 +66,28 @@ SlateportCity_MapScripts::
 	.byte 0
 
 ChunYu_GuanZhu_1::
+	delay 60
 	applymovement OBJ_EVENT_ID_CAMERA, GuanZhu_1_Movement_1
 	waitmovement OBJ_EVENT_ID_CAMERA
 	applymovement OBJ_EVENT_ID_PLAYER, GuanZhu_1_Movement_2
 	waitmovement OBJ_EVENT_ID_PLAYER
+	delay 60
 	msgbox ChunYu_MSG_4 MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
+	delay 60
 	blacktext 0xe0, 50, ChunYu_MSG_3
 	closeblacktext
 	setvar VAR_GuanZhu_1, 1
-	warpsilent MAP_ROUTE104, 8, 22
+	warpsilent MAP_ROUTE104, 19, 14
 	end
 
 ChunYu_MSG_4:
-	.string "你好?(伸出手触摸他的后背)$"
+	.string "你好?\l(伸出手触摸他的后背)$"
 
 ChunYu_MSG_3:
-	.string "我想回去……但我已经回不去了。$"
+	.string "我想回去……\n但我已经回不去了。$"
 	
 GuanZhu_1_Movement_1:
-	walk_up
-	walk_up
-	walk_up
 	walk_up
 	walk_up
 	walk_up

@@ -61,7 +61,7 @@ Route103_EventScript_RivalBrendan::
 	end
 
 Route103_EventScript_StartMayBattleTreecko::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, Route103_Text_MayDefeated
+	battle_no_intrtrainero TRAINER_MAY_ROUTE_103_TREECKO, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 

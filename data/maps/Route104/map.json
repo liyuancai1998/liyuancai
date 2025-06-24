@@ -17,14 +17,14 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 17,
-      "y": 45,
+      "y": 41,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_BugCatcher",
+      "script": "Battle_test1",
       "flag": "0"
     },
     {
@@ -37,34 +37,21 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_Girl1",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 31,
-      "y": 24,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "7",
-      "script": "Route104_EventScript_Haley",
+      "script": "Battle_test3",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 27,
-      "y": 63,
+      "x": 38,
+      "y": 18,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_Boy1",
-      "flag": "0"
+      "script": "NULL",
+      "flag": "FLAG_ROUTE104_01"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
@@ -76,7 +63,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_Woman",
+      "script": "NULL",
       "flag": "0"
     },
     {
@@ -89,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_Girl2",
+      "script": "Battle_test2",
       "flag": "0"
     },
     {
@@ -115,8 +102,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_ROUTE_104_MR_BRINEY"
+      "script": "Route104_003_oldman",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
@@ -128,333 +115,21 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_Ivan",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 34,
-      "y": 6,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_CHERI_1",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 35,
-      "y": 6,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_SOIL_2",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 36,
-      "y": 6,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_LEPPA",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 39,
-      "y": 0,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_ORAN_2",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 38,
-      "y": 0,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_SOIL_3",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 39,
-      "y": 1,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_PECHA",
-      "script": "BerryTreeScript",
+      "script": "NULL",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 37,
-      "y": 8,
+      "x": 15,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_ExpertF",
+      "script": "NULL",
       "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 0,
-      "y": 0,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_SOIL_1",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 1,
-      "y": 0,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_ORAN_1",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 0,
-      "y": 1,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_SOIL_4",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 1,
-      "y": 1,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_CHERI_2",
-      "script": "BerryTreeScript",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 39,
-      "y": 15,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_PP_UP",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_ROUTE_104_PP_UP"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 11,
-      "y": 27,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
-      "movement_range_x": 1,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_WhiteHerbFlorist",
-      "flag": "FLAG_HIDE_ROUTE_104_WHITE_HERB_FLORIST"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 24,
-      "y": 25,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route104_EventScript_Gina",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 25,
-      "y": 25,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route104_EventScript_Mia",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
-      "x": 21,
-      "y": 25,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route104_EventScript_Winston",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 11,
-      "y": 54,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route104_EventScript_Cindy",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 29,
-      "y": 53,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_POKE_BALL",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_ROUTE_104_POKE_BALL"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 22,
-      "y": 29,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
-      "movement_range_x": 5,
-      "movement_range_y": 6,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "Route104_EventScript_Billy",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 37,
-      "y": 22,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_X_ACCURACY",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_ROUTE_104_X_ACCURACY"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 35,
-      "y": 22,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_11"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 5,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_POTION",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_ROUTE_104_POTION"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 8,
-      "y": 22,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_Boy2",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 14,
-      "y": 65,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_Darian",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 17,
-      "y": 50,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_Rival",
-      "flag": "FLAG_HIDE_ROUTE_104_RIVAL"
     }
   ],
   "warp_events": [
@@ -516,88 +191,35 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_ROUTE104_002",
+      "var_value": "0",
+      "script": "Route104_002_trigger"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 67,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 68,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    }
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 20,
-      "y": 50,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route104_EventScript_BrineysCottageSign"
-    },
-    {
-      "type": "sign",
-      "x": 27,
-      "y": 66,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route104_EventScript_RouteSignPetalburg"
-    },
-    {
-      "type": "sign",
-      "x": 23,
-      "y": 5,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route104_EventScript_RouteSignRustboro"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route104_EventScript_FlowerShopSign"
-    },
-    {
-      "type": "sign",
-      "x": 17,
-      "y": 23,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route104_EventScript_TrainerTipsDoubleBattles"
-    },
-    {
-      "type": "hidden_item",
-      "x": 7,
-      "y": 6,
-      "elevation": 3,
-      "item": "ITEM_SUPER_POTION",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_SUPER_POTION"
-    },
-    {
-      "type": "hidden_item",
-      "x": 3,
-      "y": 9,
-      "elevation": 3,
-      "item": "ITEM_POKE_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL"
-    },
-    {
-      "type": "hidden_item",
-      "x": 14,
-      "y": 55,
-      "elevation": 3,
-      "item": "ITEM_POTION",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POTION"
-    },
-    {
-      "type": "hidden_item",
-      "x": 16,
-      "y": 72,
-      "elevation": 3,
-      "item": "ITEM_ANTIDOTE",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_ANTIDOTE"
-    },
-    {
-      "type": "hidden_item",
-      "x": 16,
-      "y": 64,
-      "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_HEART_SCALE"
-    }
+
   ]
 }
