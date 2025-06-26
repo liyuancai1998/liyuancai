@@ -84,9 +84,9 @@ static const struct WindowTemplate sStandardTextBox_WindowTemplates[] =
 {
     {
         .bg = 0,
-        .tilemapLeft = 2,
+        .tilemapLeft = 1,
         .tilemapTop = 15,
-        .width = 27,
+        .width = 23,
         .height = 4,
         .paletteNum = 15,
         .baseBlock = 0x194
@@ -193,6 +193,13 @@ void AddTextPrinterForMessage(bool8 allowSkippingDelayWithButtonPress)
     void (*callback)(struct TextPrinterTemplate *, u16) = NULL;
     gTextFlags.canABSpeedUpPrint = allowSkippingDelayWithButtonPress;
     AddTextPrinterParameterized2(0, FONT_NORMAL, gStringVar4, GetPlayerTextSpeedDelay(), callback, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+}
+
+void AddTextPrinterForMessage_3(bool8 allowSkippingDelayWithButtonPress)
+{
+    void (*callback)(struct TextPrinterTemplate *, u16) = NULL;
+    gTextFlags.canABSpeedUpPrint = allowSkippingDelayWithButtonPress;
+    AddTextPrinterParameterized2(0, FONT_NORMAL, gStringVar4, GetPlayerTextSpeedDelay(), callback, TEXT_COLOR_DARK_GRAY, 0, TEXT_COLOR_LIGHT_GRAY);
 }
 
 void AddTextPrinterForMessage_2(bool8 allowSkippingDelayWithButtonPress)
