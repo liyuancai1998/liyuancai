@@ -3,8 +3,10 @@ RustboroCity_MapScripts::
 
 RustboroCity_EventScript_BADGE05::
 	setflag FLAG_BADGE05_GET
+	shownpcpic2 4, 208, 127, 0
 	msgbox BADGE05_TEXT MSGBOX_DEFAULT
 	closemessage
+	hidenpc2
 	removeobject 1
 	setflag FLAG_BADGE05
 	end
@@ -14,8 +16,10 @@ RustboroCity_MissonGuest::
 	goto_if TRUE, RustboroCity_MissonGuest_Over
 	applymovement OBJ_EVENT_ID_PLAYER RustboroCity_MissonGuest_Movement
 	waitmovement OBJ_EVENT_ID_PLAYER
+	shownpcpic2 4, 208, 127, 0
 	msgbox RustboroCity_MissonGuest_TEXT_1 MSGBOX_DEFAULT
 	closemessage
+	hidenpc2
 	end
 
 RustboroCity_MissonGuest_Over:
@@ -34,6 +38,7 @@ BADGE05_TEXT:
 
 RustboroCity_EventScript_01::
 	setvar VAR_RustboroCity_EventScript_01, 1
+	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER RustboroCity_EventScript_01_Movement
 	waitmovement OBJ_EVENT_ID_PLAYER
 	applymovement 3 RustboroCity_EventScript_01_Movement_2
@@ -53,6 +58,8 @@ RustboroCity_EventScript_01_Movement_2:
 	step_end
 
 RustboroCity_EventScript_ShiTi::
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
 	msgbox RustboroCity_MissonGuest_TEXT_ShiTi MSGBOX_DEFAULT
 	removeobject 2
 	playse SE_PIN
@@ -60,6 +67,8 @@ RustboroCity_EventScript_ShiTi::
 	waitmovement OBJ_EVENT_ID_PLAYER
 	msgbox RustboroCity_MissonGuest_TEXT_ShiTi_2 MSGBOX_DEFAULT
 	closemessage
+	hidenpc2
+	hidemonpic
 	setflag FLAG_RustboroCity_EventScript_ShiTi
 	end
 

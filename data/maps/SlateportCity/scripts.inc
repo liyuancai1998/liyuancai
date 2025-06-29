@@ -1,7 +1,8 @@
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
 ChunYu_MapEventScript_KaiYi::
-	shownpcpic2 0, 35, 83, 1
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
 	msgbox ChunYu_MSG_1 MSGBOX_DEFAULT
 	applymovement 1 MapEventScript_KaiYi_IntoPC
 	playse SE_PIN
@@ -12,6 +13,7 @@ ChunYu_MapEventScript_KaiYi::
 	closemessage
 	removeobject 1
 	hidenpc2
+	hidemonpic
 	setflag FLAG_removeKaiYi_1
 	setvar VAR_ChunYu_KaiYi, 1
 	end
@@ -72,7 +74,11 @@ ChunYu_GuanZhu_1::
 	applymovement OBJ_EVENT_ID_PLAYER, GuanZhu_1_Movement_2
 	waitmovement OBJ_EVENT_ID_PLAYER
 	delay 60
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
 	msgbox ChunYu_MSG_4 MSGBOX_DEFAULT
+	hidenpc2
+	hidemonpic
 	fadescreen FADE_TO_BLACK
 	delay 60
 	blacktext 0xe0, 50, ChunYu_MSG_3

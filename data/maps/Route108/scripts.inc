@@ -10,20 +10,26 @@ Route108_01:
 	applymovement OBJ_EVENT_ID_PLAYER Player_Movement_4
 	waitmovement OBJ_EVENT_ID_PLAYER
 	delay 60
-	shownpc 0, 200, 83
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
 	setvar VAR_DEWFORD_TOWN_STATE, 1
 	msgbox Route108_Text_FADE_TO_BLACK MSGBOX_DEFAULT
 	closemessage
+	hidenpc2
 	hidemonpic
 	end
 
 EventScript_Note_TrainerCard::
 	lock
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
 	msgbox Text_TrainerBag MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
 	msgbox Text_TrainerCard MSGBOX_DEFAULT
 	fadescreen FADE_FROM_BLACK
 	msgbox Text_TrainerResult MSGBOX_DEFAULT
+	hidenpc2
+	hidemonpic
 	removeobject 8
 	setflag FLAG_TrainerCard
 	setflag FLAG_SYS_POKEMON_GET
@@ -36,13 +42,13 @@ Route108_Text_FADE_TO_BLACK:
 
 
 Text_TrainerBag:
-	.string "这是什么？上面有干涸的暗红色痕迹……$"
+	.string "这是什么？上面有干涸的暗红色\n痕迹……$"
 
 Text_TrainerCard:
 	.string "(找到了一张带有名字的卡片)$"
 
 Text_TrainerResult:
-	.string "上面有我的照片，写着洛汐的名字……$"
+	.string "上面有我的照片，写着洛汐的名\n字……$"
 
 Trigger_Bag_1::
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Movement_2

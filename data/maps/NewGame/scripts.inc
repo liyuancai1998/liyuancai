@@ -11,6 +11,8 @@ FuckThisTrigger:
 	faceplayer
 	fadescreen FADE_TO_BLACK
 	givemon SPECIES_PIKACHU, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_SURF, 0, 0, 0, TRUE
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
 	msgbox NewGame_Text_FADE_TO_BLACK MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_FROM_BLACK
@@ -19,6 +21,8 @@ FuckThisTrigger:
 	waitmovement 0
 	msgbox NewGame_Text_SeaFullOfLife MSGBOX_DEFAULT
 	closemessage
+	hidenpc2
+	hidemonpic
 	release
 	setvar VAR_UNUSED_0x404E, 1
 	end

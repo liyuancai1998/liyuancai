@@ -10,10 +10,12 @@ New_Route_001_001:
 	applymovement OBJ_EVENT_ID_PLAYER Player_Movement_4
 	waitmovement OBJ_EVENT_ID_PLAYER
 	delay 60
-	shownpc 0, 200, 83
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
 	setvar VAR_ROUTE104_001, 1
 	msgbox Route104_001_text MSGBOX_DEFAULT
 	closemessage
+	hidenpc2
 	hidemonpic
 	end
 
@@ -30,9 +32,11 @@ Route104_002_trigger::
 	delay 60
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, Route104_002_movement
-	waitmovement OBJ_EVENT_ID_CAMERA
+	waitmovement 
+	shownpcpic2 4, 208, 127, 0
 	msgbox Route104_002_text MSGBOX_DEFAULT
 	closemessage
+	hidenpc2
 	fadescreen FADE_TO_WHITE
 	removeobject 3
 	fadescreen FADE_FROM_WHITE
