@@ -969,6 +969,7 @@ bool8 ScriptMenu_ShowPokemonPicSlot2(u16 species, u8 x, u8 y, u8 isleft)
 
     if (FindTaskIdByFunc(Task_PokemonPicWindowSlot2) != TASK_NONE)
     {
+        DebugPrintf("上一个头像任务仍然存在");
         return FALSE;
     }
     else
