@@ -11,7 +11,7 @@ static s16 CalcWordPitch(int pitchIdx, int songPos)
 {
     return sBardSoundPitchTables[pitchIdx][songPos];
 }
-
+//
 const struct BardSound *GetWordSounds(u16 word)
 {
     u32 category;
