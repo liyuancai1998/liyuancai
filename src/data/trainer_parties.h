@@ -11804,3 +11804,12 @@ static const struct TrainerMon sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
+
+static const struct TrainerMon sParty_Yinlang[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 10,
+    .species = SPECIES_MIGHTYENA,
+    .heldItem = ITEM_LEFTOVERS,
+    }
+};

@@ -815,3 +815,18 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier:
 
 LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
     .string "… … … … … …\n… … … … …哔！\p亚希达：喂，你好，{PLAYER}！\n是我，亚希达，\p我现在在破浪号上呢。\n在海上的感觉不错！\p顺便…\p有个地方希望\n你能去看看。\p感兴趣的话，就去\n凯那市或水静市乘游船吧。\p见面之后再跟你说详情，\n我等你！\p… … … … … …\n… … … … …咔哒！$"
+
+XiaoXuan_01::
+	shownpc 2, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox LittlerootTown_XiaoXuan_1 MSGBOX_DEFAULT
+	closemessage
+	hidenpc2
+	hidemonpic
+	removeobject 1
+	setflag FLAG_XiaoXuan_0x02A
+	end
+
+LittlerootTown_XiaoXuan_1:
+	.string "灵魂记录:\n不要怪我……\l不要怪我……\l不要怪我……\l不要怪我……$"
+

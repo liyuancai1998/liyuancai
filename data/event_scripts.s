@@ -1030,3 +1030,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/NewGame/scripts.inc"
 
 	.include "data/maps/SlateportCity_House_2F/scripts.inc"
+
+	.include "data/maps/ChenXi_PokemonCenter/scripts.inc"

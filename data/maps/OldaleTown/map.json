@@ -2,10 +2,10 @@
   "id": "MAP_OLDALE_TOWN",
   "name": "OldaleTown",
   "layout": "LAYOUT_OLDALE_TOWN",
-  "music": "MUS_OLDALE",
-  "region_map_section": "MAPSEC_OLDALE_TOWN",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ROUTE_101",
   "requires_flash": false,
-  "weather": "WEATHER_SUNNY",
+  "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -36,166 +36,74 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 16,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_Girl",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 13,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_MartEmployee",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 8,
-      "y": 9,
-      "elevation": 3,
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
+      "x": 23,
+      "y": 24,
+      "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_FootprintsMan",
-      "flag": "0"
+      "script": "NULL",
+      "flag": "FLAG_UNUSED_0x030"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 11,
-      "y": 19,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 24,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_Rival",
-      "flag": "FLAG_HIDE_OLDALE_TOWN_RIVAL"
+      "script": "NULL",
+      "flag": "FLAG_UNUSED_0x02F"
     }
   ],
   "warp_events": [
-    {
-      "x": 5,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_OLDALE_TOWN_HOUSE1",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 15,
-      "y": 16,
-      "elevation": 0,
-      "dest_map": "MAP_OLDALE_TOWN_HOUSE2",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 6,
-      "y": 16,
-      "elevation": 0,
-      "dest_map": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 14,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_OLDALE_TOWN_MART",
-      "dest_warp_id": "0"
-    }
+
   ],
   "coord_events": [
     {
       "type": "trigger",
-      "x": 0,
-      "y": 10,
-      "elevation": 3,
-      "var": "VAR_OLDALE_TOWN_STATE",
+      "x": 22,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_ROUTE107_STATE",
       "var_value": "0",
-      "script": "OldaleTown_EventScript_BlockedPath"
+      "script": "OldaleTown_EventScript_NPC"
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_OLDALE_RIVAL_STATE",
-      "var_value": "1",
-      "script": "OldaleTown_EventScript_RivalTrigger1"
+      "x": 23,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_ROUTE107_STATE",
+      "var_value": "0",
+      "script": "OldaleTown_EventScript_NPC"
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_OLDALE_RIVAL_STATE",
-      "var_value": "1",
-      "script": "OldaleTown_EventScript_RivalTrigger2"
+      "x": 23,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_ROUTE106_STATE",
+      "var_value": "0",
+      "script": "OldaleTown_EventScript_NPC_2"
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_OLDALE_RIVAL_STATE",
-      "var_value": "1",
-      "script": "OldaleTown_EventScript_RivalTrigger3"
+      "x": 22,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_ROUTE106_STATE",
+      "var_value": "0",
+      "script": "OldaleTown_EventScript_NPC_2"
     }
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 11,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "OldaleTown_EventScript_TownSign"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 16,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Common_EventScript_ShowPokemonCenterSign"
-    },
-    {
-      "type": "sign",
-      "x": 15,
-      "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Common_EventScript_ShowPokemartSign"
-    },
-    {
-      "type": "sign",
-      "x": 8,
-      "y": 16,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Common_EventScript_ShowPokemonCenterSign"
-    },
-    {
-      "type": "sign",
-      "x": 16,
-      "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Common_EventScript_ShowPokemartSign"
-    }
+
   ]
 }

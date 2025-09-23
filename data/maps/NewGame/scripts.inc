@@ -33,7 +33,7 @@ Player_Movement:
 	step_end
 
 blackscreentext:
-	.string "彼岸花绽放之夜\n在记忆的灰烬中寻找萤火……$"
+	.string "“有些约定，\n比死亡更沉重，\l比记忆更锋利，\l比遗忘更疼痛\p当启明星坠落时，\n我们终将明白，\l最深的黑暗，\l往往来自最明亮的地方。$"
 
 NewGame_Text_FADE_TO_BLACK:
 	.string "好黑……$"

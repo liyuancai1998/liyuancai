@@ -1,375 +1,87 @@
-.set LOCALID_MART_EMPLOYEE, 2
-.set LOCALID_FOOTPRINTS_MAN, 3
-.set LOCALID_RIVAL, 4
-
 OldaleTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, OldaleTown_OnEnter
 	.byte 0
 
-OldaleTown_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
-	setflag FLAG_VISITED_OLDALE_TOWN
-	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
-	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
-	call_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_SetOldaleState
+OldaleTown_OnEnter:
+	call_if_set 0x30, OldaleTown_True_Tile
 	end
 
-@ This script seems pointless because nothing uses VAR_OLDALE_TOWN_STATE
-OldaleTown_EventScript_SetOldaleState::
-	setvar VAR_OLDALE_TOWN_STATE, 1
+OldaleTown_True_Tile:
+	setmetatile 23, 23, 629, 1
+	setmetatile 23, 22, 621, 0
 	return
 
-OldaleTown_EventScript_BlockWestEntrance::
-	setobjectxyperm LOCALID_FOOTPRINTS_MAN, 1, 11
-	setobjectmovementtype LOCALID_FOOTPRINTS_MAN, MOVEMENT_TYPE_FACE_LEFT
-	return
-
-OldaleTown_EventScript_MoveMartEmployee::
-	setobjectxyperm LOCALID_MART_EMPLOYEE, 13, 14
-	setobjectmovementtype LOCALID_MART_EMPLOYEE, MOVEMENT_TYPE_FACE_DOWN
-	return
-
-OldaleTown_EventScript_TownSign::
-	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
+OldaleTown_EventScript_NPC::
+	delay 60
+	shownpcpic2 4, 208, 127, 0
+	msgbox OldaleTown_MSG_1 MSGBOX_NPC
+	hidenpc2
+	setvar 0x4066, 1
 	end
 
-OldaleTown_EventScript_Girl::
-	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
-	end
+OldaleTown_MSG_1:
+	.string "那家伙怎么还没跟上来？\n不会是迷路了吧？$"
 
-OldaleTown_EventScript_MartEmployee::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_ExplainPotion
-	goto_if_set FLAG_TEMP_1, OldaleTown_EventScript_ExplainPotion
-	setflag FLAG_TEMP_1
-	playbgm MUS_FOLLOW_ME, FALSE
-	msgbox OldaleTown_Text_IWorkAtPokemonMart, MSGBOX_DEFAULT
+OldaleTown_EventScript_NPC_2::
+	applymovement 1 OldaleTown_Movement_NPC1
+	waitmovement 1
+	shownpcpic2 4, 208, 127, 0
+	msgbox OldaleTown_MSG_2 MSGBOX_NPC
+	hidenpc2
+	removeobject 1
+	removeobject 2
+	setflag 0x2F
+	setflag 0x30
+	applymovement OBJ_EVENT_ID_PLAYER OldaleTown_Movement_NPC2
+	waitmovement OBJ_EVENT_ID_PLAYER
+	delay 90
+	applymovement OBJ_EVENT_ID_PLAYER OldaleTown_Movement_NPC3
+	waitmovement OBJ_EVENT_ID_PLAYER
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox OldaleTown_MSG_3 MSGBOX_DEFAULT
+	hidenpc2
+	hidemonpic
 	closemessage
-	switch VAR_FACING
-	case DIR_SOUTH, OldaleTown_EventScript_GoToMartSouth
-	case DIR_NORTH, OldaleTown_EventScript_GoToMartNorth
-	case DIR_EAST, OldaleTown_EventScript_GoToMartEast
-	end
-
-OldaleTown_EventScript_GoToMartSouth::
-	applymovement LOCALID_MART_EMPLOYEE, OldaleTown_Movement_EmployeeSouth
-	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerSouth
-	waitmovement 0
-	goto OldaleTown_EventScript_ExplainPokemonMart
-	end
-
-OldaleTown_EventScript_GoToMartNorth::
-	applymovement LOCALID_MART_EMPLOYEE, OldaleTown_Movement_EmployeeNorth
-	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerNorth
-	waitmovement 0
-	goto OldaleTown_EventScript_ExplainPokemonMart
-	end
-
-OldaleTown_EventScript_GoToMartEast::
-	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerEast
-	applymovement LOCALID_MART_EMPLOYEE, OldaleTown_Movement_EmployeeEast
-	waitmovement 0
-	goto OldaleTown_EventScript_ExplainPokemonMart
-	end
-
-OldaleTown_EventScript_ExplainPokemonMart::
-	msgbox OldaleTown_Text_ThisIsAPokemonMart, MSGBOX_DEFAULT
-	giveitem ITEM_POTION
-	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
-	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_POTION_OLDALE
-	fadedefaultbgm
-	release
-	end
-
-OldaleTown_EventScript_ExplainPotion::
-	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
-	release
-	end
-
-OldaleTown_EventScript_BagIsFull::
-	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
-	fadedefaultbgm
-	release
-	end
-
-OldaleTown_Movement_EmployeeEast:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_in_place_faster_down
-	step_end
-
-OldaleTown_Movement_EmployeeSouth:
-	walk_left
-	walk_up
-	walk_up
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_in_place_faster_down
-	step_end
-
-OldaleTown_Movement_EmployeeNorth:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_in_place_faster_down
-	step_end
-
-OldaleTown_Movement_Unknown1:
-	walk_up
-	walk_up
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	delay_8
-	walk_in_place_faster_down
-	step_end
-
-OldaleTown_Movement_PlayerEast:
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-OldaleTown_Movement_PlayerSouth:
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-OldaleTown_Movement_PlayerNorth:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-OldaleTown_Movement_Unknown2:
-	walk_left
-	walk_up
-	walk_up
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-OldaleTown_EventScript_FootprintsMan::
-	lock
-	faceplayer
-	goto_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_NotBlockingPath
-	msgbox OldaleTown_Text_DiscoveredFootprints, MSGBOX_DEFAULT
+	setwildbattle 92, 5, 0
+	playmoncry 92, CRY_MODE_NORMAL
+	delay 28
+	waitmoncry
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox OldaleTown_MSG_4 MSGBOX_DEFAULT
+	hidenpc2
+	hidemonpic
 	closemessage
-	applymovement LOCALID_FOOTPRINTS_MAN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+	special StartRegiBattle
+	playbgm MUS_RG_LAVENDER, 0
+	waitstate
+	setvar 0x4065, 1
+	warpsilent MAP_OLDALE_TOWN, 23, 25
 	end
 
-OldaleTown_EventScript_BlockedPath::
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerStepBack
-	applymovement LOCALID_FOOTPRINTS_MAN, OldaleTown_Movement_BackUp
-	waitmovement 0
-	msgbox OldaleTown_Text_WaitDontComeInHere, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_FOOTPRINTS_MAN, OldaleTown_Movement_ReturnToOriginalPosition
-	waitmovement 0
-	releaseall
-	end
-
-OldaleTown_EventScript_NotBlockingPath::
-	msgbox OldaleTown_Text_FinishedSketchingFootprints, MSGBOX_DEFAULT
-	release
-	end
-
-OldaleTown_EventScript_Rival::
-	lockall
-	applymovement LOCALID_RIVAL, Common_Movement_FacePlayer
-	waitmovement 0
-	setvar VAR_0x8009, 0
-	goto OldaleTown_EventScript_ShowRivalMessage
-	end
-
-OldaleTown_EventScript_RivalTrigger1::
-	lockall
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer1
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	setvar VAR_0x8009, 1
-	goto OldaleTown_EventScript_ShowRivalMessage
-	end
-
-OldaleTown_EventScript_RivalTrigger2::
-	lockall
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer2
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	setvar VAR_0x8009, 1
-	goto OldaleTown_EventScript_ShowRivalMessage
-	end
-
-OldaleTown_EventScript_RivalTrigger3::
-	lockall
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer3
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	setvar VAR_0x8009, 1
-	goto OldaleTown_EventScript_ShowRivalMessage
-	end
-
-OldaleTown_EventScript_ShowRivalMessage::
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, OldaleTown_EventScript_ShowMayMessage
-	goto_if_eq VAR_RESULT, FEMALE, OldaleTown_EventScript_ShowBrendanMessage
-	end
-
-OldaleTown_EventScript_ShowMayMessage::
-	msgbox OldaleTown_Text_MayLetsGoBack, MSGBOX_DEFAULT
-	goto OldaleTown_EventScript_RivalFinish
-	end
-
-OldaleTown_EventScript_ShowBrendanMessage::
-	msgbox OldaleTown_Text_BrendanLetsGoBack, MSGBOX_DEFAULT
-	goto OldaleTown_EventScript_RivalFinish
-	end
-
-OldaleTown_EventScript_RivalFinish::
-	closemessage
-	call_if_eq VAR_0x8009, 0, OldaleTown_EventScript_DoExitMovement1
-	call_if_eq VAR_0x8009, 1, OldaleTown_EventScript_DoExitMovement2
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalExit
-	waitmovement 0
-	removeobject LOCALID_RIVAL
-	setvar VAR_OLDALE_RIVAL_STATE, 2
-	setflag FLAG_HIDE_OLDALE_TOWN_RIVAL
-	releaseall
-	end
-
-OldaleTown_EventScript_DoExitMovement1::
-	goto_if_ne VAR_FACING, DIR_SOUTH, OldaleTown_EventScript_DoExitMovement2
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalExit
-	waitmovement 0
-	return
-
-OldaleTown_EventScript_DoExitMovement2::
-	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_WatchRivalExit
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalExit
-	waitmovement 0
-	return
-
-OldaleTown_Movement_RivalApproachPlayer1:
-	walk_left
-	walk_left
+OldaleTown_Movement_NPC1:
+	emote_question_mark
 	step_end
 
-OldaleTown_Movement_RivalApproachPlayer2:
-	walk_left
+OldaleTown_MSG_2:
+	.string "A:你有没有感觉到\n附近好像有什么人在盯着……\pB:你在说什么东西，\n别吓我啊！$"
+
+OldaleTown_Movement_NPC2:
+	emote_exclamation_mark
 	step_end
 
-OldaleTown_Movement_RivalApproachPlayer3:
+OldaleTown_Movement_NPC3:
+	walk_down
+	walk_down
+	walk_down
 	face_left
+	face_up
+	face_right
 	step_end
 
-OldaleTown_Movement_RivalExit:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
+OldaleTown_MSG_3:
+	.string "人呢？\n跟之前那个人一样消失了……$"
 
-OldaleTown_Movement_WatchRivalExit:
-	delay_8
-	delay_4
-	walk_in_place_faster_down
-	step_end
-
-OldaleTown_Movement_PlayerStepBack:
-	delay_8
-	walk_right
-	step_end
-
-OldaleTown_Movement_BackUp:
-	walk_fast_up
-	walk_in_place_faster_left
-	lock_facing_direction
-	walk_right
-	unlock_facing_direction
-	step_end
-
-OldaleTown_Movement_ReturnToOriginalPosition:
-	walk_down
-	walk_left
-	step_end
-
-OldaleTown_Text_SavingMyProgress:
-    .string "我想休息一下，\n所以得赶一赶进度。$"
-
-OldaleTown_Text_IWorkAtPokemonMart:
-    .string "嗨！\n我在宝可梦商店工作，\p可以跟我来吗？$"
-
-OldaleTown_Text_ThisIsAPokemonMart:
-    .string "这里就是宝可梦商店，\n蓝色的屋顶是我们的标志。\p我们这里出售很多东西，\n比如抓宝可梦的精灵球等等。\p这个给你，\n这是我们的宣传品。$"
-
-OldaleTown_Text_PotionExplanation:
-    .string "你可以随时使用药水，\n在某些情况下它比宝可梦中心\l更能派得上用场。$"
-
-OldaleTown_Text_WaitDontComeInHere:
-    .string "啊啊啊啊！等等！\n别从这里走过去，\p这里有我刚刚发现的\n稀有宝可梦的足迹！\p等我描下它们来再说，\n好吗？$"
-
-OldaleTown_Text_DiscoveredFootprints:
-    .string "我刚刚发现了\n稀有宝可梦的足迹！\p等我描下它们来再说，\n好吗？$"
-
-OldaleTown_Text_FinishedSketchingFootprints:
-    .string "我描下了\n稀有宝可梦的足迹，\p但怎么看都是\n我自己的脚印…$"
-
-OldaleTown_Text_MayLetsGoBack:
-    .string "小遥：{PLAYER}{KUN}！\n来！\l我们快回家吧！$"
-
-OldaleTown_Text_BrendanLetsGoBack:
-    .string "佑树：我要回老爸的\n研究所去。\l{PLAYER}，你也该快点回去。$"
-
-OldaleTown_Text_TownSign:
-    .string "古辰镇\n“简单而朴实的小镇。”$"
-
+OldaleTown_MSG_4:
+	.string "有什么东西在靠近……$"

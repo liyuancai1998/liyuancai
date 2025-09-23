@@ -73,10 +73,10 @@ RustboroCity_EventScript_ShiTi::
 	end
 
 RustboroCity_MissonGuest_TEXT_ShiTi:
-	.string "这是谁的尸骨？$"
+	.string "这是人的骨头么……$"
 
 RustboroCity_MissonGuest_TEXT_ShiTi_2:
-	.string "消失了？是我眼花了么……$"
+	.string "诶？刚刚是我眼花么……$"
 
 RustboroCity_EventScript_ShiTi_Movement:
 	emote_exclamation_mark

@@ -574,10 +574,10 @@
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
       "name": "LittlerootTown_ProfessorBirchsLab_Layout",
-      "width": 13,
-      "height": 13,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Lab",
+      "width": 29,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/map.bin"
     },
@@ -4440,6 +4440,16 @@
       "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/SlateportCity_House_2F/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_House_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHEN_XI_POKEMON_CENTER",
+      "name": "ChenXi_PokemonCenter_Layout",
+      "width": 16,
+      "height": 11,
+      "primary_tileset": "gTileset_pokecenter",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/ChenXi_PokemonCenter/border.bin",
+      "blockdata_filepath": "data/layouts/ChenXi_PokemonCenter/map.bin"
     }
   ]
 }

@@ -33,10 +33,10 @@ SlateportCity_PokemonCenter_1F_Memories_event:
 	end
 
 SlateportCity_PokemonCenter_1F_Memories_Text_2:
-	.string "刚刚我脑海里好像闪过什么画面？$"
+	.string "是谁的声音……\n好像回忆起了什么事情……$"
 
 SlateportCity_PokemonCenter_1F_Text_RaiseDifferentTypesOfPokemon:
-    .string "熟悉的声音:想要我指点一下怎么战斗吗？\p你应该用较平衡的方式\n培养多种宝可梦。\p仅仅培养一只强大的\n宝可梦并不够，\p如果它的类型被克制，\n战斗会处于相当被动的局面。$"
+    .string "???:想要我指点一下怎么战斗吗？\p你应该用较平衡的方式\n培养多种宝可梦。\p仅仅培养一只强大的\n宝可梦并不够，\p如果它的类型被克制，\n战斗会处于相当被动的局面。$"
 
 SlateportCity_PokemonCenter_1F_Sign_1::
 	shownpcpic2 4, 208, 127, 0
@@ -56,4 +56,4 @@ SlateportCity_PokemonCenter_1F_Sign_1_Text:
 	.string "一个奇怪的画像，\n看起来像是什么幽灵……$"
 
 SlateportCity_PokemonCenter_1F_Sign_2_Text:
-	.string "从古老的历史上流传下来的祭祀仪式……\n那是一个每隔十年就需要\l加强封印某个东西的仪式……$"
+	.string "从悠久的历史上流传下来\n的祭祀仪式……\l那是一个每隔十年就需要\l加强封印某个东西的仪式……$"

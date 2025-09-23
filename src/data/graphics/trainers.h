@@ -513,10 +513,12 @@ const struct SpriteFrameImage gTrainerBackPicTable_Steven[] =
         .animation = sBackAnims_##anim,                                                                                                                   \
     }
 
+const u32 gTrainerBackPalette_May[] = INCBIN_U32("graphics/trainers/back_pics/may.gbapal.lz");
+
 const struct TrainerBacksprite gTrainerBacksprites[] =
 {
     TRAINER_BACK_SPRITE(BRENDAN, 4, Brendan, Palette_Brendan, Hoenn),
-    TRAINER_BACK_SPRITE(MAY, 4, May, Palette_May, Hoenn),
+    TRAINER_BACK_SPRITE(MAY, 4, May, BackPalette_May, Hoenn),
     TRAINER_BACK_SPRITE(RED, 5, Red, BackPicPalette_Red, Kanto),
     TRAINER_BACK_SPRITE(LEAF, 5, Leaf, BackPicPalette_Leaf, Kanto),
     TRAINER_BACK_SPRITE(RUBY_SAPPHIRE_BRENDAN, 4, RubySapphireBrendan, Palette_RubySapphireBrendan, Hoenn),

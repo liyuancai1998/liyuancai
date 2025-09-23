@@ -2,7 +2,7 @@
   "map_sections": [
     {
       "map_section": "MAPSEC_LITTLEROOT_TOWN",
-      "name": "未白镇",
+      "name": "晨曦镇",
       "x": 4,
       "y": 11,
       "width": 1,
@@ -26,7 +26,7 @@
     },
     {
       "map_section": "MAPSEC_LAVARIDGE_TOWN",
-      "name": "釜炎镇",
+      "name": "午夜镇",
       "x": 5,
       "y": 3,
       "width": 1,
@@ -90,7 +90,7 @@
     },
     {
       "map_section": "MAPSEC_FORTREE_CITY",
-      "name": "茵郁市",
+      "name": "暗古神坛",
       "x": 12,
       "y": 0,
       "width": 1,
@@ -130,7 +130,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_101",
-      "name": "101号公路",
+      "name": "2号小路",
       "x": 4,
       "y": 10,
       "width": 1,
@@ -138,7 +138,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_102",
-      "name": "102号公路",
+      "name": "1号小路",
       "x": 2,
       "y": 9,
       "width": 2,

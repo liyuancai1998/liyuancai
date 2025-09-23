@@ -32,7 +32,7 @@ Route104_002_trigger::
 	delay 60
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, Route104_002_movement
-	waitmovement 
+	waitmovement OBJ_EVENT_ID_CAMERA
 	shownpcpic2 4, 208, 127, 0
 	msgbox Route104_002_text MSGBOX_DEFAULT
 	closemessage

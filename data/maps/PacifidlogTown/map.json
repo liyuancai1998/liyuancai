@@ -56,45 +56,24 @@
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 15,
+      "x": 5,
+      "y": 34,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
+      "dest_map": "MAP_PACIFIDLOG_TOWN",
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
-      "y": 13,
+      "x": 34,
+      "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE1",
+      "dest_map": "MAP_PACIFIDLOG_TOWN",
       "dest_warp_id": "0"
     },
     {
-      "x": 3,
-      "y": 22,
+      "x": 5,
+      "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE2",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 12,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE3",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 2,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE4",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 17,
-      "y": 21,
-      "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE5",
+      "dest_map": "MAP_PACIFIDLOG_TOWN",
       "dest_warp_id": "0"
     }
   ],

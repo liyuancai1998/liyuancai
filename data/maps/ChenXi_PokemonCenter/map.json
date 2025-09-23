@@ -1,7 +1,7 @@
 {
-  "id": "MAP_SLATEPORT_CITY_HOUSE_2F",
-  "name": "SlateportCity_House_2F",
-  "layout": "LAYOUT_SLATEPORT_CITY_HOUSE_2F",
+  "id": "MAP_CHEN_XI_POKEMON_CENTER",
+  "name": "ChenXi_PokemonCenter",
+  "layout": "LAYOUT_CHEN_XI_POKEMON_CENTER",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
@@ -15,33 +15,26 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 4,
-      "y": 6,
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 3,
+      "y": 7,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_Guanzhu_Event",
-      "flag": "FLAG_UNUSED_0x02D"
+      "script": "Yinlang_battle",
+      "flag": "FLAG_UNUSED_0x02E"
     }
   ],
   "warp_events": [
     {
-      "x": 9,
-      "y": 2,
+      "x": 7,
+      "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_SLATEPORT_CITY_HOUSE",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 10,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_SLATEPORT_CITY_HOUSE",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_LITTLEROOT_TOWN",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

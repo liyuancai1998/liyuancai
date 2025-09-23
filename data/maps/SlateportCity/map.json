@@ -5,7 +5,7 @@
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_SLATEPORT_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_RAIN_THUNDERSTORM",
+  "weather": "WEATHER_RAIN",
   "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -17,11 +17,16 @@
       "map": "MAP_FORTREE_CITY",
       "offset": 24,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE102",
+      "offset": -26,
+      "direction": "down"
     }
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_RIVAL_MAY_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
       "x": 24,
       "y": 23,
       "elevation": 3,
@@ -44,7 +49,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_GUANZHU_01"
     }
   ],
   "warp_events": [
@@ -148,15 +153,6 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 45,
-      "elevation": 0,
-      "var": "VAR_GuanZhu_1",
-      "var_value": "0",
-      "script": "ChunYu_GuanZhu_1"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
       "y": 45,
       "elevation": 0,
       "var": "VAR_GuanZhu_1",

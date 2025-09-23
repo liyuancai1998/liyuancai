@@ -1,5 +1,17 @@
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
+SlateportCity_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, SlateportCity_OnEnter
+	.byte 0
+
+SlateportCity_OnEnter:
+	call_if_set FLAG_GUANZHU_02, True_Tile
+	end
+
+True_Tile:
+	setmetatile 23, 48, 1, 0
+	return
+
 ChunYu_MapEventScript_KaiYi::
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
@@ -64,11 +76,9 @@ Player_JUMP_Movement_2:
 	jump_2_up
 	step_end
 
-SlateportCity_MapScripts::
-	.byte 0
-
 ChunYu_GuanZhu_1::
 	delay 60
+	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, GuanZhu_1_Movement_1
 	waitmovement OBJ_EVENT_ID_CAMERA
 	applymovement OBJ_EVENT_ID_PLAYER, GuanZhu_1_Movement_2
@@ -80,20 +90,34 @@ ChunYu_GuanZhu_1::
 	hidenpc2
 	hidemonpic
 	fadescreen FADE_TO_BLACK
+	removeobject 2
 	delay 60
 	blacktext 0xe0, 50, ChunYu_MSG_3
 	closeblacktext
+	setflag FLAG_GUANZHU_01
 	setvar VAR_GuanZhu_1, 1
-	warpsilent MAP_ROUTE104, 19, 14
+	fadescreen FADE_FROM_BLACK
+	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER MapEventScript_KaiYi
+	playse SE_PIN
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox ChunYu_MSG_6 MSGBOX_DEFAULT
+	hidenpc2
+	hidemonpic
+	closemessage
+	special RemoveCameraObject
 	end
 
 ChunYu_MSG_4:
-	.string "你好?\l(伸出手触摸他的后背)$"
+	.string "请问……?\l(伸出手触摸他的后背)$"
 
 ChunYu_MSG_3:
-	.string "我想回去……\n但我已经回不去了。$"
+	.string "已经无法挽回了，\n这是对我的惩罚……$"
 	
 GuanZhu_1_Movement_1:
+	walk_up
+	walk_up
 	walk_up
 	walk_up
 	walk_up
@@ -105,6 +129,8 @@ GuanZhu_1_Movement_2:
 	walk_up
 	walk_up
 	walk_up
-	walk_up
 	face_right
 	step_end
+
+ChunYu_MSG_6:
+	.string "消失了?\n他好像是\l刚刚在森林里看到的……$"
