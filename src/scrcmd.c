@@ -2518,14 +2518,14 @@ static const u8 sDefaultCG_TileMap[] = INCBIN_U8("graphics/cg/raw.bin.lz");
 
 static const u8* sCGTable[][2] = 
 {
-    [0] = {sCG1_Tiles, sCG1_Pal}
-    [1] = {sCG1_Tiles, sCG2_Pal}
-    [2] = {sCG1_Tiles, sCG3_Pal}
-    [3] = {sCG1_Tiles, sCG4_Pal}
-    [4] = {sCG1_Tiles, sCGS1_Pal}
-    [5] = {sCG1_Tiles, sCGS2_Pal}
-    [6] = {sCG1_Tiles, sCGS3_Pal}
-    [7] = {sCG1_Tiles, sCGS4_Pal}
+    [0] = {sCG1_Tiles, sCG1_Pal},
+    [1] = {sCG2_Tiles, sCG2_Pal},
+    [2] = {sCG3_Tiles, sCG3_Pal},
+    [3] = {sCG4_Tiles, sCG4_Pal},
+    [4] = {sCGS1_Tiles, sCGS1_Pal},
+    [5] = {sCGS2_Tiles, sCGS2_Pal},
+    [6] = {sCGS3_Tiles, sCGS3_Pal},
+    [7] = {sCGS4_Tiles, sCGS4_Pal},
 };
 
 static const u8 sCGAnimList[][10] = 

@@ -51,11 +51,6 @@ LavaridgeTown_LXHouse_T_3::
 	hidemonpic
 	closemessage
 	setvar 0x4068, 1
-	fadescreen FADE_TO_BLACK
-	setvar 0x8004 0
-	special 
-	ShowCG
-	waitstate
 	end
 
 LavaridgeTown_Text_3:
