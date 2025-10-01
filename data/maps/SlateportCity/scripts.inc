@@ -134,3 +134,16 @@ GuanZhu_1_Movement_2:
 
 ChunYu_MSG_6:
 	.string "消失了?\n他好像是\l刚刚在森林里看到的……$"
+
+ChunYu_NPC_1::
+	shownpcpic2 4, 208, 127, 0
+	msgbox ChunYu_MSG_7 MSGBOX_DEFAULT
+	hidenpc2
+	closemessage
+	removeobject 3
+	setflag 0x34
+	end
+
+ChunYu_MSG_7:
+	.string "祭典好像要开始了，\n妈妈不让我天黑后还在外面。$"
+

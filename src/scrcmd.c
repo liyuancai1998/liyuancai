@@ -2498,20 +2498,40 @@ static const struct BgTemplate sBgTemplates[] =
         .baseTile = 0
     },
 };
-
-static const u8 sCG1_Tiles[] = INCBIN_U8("graphics/cg/2.8bpp.lz");
-static const u8 sCG1_Pal[] = INCBIN_U8("graphics/cg/2.gbapal");
+static const u8 sCG1_Tiles[] = INCBIN_U8("graphics/cg/1.8bpp.lz");
+static const u8 sCG1_Pal[] = INCBIN_U8("graphics/cg/1.gbapal");
+static const u8 sCG2_Tiles[] = INCBIN_U8("graphics/cg/2.8bpp.lz");
+static const u8 sCG2_Pal[] = INCBIN_U8("graphics/cg/2.gbapal");
+static const u8 sCG3_Tiles[] = INCBIN_U8("graphics/cg/3.8bpp.lz");
+static const u8 sCG3_Pal[] = INCBIN_U8("graphics/cg/3.gbapal");
+static const u8 sCG4_Tiles[] = INCBIN_U8("graphics/cg/4.8bpp.lz");
+static const u8 sCG4_Pal[] = INCBIN_U8("graphics/cg/4.gbapal");
+static const u8 sCGS1_Tiles[] = INCBIN_U8("graphics/cg/S1.8bpp.lz");
+static const u8 sCGS1_Pal[] = INCBIN_U8("graphics/cg/S1.gbapal");
+static const u8 sCGS2_Tiles[] = INCBIN_U8("graphics/cg/S2.8bpp.lz");
+static const u8 sCGS2_Pal[] = INCBIN_U8("graphics/cg/S2.gbapal");
+static const u8 sCGS3_Tiles[] = INCBIN_U8("graphics/cg/S3.8bpp.lz");
+static const u8 sCGS3_Pal[] = INCBIN_U8("graphics/cg/S3.gbapal");
+static const u8 sCGS4_Tiles[] = INCBIN_U8("graphics/cg/S4.8bpp.lz");
+static const u8 sCGS4_Pal[] = INCBIN_U8("graphics/cg/S4.gbapal");
 static const u8 sDefaultCG_TileMap[] = INCBIN_U8("graphics/cg/raw.bin.lz");
 
 static const u8* sCGTable[][2] = 
 {
     [0] = {sCG1_Tiles, sCG1_Pal}
+    [1] = {sCG1_Tiles, sCG2_Pal}
+    [2] = {sCG1_Tiles, sCG3_Pal}
+    [3] = {sCG1_Tiles, sCG4_Pal}
+    [4] = {sCG1_Tiles, sCGS1_Pal}
+    [5] = {sCG1_Tiles, sCGS2_Pal}
+    [6] = {sCG1_Tiles, sCGS3_Pal}
+    [7] = {sCG1_Tiles, sCGS4_Pal}
 };
 
 static const u8 sCGAnimList[][10] = 
 {
-    [0] = {0, 0xFF},
-    [1] = {0, 0, 0, 0, 0xFF},
+    [0] = {0, 1, 2, 3, 0xFF},
+    [1] = {4, 5, 6, 7, 0xFF},
 };
 
 static void Task_WaitHandle(u8 taskId);

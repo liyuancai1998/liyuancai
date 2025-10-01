@@ -2,7 +2,7 @@
   "id": "MAP_CHEN_XI_POKEMON_CENTER",
   "name": "ChenXi_PokemonCenter",
   "layout": "LAYOUT_CHEN_XI_POKEMON_CENTER",
-  "music": "MUS_DUMMY",
+  "music": "MUS_ROUTE110",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",

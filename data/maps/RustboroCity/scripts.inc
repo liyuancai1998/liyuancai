@@ -81,3 +81,16 @@ RustboroCity_MissonGuest_TEXT_ShiTi_2:
 RustboroCity_EventScript_ShiTi_Movement:
 	emote_exclamation_mark
 	step_end
+
+RustboroCity_NPC_1::
+	shownpcpic2 4, 208, 127, 0
+	msgbox RustboroCity_NPCMSG_1 MSGBOX_DEFAULT
+	closemessage
+	hidenpc2
+	setflag 0x33
+	removeobject 4
+	end
+
+RustboroCity_NPCMSG_1:
+	.string "宝宝乖，看，\n雨停了就有彩虹了……\l我们回家好不好？$"
+

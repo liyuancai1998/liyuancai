@@ -2,10 +2,10 @@
   "id": "MAP_LAVARIDGE_TOWN",
   "name": "LavaridgeTown",
   "layout": "LAYOUT_LAVARIDGE_TOWN",
-  "music": "MUS_DUMMY",
+  "music": "MUS_ROUTE122",
   "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
   "requires_flash": false,
-  "weather": "WEATHER_FOG_HORIZONTAL",
+  "weather": "WEATHER_FOG_DIAGONAL",
   "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -25,21 +25,21 @@
   "warp_events": [
     {
       "x": 22,
-      "y": 25,
+      "y": 24,
       "elevation": 0,
-      "dest_map": "MAP_LAVARIDGE_TOWN_HERB_SHOP",
+      "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 7,
+      "x": 8,
       "y": 24,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_GYM_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
-      "y": 8,
+      "x": 8,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_MART",
       "dest_warp_id": "0"
@@ -52,22 +52,39 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 23,
-      "y": 13,
+      "x": 13,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 10,
-      "y": 10,
+      "x": 8,
+      "y": 7,
       "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "3"
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_LUOXI_DOOR",
+      "var_value": "0",
+      "script": "LavaridgeTown_LXHouse_T"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_ROUTE109_STATE",
+      "var_value": "0",
+      "script": "LavaridgeTown_LXHouse_T_3"
+    }
   ],
   "bg_events": [
 

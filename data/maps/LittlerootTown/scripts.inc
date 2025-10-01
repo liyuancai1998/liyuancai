@@ -37,3 +37,33 @@ LittlerootTown_Guanzhu_Event::
 
 LittlerootTown_Guanzhu_Text:
 	.string "灵魂记录:\n晓暄的精神状态不太对劲，\l嘴里念叨着告诉我\l她把祭品的名字换掉了，\l如果我没猜错的话，\l她为了报仇居然做出了\l和当年一摸一样的事情，\l趁仪式还没开始，\l我要想想办法……$"
+
+LittlerootTown_NPC_1::
+	shownpcpic2 4, 208, 127, 0
+	msgbox LittlerootTown_NPCMSG_1 MSGBOX_DEFAULT
+	hidenpc2
+	closemessage
+	setflag 0x35
+	removeobject 3
+	end
+
+LittlerootTown_NPCMSG_1:
+	.string "晓暄她，以前总是带着笑。\n可那天从春雨镇回来，\l脸白得像纸一样……$"
+
+HealPlayerParty_Scripts::
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox Rest_MSG MSGBOX_DEFAULT
+	closemessage
+	hidenpc2
+	hidemonpic
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	fadescreen FADE_FROM_BLACK
+	end
+
+Rest_MSG:
+	.string "有点累了，休息一下吧。$"
+
