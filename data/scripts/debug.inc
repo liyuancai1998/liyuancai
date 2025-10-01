@@ -141,6 +141,7 @@ Debug_EventScript_Script_1::
 	lockall
 	msgbox Debug_EventScript_Text_OffensiveIVs, MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
+	setvar 0x8004 1
 	special ShowCG
 	waitstate
 	msgbox Debug_EventScript_Text_DefensiveIVs, MSGBOX_DEFAULT

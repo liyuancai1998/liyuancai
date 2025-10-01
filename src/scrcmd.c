@@ -2505,7 +2505,13 @@ static const u8 sDefaultCG_TileMap[] = INCBIN_U8("graphics/cg/raw.bin.lz");
 
 static const u8* sCGTable[][2] = 
 {
-    {sCG1_Tiles, sCG1_Pal}
+    [0] = {sCG1_Tiles, sCG1_Pal}
+};
+
+static const u8 sCGAnimList[][10] = 
+{
+    [0] = {0, 0xFF},
+    [1] = {0, 0, 0, 0, 0xFF},
 };
 
 static void Task_WaitHandle(u8 taskId);
@@ -2547,7 +2553,7 @@ static void CB2_ShowCG(void)
     DmaFill32(3, 0, OAM, OAM_SIZE);
     DmaFill16(3, 0, PLTT, PLTT_SIZE);
 
-    u8 cgindex = gSpecialVar_0x8004;
+    u8 cgindex = sCGAnimList[gSpecialVar_0x8004][0];
 
     LZ77UnCompVram((void*)sDefaultCG_TileMap, (void *)(BG_SCREEN_ADDR(29)));
     LZ77UnCompVram((void*)sCGTable[cgindex][0], (void *)(BG_CHAR_ADDR(0)));
@@ -2568,7 +2574,7 @@ static void CB2_ShowCG(void)
     EnableInterrupts(DISPSTAT_VBLANK);
     SetVBlankCallback(VblankCB_ShowCG);
     SetMainCallback2(CB2_ShowCGWait);
-    CreateTask(Task_WaitHandle, 0);
+    u8 taskID = CreateTask(Task_WaitHandle, 0);
 
     SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR);
     SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG_ALL | WINOUT_WIN01_OBJ);
@@ -2580,12 +2586,39 @@ static void CB2_ShowCG(void)
     ShowBg(2);
 }
 
+static void Task_ChangeCG(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        u8 cgindex = sCGAnimList[gSpecialVar_0x8004][gTasks[taskId].data[0]];
+        LZ77UnCompVram((void*)sDefaultCG_TileMap, (void *)(BG_SCREEN_ADDR(29)));
+        LZ77UnCompVram((void*)sCGTable[cgindex][0], (void *)(BG_CHAR_ADDR(0)));
+        LoadPalette((void*)sCGTable[cgindex][1], BG_PLTT_ID(0), 256 * 2);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, 0);
+        gTasks[taskId].func = Task_WaitHandle;
+    }
+}
+
 static void Task_WaitHandle(u8 taskId)
 {
+    if (gPaletteFade.active)
+        return;
+
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
-        DestroyTask(taskId);
-        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        gTasks[taskId].data[0]++;
+        u8 animID = sCGAnimList[gSpecialVar_0x8004][gTasks[taskId].data[0]];
+    
+        if (animID == 0xFF)
+        {
+            DestroyTask(taskId);
+            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        }
+        else
+        {
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, 0);
+            gTasks[taskId].func = Task_ChangeCG;
+        }
     }
 }
 
