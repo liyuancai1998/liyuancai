@@ -50,6 +50,12 @@
 #include "window.h"
 #include "list_menu.h"
 #include "malloc.h"
+#include "gpu_regs.h"
+#include "decompress.h"
+#include "scanline_effect.h"
+#include "sound.h"
+#include "sprite.h"
+#include "trainer_pokemon_sprites.h"
 #include "constants/event_objects.h"
 
 typedef u16 (*SpecialFunc)(void);
@@ -2469,4 +2475,121 @@ bool8 ScrCmd_closeblacktext(struct ScriptContext *ctx)
     ChangeBgY(0, 0, BG_COORD_SET);
     FlagClear(FLAG_SHOW_BLACK_TEXT);
     return FALSE;
+}
+
+static const struct BgTemplate sBgTemplates[] =
+{
+    {
+        .bg = 0,
+        .charBaseIndex = 2,
+        .mapBaseIndex = 31,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 0,
+        .baseTile = 0
+    },
+    {
+        .bg = 2,
+        .charBaseIndex = 0,
+        .mapBaseIndex = 29,
+        .screenSize = 0,
+        .paletteMode = 1,
+        .priority = 3,
+        .baseTile = 0
+    },
+};
+
+static const u8 sCG1_Tiles[] = INCBIN_U8("graphics/cg/2.8bpp.lz");
+static const u8 sCG1_Pal[] = INCBIN_U8("graphics/cg/2.gbapal");
+static const u8 sDefaultCG_TileMap[] = INCBIN_U8("graphics/cg/raw.bin.lz");
+
+static const u8* sCGTable[][2] = 
+{
+    {sCG1_Tiles, sCG1_Pal}
+};
+
+static void Task_WaitHandle(u8 taskId);
+
+static void VblankCB_ShowCG(void)
+{
+    LoadOam();
+    ProcessSpriteCopyRequests();
+    TransferPlttBuffer();
+}
+
+static void CB2_ShowCGWait(void)
+{
+    RunTasks();
+    DoScheduledBgTilemapCopiesToVram();
+    UpdatePaletteFade();
+}
+
+static void CB2_ShowCG(void)
+{
+    SetVBlankCallback(NULL);
+
+    SetGpuReg(REG_OFFSET_DISPCNT, 0);
+    SetGpuReg(REG_OFFSET_BG3CNT, 0);
+    SetGpuReg(REG_OFFSET_BG2CNT, 0);
+    SetGpuReg(REG_OFFSET_BG1CNT, 0);
+    SetGpuReg(REG_OFFSET_BG0CNT, 0);
+
+    ChangeBgX(0, 0, BG_COORD_SET);
+    ChangeBgY(0, 0, BG_COORD_SET);
+    ChangeBgX(1, 0, BG_COORD_SET);
+    ChangeBgY(1, 0, BG_COORD_SET);
+    ChangeBgX(2, 0, BG_COORD_SET);
+    ChangeBgY(2, 0, BG_COORD_SET);
+    ChangeBgX(3, 0, BG_COORD_SET);
+    ChangeBgY(3, 0, BG_COORD_SET);
+
+    DmaFill16(3, 0, VRAM, VRAM_SIZE);
+    DmaFill32(3, 0, OAM, OAM_SIZE);
+    DmaFill16(3, 0, PLTT, PLTT_SIZE);
+
+    u8 cgindex = gSpecialVar_0x8004;
+
+    LZ77UnCompVram((void*)sDefaultCG_TileMap, (void *)(BG_SCREEN_ADDR(29)));
+    LZ77UnCompVram((void*)sCGTable[cgindex][0], (void *)(BG_CHAR_ADDR(0)));
+
+    ResetBgsAndClearDma3BusyFlags(0);
+    InitBgsFromTemplates(0, sBgTemplates, ARRAY_COUNT(sBgTemplates));
+
+    ScanlineEffect_Stop();
+    ResetTasks();
+    ResetSpriteData();
+    ResetPaletteFade();
+    FreeAllSpritePalettes();
+    ResetAllPicSprites();
+
+    LoadPalette((void*)sCGTable[cgindex][1], BG_PLTT_ID(0), 256 * 2);
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, 0);
+
+    EnableInterrupts(DISPSTAT_VBLANK);
+    SetVBlankCallback(VblankCB_ShowCG);
+    SetMainCallback2(CB2_ShowCGWait);
+    CreateTask(Task_WaitHandle, 0);
+
+    SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR);
+    SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG_ALL | WINOUT_WIN01_OBJ);
+    SetGpuReg(REG_OFFSET_WIN0H, 0);
+    SetGpuReg(REG_OFFSET_WIN0V, 0);
+    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+
+    ShowBg(2);
+}
+
+static void Task_WaitHandle(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    {
+        DestroyTask(taskId);
+        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    }
+}
+
+void ShowCG(void)
+{
+    SetMainCallback2(CB2_ShowCG);
 }

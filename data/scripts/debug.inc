@@ -132,15 +132,18 @@ Debug_EventScript_CheckIVs_End::
 	end
 
 Debug_EventScript_Text_OffensiveIVs:
-	.string "ATK IVs: {STR_VAR_1}, SPATK IVs: {STR_VAR_2}, SPEED IVs: {STR_VAR_3}$"
+	.string "测试1$"
 
 Debug_EventScript_Text_DefensiveIVs:
-	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
+	.string "测试2$"
 
 Debug_EventScript_Script_1::
 	lockall
-	shownpc 0, 8, 8
 	msgbox Debug_EventScript_Text_OffensiveIVs, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
+	special ShowCG
+	waitstate
+	msgbox Debug_EventScript_Text_DefensiveIVs, MSGBOX_DEFAULT
 	releaseall
 	end
 
