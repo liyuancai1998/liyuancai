@@ -51,11 +51,25 @@ LavaridgeTown_LXHouse_T_3::
 	hidemonpic
 	closemessage
 	setvar 0x4068, 1
+	delay 60
+	playbgm MUS_RUSTBORO, 0
+	fadescreen FADE_TO_BLACK
+	setvar 0x8004 0
+	special ShowCG
+	waitstate
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox LavaridgeTown_Text_5 MSGBOX_DEFAULT
+	hidenpc2
+	hidemonpic
+	closemessage
 	end
 
 LavaridgeTown_Text_3:
 	.string "还记得启明星公主的约定吗？\n这可能是我临走前\l最后能做的事情了……$"
 
 LavaridgeTown_Text_4:
-	.string "启明星公主是？$"
+	.string "谁的声音？启明星公主是……\n头好痛……$"
 
+LavaridgeTown_Text_5:
+	.string "你是谁……我想不起来了……$"

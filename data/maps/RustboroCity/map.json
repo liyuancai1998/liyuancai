@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_NPC_1",
+      "script": "RustboroCity_EventScript_BADGE05",
       "flag": "FLAG_BADGE05"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RustboroCity_NPC_1",
       "flag": "FLAG_UNUSED_0x033"
     }
   ],
