@@ -2528,6 +2528,8 @@ static const u8 sCG3_Tiles[] = INCBIN_U8("graphics/cg/3.8bpp.lz");
 static const u8 sCG3_Pal[] = INCBIN_U8("graphics/cg/3.gbapal");
 static const u8 sCG4_Tiles[] = INCBIN_U8("graphics/cg/4.8bpp.lz");
 static const u8 sCG4_Pal[] = INCBIN_U8("graphics/cg/4.gbapal");
+static const u8 sCG5_Tiles[] = INCBIN_U8("graphics/cg/5.8bpp.lz");
+static const u8 sCG5_Pal[] = INCBIN_U8("graphics/cg/5.gbapal");
 static const u8 sCGS1_Tiles[] = INCBIN_U8("graphics/cg/S1.8bpp.lz");
 static const u8 sCGS1_Pal[] = INCBIN_U8("graphics/cg/S1.gbapal");
 static const u8 sCGS2_Tiles[] = INCBIN_U8("graphics/cg/S2.8bpp.lz");
@@ -2541,6 +2543,13 @@ static const u8* sCGTable[][2] =
 {
     [0] = {sCG1_Tiles, sCG1_Pal},
     [1] = {sCG2_Tiles, sCG2_Pal},
+    [2] = {sCG3_Tiles, sCG3_Pal},
+    [3] = {sCG5_Tiles, sCG5_Pal},
+    [4] = {sCG4_Tiles, sCG4_Pal},
+    [5] = {sCGS1_Tiles, sCGS1_Pal},
+    [6] = {sCGS2_Tiles, sCGS2_Pal},
+    [7] = {sCGS3_Tiles, sCGS3_Pal},
+    [8] = {sCGS4_Tiles, sCGS4_Pal},
 };
 
 static const u8* sCGMessage[] = 
