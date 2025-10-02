@@ -138,8 +138,9 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "测试2$"
 
 Debug_EventScript_Script_1::
-	lockall
+	namebox Debug_EventScript_Text_DefensiveIVs
 	msgbox Debug_EventScript_Text_OffensiveIVs, MSGBOX_DEFAULT
+	hidenamebox
 	fadescreen FADE_TO_BLACK
 	setvar 0x8004 0
 	special ShowCG
