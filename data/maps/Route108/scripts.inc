@@ -13,16 +13,21 @@ Route108_01:
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
 	setvar VAR_DEWFORD_TOWN_STATE, 1
-	msgbox Route108_Text_FADE_TO_BLACK MSGBOX_DEFAULT
-	closemessage
+	namebox Route108_LuoXi
+	msgbox Route108_Text_FADE_TO_BLACK MSGBOX_AUTOCLOSE
+	hidenamebox
 	hidenpc2
 	hidemonpic
 	end
+
+Route108_LuoXi:
+	.string "洛汐$"
 
 EventScript_Note_TrainerCard::
 	lock
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
 	msgbox Text_TrainerBag MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
 	msgbox Text_TrainerCard MSGBOX_DEFAULT
@@ -30,6 +35,7 @@ EventScript_Note_TrainerCard::
 	msgbox Text_TrainerResult MSGBOX_DEFAULT
 	hidenpc2
 	hidemonpic
+	hidenamebox
 	removeobject 8
 	setflag FLAG_TrainerCard
 	setflag FLAG_SYS_POKEMON_GET

@@ -3,24 +3,17 @@ SootopolisCity_MapScripts::
 	.byte 0
 
 SootopolisCity_OnEnter:
-	map_script_2 0x406A, 0, SootopolisCity_FuckThisTrigger
+	map_script_2 VAR_ROUTE111_STATE, 0, SootopolisCity_FuckThisTrigger
 	.2byte 0
 
 SootopolisCity_FuckThisTrigger:
 	applymovement OBJ_EVENT_ID_PLAYER SootopolisCity_Player_Movement
 	waitmovement OBJ_EVENT_ID_PLAYER
-	delay 60
-	shownpc 0, 208, 127
-	shownpcpic2 4, 208, 127, 0
-	setvar 0x406B, 1
-	msgbox SootopolisCity_MSG_4 MSGBOX_DEFAULT
-	closemessage
-	hidenpc2
-	hidemonpic
+	setvar VAR_ROUTE111_STATE, 1
 	end
 
 SootopolisCity_MSG_4:
-	.string "这是哪儿？\n我刚刚好像进的是屋子……"
+	.string "这是哪儿？\n我刚刚好像进的是屋子……$"
 
 SootopolisCity_Player_Movement:
 	face_left
