@@ -59,10 +59,12 @@ LavaridgeTown_LXHouse_T_3::
 	waitstate
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
-	msgbox LavaridgeTown_Text_5 MSGBOX_DEFAULT
+	msgbox LavaridgeTown_Text_5 MSGBOX_AUTOCLOSE
+	delay 60
+	msgbox LavaridgeTown_Text_6 MSGBOX_AUTOCLOSE
 	hidenpc2
 	hidemonpic
-	closemessage
+	warpdoor MAP_SOOTOPOLIS_CITY, 10
 	end
 
 LavaridgeTown_Text_3:
@@ -73,3 +75,6 @@ LavaridgeTown_Text_4:
 
 LavaridgeTown_Text_5:
 	.string "你是谁……我想不起来了……$"
+
+LavaridgeTown_Text_6:
+	.string "先进去看看吧……$"

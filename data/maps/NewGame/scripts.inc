@@ -3,8 +3,24 @@ NewGame_MapScripts::
 	.byte 0
 
 NewGame_OnEnter:
-	map_script_2 VAR_UNUSED_0x404E, 0, FuckThisTrigger
+	map_script_2 VAR_UNUSED_0x404E, 0, FuckThisTrigger_CG
 	.2byte 0
+
+FuckThisTrigger_CG:
+	delay 60
+	fadescreen FADE_TO_BLACK
+	setvar 0x8004 1
+	special ShowCG
+	waitstate
+	fadescreen FADE_TO_BLACK
+	delay 60
+	blacktext 0xe0, 50, blackscreentext
+	closeblacktext
+	givemon SPECIES_PIKACHU, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_SURF, 0, 0, 0, TRUE
+	delay 60
+	PlaySE(SE_M_DIVE)
+	warpsilent MAP_ROUTE108, 14, 9	
+	end
 
 FuckThisTrigger:
 	lock

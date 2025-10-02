@@ -2520,6 +2520,10 @@ static const struct WindowTemplate sWindowTemplates[] =
 #define PLAY_END            (4)
 
 static const u8 sDefaultCG_TileMap[] = INCBIN_U8("graphics/cg/raw.bin.lz");
+static const u8 sCGA1_Tiles[] = INCBIN_U8("graphics/cg/A1.8bpp.lz");
+static const u8 sCGA1_Pal[] = INCBIN_U8("graphics/cg/A1.gbapal");
+static const u8 sCGA2_Tiles[] = INCBIN_U8("graphics/cg/A2.8bpp.lz");
+static const u8 sCGA2_Pal[] = INCBIN_U8("graphics/cg/A2.gbapal");
 static const u8 sCG1_Tiles[] = INCBIN_U8("graphics/cg/1.8bpp.lz");
 static const u8 sCG1_Pal[] = INCBIN_U8("graphics/cg/1.gbapal");
 static const u8 sCG2_Tiles[] = INCBIN_U8("graphics/cg/2.8bpp.lz");
@@ -2528,8 +2532,6 @@ static const u8 sCG3_Tiles[] = INCBIN_U8("graphics/cg/3.8bpp.lz");
 static const u8 sCG3_Pal[] = INCBIN_U8("graphics/cg/3.gbapal");
 static const u8 sCG4_Tiles[] = INCBIN_U8("graphics/cg/4.8bpp.lz");
 static const u8 sCG4_Pal[] = INCBIN_U8("graphics/cg/4.gbapal");
-static const u8 sCG5_Tiles[] = INCBIN_U8("graphics/cg/5.8bpp.lz");
-static const u8 sCG5_Pal[] = INCBIN_U8("graphics/cg/5.gbapal");
 static const u8 sCGS1_Tiles[] = INCBIN_U8("graphics/cg/S1.8bpp.lz");
 static const u8 sCGS1_Pal[] = INCBIN_U8("graphics/cg/S1.gbapal");
 static const u8 sCGS2_Tiles[] = INCBIN_U8("graphics/cg/S2.8bpp.lz");
@@ -2544,19 +2546,27 @@ static const u8* sCGTable[][2] =
     [0] = {sCG1_Tiles, sCG1_Pal},
     [1] = {sCG2_Tiles, sCG2_Pal},
     [2] = {sCG3_Tiles, sCG3_Pal},
-    [3] = {sCG5_Tiles, sCG5_Pal},
-    [4] = {sCG4_Tiles, sCG4_Pal},
-    [5] = {sCGS1_Tiles, sCGS1_Pal},
-    [6] = {sCGS2_Tiles, sCGS2_Pal},
-    [7] = {sCGS3_Tiles, sCGS3_Pal},
-    [8] = {sCGS4_Tiles, sCGS4_Pal},
+    [3] = {sCG4_Tiles, sCG4_Pal},
+    [4] = {sCGS1_Tiles, sCGS1_Pal},
+    [5] = {sCGS2_Tiles, sCGS2_Pal},
+    [6] = {sCGS3_Tiles, sCGS3_Pal},
+    [7] = {sCGS4_Tiles, sCGS4_Pal},
+    [8] = {sCGA1_Tiles, sCGA1_Pal},
+    [9] = {sCGA2_Tiles, sCGA2_Pal},
 };
 
 static const u8* sCGMessage[] = 
 {
-    [0] = COMPOUND_STRING("李渊才尼玛死了\n李渊才尼玛死了\p李渊才尼玛死了"),
-    [1] = COMPOUND_STRING("测试机测试1"),
-    [2] = COMPOUND_STRING("测试机测试1"),
+    [0] = COMPOUND_STRING("?:如果时间能永远\n停留在这个时刻就好了。\p洛汐:是啊。"),
+    [1] = COMPOUND_STRING("洛汐:快看那颗星星，\n你知道启明星吗？\p?:当然知道啊。"),
+    [2] = COMPOUND_STRING("洛汐:在未来的某一天\n如果我遇到危机，\l你会将我从黑暗中拯救出来\l走向光明吗?\p?:当然会啊。\n你也要当我的启明星公主，\l如果我哪天踏入黑暗，\l你也要来拯救我。"),
+    [3] = COMPOUND_STRING("洛汐:那说好了，不许反悔。\p?:嗯，当然。"),
+    [4] = COMPOUND_STRING("洛汐:这是哪儿？\n我的名字……\l什么都想不起来……"),
+    [5] = COMPOUND_STRING("洛汐:前面是什么地方……"),
+    [6] = COMPOUND_STRING("凯伊:我是来跟你谈\n洛汐的事情的……"),
+    [7] = COMPOUND_STRING("琰星:明明就是个废物……"),
+    [8] = COMPOUND_STRING("凯伊:!!!!!!!!!!!!"),
+    [9] = COMPOUND_STRING("………………………………"),
 };
 
 static const u8 sCGAnimList[][30] = 
@@ -2564,12 +2574,39 @@ static const u8 sCGAnimList[][30] =
     [0] = {
         PLAY_CG, 0,         // 播放CG
         PLAY_MESSAGE, 0,    // 播放对话
-        PLAY_MESSAGE, 1,    // 播放对话
-        PLAY_MESSAGE, 2,    // 播放对话
         WAIT_BUTTON, 0,     // 等待按钮
         PLAY_CG, 1,         // 播放cg
+        PLAY_MESSAGE, 1,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 2,         // 播放cg
         PLAY_MESSAGE, 2,    // 播放对话
-        PLAY_MESSAGE, 2,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 3,         // 播放cg
+        PLAY_MESSAGE, 3,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [1] = {
+        PLAY_CG, 8,         // 播放CG
+        PLAY_MESSAGE, 4,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 9,         // 播放CG
+        PLAY_MESSAGE, 5,    // 播放对话
+        PLAY_END            // 结束
+    },
+    [2] = {
+        PLAY_CG, 4,         // 播放CG
+        PLAY_MESSAGE, 6,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 5,         // 播放cg
+        PLAY_MESSAGE, 7,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 6,         // 播放cg
+        PLAY_MESSAGE, 8,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 7,         // 播放cg
+        PLAY_MESSAGE, 9,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
         PLAY_END            // 结束
     },
 };

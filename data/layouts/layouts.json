@@ -634,10 +634,10 @@
     {
       "id": "LAYOUT_HOUSE3",
       "name": "House3_Layout",
-      "width": 10,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "width": 29,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/House3/border.bin",
       "blockdata_filepath": "data/layouts/House3/map.bin"
     },
