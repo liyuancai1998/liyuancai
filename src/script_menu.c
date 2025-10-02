@@ -947,7 +947,10 @@ static void Task_PokemonPicWindow(u8 taskId)
         // Wait until state is advanced by ScriptMenu_HidePokemonPic
         break;
     case 2:
-        FreeResourcesAndDestroySprite(&gSprites[task->tMonSpriteId], task->tMonSpriteId);
+        if (gTasks[taskId].data[7] == FALSE)
+            FreeResourcesAndDestroySprite(&gSprites[task->tMonSpriteId], task->tMonSpriteId);
+        else
+            DestroySpriteAndFreeResources(&gSprites[task->tMonSpriteId]);
         task->tState++;
         break;
     case 3:
@@ -980,6 +983,7 @@ bool8 ScriptMenu_ShowPokemonPicSlot2(u16 species, u8 x, u8 y, u8 isleft)
         gTasks[taskId].tState = 0;
         gTasks[taskId].tMonSpecies = species;
         gTasks[taskId].tMonSpriteId = spriteId;
+        gTasks[taskId].data[7] = FlagGet(FLAG_SHOW_NPC_PICTURE);
         gSprites[spriteId].callback = SpriteCallbackDummy;
         gSprites[spriteId].oam.priority = 0;
         gSprites[spriteId].hFlip = isleft;
@@ -1026,6 +1030,7 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
         gTasks[taskId].tState = 0;
         gTasks[taskId].tMonSpecies = species;
         gTasks[taskId].tMonSpriteId = spriteId;
+        gTasks[taskId].data[7] = FlagGet(FLAG_SHOW_NPC_PICTURE);
         gSprites[spriteId].callback = SpriteCallbackDummy;
         gSprites[spriteId].oam.priority = 0;
         if (!FlagGet(FLAG_SHOW_NPC_PICTURE))
