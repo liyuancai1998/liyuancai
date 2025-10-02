@@ -2206,3 +2206,13 @@
 	.macro hidenpc2
 	.byte 0xe9
 	.endm
+
+	.macro namebox name:req
+	.byte 0xea
+	.4byte \name
+	.endm
+    
+	@ Closes the current message box.
+	.macro hidenamebox
+	.byte 0xeb
+	.endm

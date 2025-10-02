@@ -235,5 +235,8 @@ gScriptCmdTable::
 	.4byte ScrCmd_shownpcpic2						@ 0xe8
 	.4byte ScrCmd_hidenpc2							@ 0xe9
 
+	.4byte ScrCmd_namebox                   @ 0xea
+	.4byte ScrCmd_hidenamebox               @ 0xeb
+
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
