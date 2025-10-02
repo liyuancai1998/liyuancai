@@ -2481,7 +2481,7 @@ static const struct BgTemplate sBgTemplates[] =
 {
     {
         .bg = 0,
-        .charBaseIndex = 2,
+        .charBaseIndex = 3,
         .mapBaseIndex = 31,
         .screenSize = 0,
         .paletteMode = 0,
@@ -2499,22 +2499,61 @@ static const struct BgTemplate sBgTemplates[] =
     },
 };
 
+static const struct WindowTemplate sWindowTemplates[] =
+{
+    {
+        .bg = 0,
+        .tilemapLeft = 3,
+        .tilemapTop = 15,
+        .width = 24,
+        .height = 4,
+        .paletteNum = 15,
+        .baseBlock = 0x010
+    },
+    DUMMY_WIN_TEMPLATE,
+};
+
+#define PLAY_CG             (0)
+#define PLAY_MESSAGE        (1)
+#define WAIT_BUTTON         (2)
+#define PLAY_FADE           (3)
+#define PLAY_END            (4)
+
 static const u8 sCG1_Tiles[] = INCBIN_U8("graphics/cg/2.8bpp.lz");
 static const u8 sCG1_Pal[] = INCBIN_U8("graphics/cg/2.gbapal");
 static const u8 sDefaultCG_TileMap[] = INCBIN_U8("graphics/cg/raw.bin.lz");
 
 static const u8* sCGTable[][2] = 
 {
-    [0] = {sCG1_Tiles, sCG1_Pal}
+    [0] = {sCG1_Tiles, sCG1_Pal},
+    [1] = {sCG1_Tiles, sCG1_Pal},
 };
 
-static const u8 sCGAnimList[][10] = 
+static const u8* sCGMessage[] = 
 {
-    [0] = {0, 0xFF},
-    [1] = {0, 0, 0, 0, 0xFF},
+    [0] = COMPOUND_STRING("李渊才尼玛死了\n李渊才尼玛死了\p李渊才尼玛死了"),
+    [1] = COMPOUND_STRING("测试机测试1"),
+    [2] = COMPOUND_STRING("测试机测试1"),
 };
 
-static void Task_WaitHandle(u8 taskId);
+static const u8 sCGAnimList[][30] = 
+{
+    [0] = {
+        PLAY_CG, 0,         // 播放CG
+        PLAY_MESSAGE, 0,    // 播放对话
+        PLAY_MESSAGE, 1,    // 播放对话
+        PLAY_MESSAGE, 2,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_FADE, 0,       // 隐藏cg
+        PLAY_MESSAGE, 0,    // 播放对话
+        PLAY_CG, 1,         // 播放cg
+        PLAY_MESSAGE, 2,    // 播放对话
+        PLAY_MESSAGE, 2,    // 播放对话
+        PLAY_END            // 结束
+    },
+};
+
+static void Task_ReadCMD(u8 taskId);
 
 static void VblankCB_ShowCG(void)
 {
@@ -2553,7 +2592,7 @@ static void CB2_ShowCG(void)
     DmaFill32(3, 0, OAM, OAM_SIZE);
     DmaFill16(3, 0, PLTT, PLTT_SIZE);
 
-    u8 cgindex = sCGAnimList[gSpecialVar_0x8004][0];
+    u8 cgindex = sCGAnimList[gSpecialVar_0x8004][1];
 
     LZ77UnCompVram((void*)sDefaultCG_TileMap, (void *)(BG_SCREEN_ADDR(29)));
     LZ77UnCompVram((void*)sCGTable[cgindex][0], (void *)(BG_CHAR_ADDR(0)));
@@ -2568,21 +2607,28 @@ static void CB2_ShowCG(void)
     FreeAllSpritePalettes();
     ResetAllPicSprites();
 
-    LoadPalette((void*)sCGTable[cgindex][1], BG_PLTT_ID(0), 256 * 2);
+    InitWindows(sWindowTemplates);
+    DeactivateAllTextPrinters();
+
+    LoadPalette((void*)sCGTable[cgindex][1], BG_PLTT_ID(0), 15 * 32);
+    LoadPalette(GetOverworldTextboxPalettePtr(), BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, 0);
 
     EnableInterrupts(DISPSTAT_VBLANK);
     SetVBlankCallback(VblankCB_ShowCG);
     SetMainCallback2(CB2_ShowCGWait);
-    u8 taskID = CreateTask(Task_WaitHandle, 0);
+    u8 taskID = CreateTask(Task_ReadCMD, 0);
+    gTasks[taskID].data[0] = 2;
 
     SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR);
     SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG_ALL | WINOUT_WIN01_OBJ);
-    SetGpuReg(REG_OFFSET_WIN0H, 0);
-    SetGpuReg(REG_OFFSET_WIN0V, 0);
-    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
-    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+    SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(10, 230));
+    SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(115, 155));
+    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP | DISPCNT_WIN0_ON);
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_DARKEN);
+    SetGpuReg(REG_OFFSET_BLDY, 7);
 
+    ShowBg(0);
     ShowBg(2);
 }
 
@@ -2590,34 +2636,80 @@ static void Task_ChangeCG(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        u8 cgindex = sCGAnimList[gSpecialVar_0x8004][gTasks[taskId].data[0]];
-        LZ77UnCompVram((void*)sDefaultCG_TileMap, (void *)(BG_SCREEN_ADDR(29)));
-        LZ77UnCompVram((void*)sCGTable[cgindex][0], (void *)(BG_CHAR_ADDR(0)));
-        LoadPalette((void*)sCGTable[cgindex][1], BG_PLTT_ID(0), 256 * 2);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, 0);
-        gTasks[taskId].func = Task_WaitHandle;
+        gTasks[taskId].func = Task_ReadCMD;
     }
 }
 
-static void Task_WaitHandle(u8 taskId)
+static void Task_PlayMessage(u8 taskId)
 {
-    if (gPaletteFade.active)
+    if (RunTextPrintersAndIsPrinter0Active())
         return;
 
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
-        gTasks[taskId].data[0]++;
-        u8 animID = sCGAnimList[gSpecialVar_0x8004][gTasks[taskId].data[0]];
-    
-        if (animID == 0xFF)
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_NONE);
+        HideBg(0);
+        gTasks[taskId].func = Task_ReadCMD;
+    }
+}
+
+static void Task_WaitFadeAndButton(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    {
+        gTasks[taskId].func = Task_ReadCMD;
+    }
+}
+
+static const u8 sText_Color[] = {0, 1, 2};
+
+static void Task_ReadCMD(u8 taskId)
+{
+    if (gPaletteFade.active)
+        return;
+
+    u8 animID = sCGAnimList[gSpecialVar_0x8004][gTasks[taskId].data[0]++];
+    u8 animParam = sCGAnimList[gSpecialVar_0x8004][gTasks[taskId].data[0]++];
+
+    if (animID == PLAY_END)
+    {
+        DestroyTask(taskId);
+        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    }
+    else
+    {
+        if (animID == PLAY_CG)
         {
-            DestroyTask(taskId);
-            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+            ShowBg(2);
+            LZ77UnCompVram((void*)sDefaultCG_TileMap, (void *)(BG_SCREEN_ADDR(29)));
+            LZ77UnCompVram((void*)sCGTable[animParam][0], (void *)(BG_CHAR_ADDR(0)));
+            LoadPalette((void*)sCGTable[animParam][1], BG_PLTT_ID(0), 15 * 32);
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, 0);
+            gTasks[taskId].func = Task_ChangeCG;
+        }
+        else if (animID == WAIT_BUTTON)
+        {
+            gTasks[taskId].func = Task_WaitFadeAndButton;
+        }
+        else if (animID == PLAY_FADE)
+        {
+            HideBg(2);
+            FillWindowPixelBuffer(0, PIXEL_FILL(0));
+            PutWindowTilemap(0);
+            CopyWindowToVram(0, COPYWIN_FULL);
+            gTasks[taskId].func = Task_ChangeCG;
         }
         else
         {
-            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, 0);
-            gTasks[taskId].func = Task_ChangeCG;
+            FillWindowPixelBuffer(0, PIXEL_FILL(0));
+            AddTextPrinterParameterized4(0, FONT_NORMAL, 0, 0, 0, 0, sText_Color, GetPlayerTextSpeedDelay(), sCGMessage[animParam]);
+            PutWindowTilemap(0);
+            CopyWindowToVram(0, COPYWIN_FULL);
+            ScheduleBgCopyTilemapToVram(0);
+            SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_DARKEN);
+            ShowBg(0);
+            gTasks[taskId].func = Task_PlayMessage;
         }
     }
 }

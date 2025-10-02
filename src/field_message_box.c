@@ -182,10 +182,16 @@ static void DrawDialogueFrameNoBoard(u8 windowId, bool8 copyToVram)
     LoadCompressedSpritePalette(&gTextBoradSpritePalette);
     spriteID = CreateSprite(&gSpriteTemplate_BoxBorad, 64, 114, 0);
     SetSubspriteTables(&gSprites[spriteID], sHealthBar_SubspriteTables);
-
+    if (FlagGet(FLAG_SHOW_BLACK_TEXT))
+    {
+        gSprites[spriteID].invisible = TRUE;
+    }
     spriteID = CreateSprite(&gSpriteTemplate_BoxBoradWindows, 64, 114, 0);
     SetSubspriteTables(&gSprites[spriteID], sHealthBar_SubspriteTables);
-
+    if (FlagGet(FLAG_SHOW_BLACK_TEXT))
+    {
+        gSprites[spriteID].invisible = TRUE;
+    }
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
     PutWindowTilemap(windowId);
     if (copyToVram == TRUE)
