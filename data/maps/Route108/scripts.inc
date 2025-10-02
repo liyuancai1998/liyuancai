@@ -33,6 +33,8 @@ EventScript_Note_TrainerCard::
 	removeobject 8
 	setflag FLAG_TrainerCard
 	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setflag FLAG_SYS_B_DASH
 	setvar  VAR_BAG, 1
 	release
 	end

@@ -204,10 +204,10 @@
     {
       "id": "LAYOUT_ROUTE105",
       "name": "Route105_Layout",
-      "width": 40,
-      "height": 80,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "width": 32,
+      "height": 18,
+      "primary_tileset": "gTileset_CAVE",
+      "secondary_tileset": "gTileset_CAVET1",
       "border_filepath": "data/layouts/Route105/border.bin",
       "blockdata_filepath": "data/layouts/Route105/map.bin"
     },

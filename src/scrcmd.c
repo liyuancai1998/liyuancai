@@ -2519,14 +2519,28 @@ static const struct WindowTemplate sWindowTemplates[] =
 #define PLAY_FADE           (3)
 #define PLAY_END            (4)
 
-static const u8 sCG1_Tiles[] = INCBIN_U8("graphics/cg/2.8bpp.lz");
-static const u8 sCG1_Pal[] = INCBIN_U8("graphics/cg/2.gbapal");
 static const u8 sDefaultCG_TileMap[] = INCBIN_U8("graphics/cg/raw.bin.lz");
+static const u8 sCG1_Tiles[] = INCBIN_U8("graphics/cg/1.8bpp.lz");
+static const u8 sCG1_Pal[] = INCBIN_U8("graphics/cg/1.gbapal");
+static const u8 sCG2_Tiles[] = INCBIN_U8("graphics/cg/2.8bpp.lz");
+static const u8 sCG2_Pal[] = INCBIN_U8("graphics/cg/2.gbapal");
+static const u8 sCG3_Tiles[] = INCBIN_U8("graphics/cg/3.8bpp.lz");
+static const u8 sCG3_Pal[] = INCBIN_U8("graphics/cg/3.gbapal");
+static const u8 sCG4_Tiles[] = INCBIN_U8("graphics/cg/4.8bpp.lz");
+static const u8 sCG4_Pal[] = INCBIN_U8("graphics/cg/4.gbapal");
+static const u8 sCGS1_Tiles[] = INCBIN_U8("graphics/cg/S1.8bpp.lz");
+static const u8 sCGS1_Pal[] = INCBIN_U8("graphics/cg/S1.gbapal");
+static const u8 sCGS2_Tiles[] = INCBIN_U8("graphics/cg/S2.8bpp.lz");
+static const u8 sCGS2_Pal[] = INCBIN_U8("graphics/cg/S2.gbapal");
+static const u8 sCGS3_Tiles[] = INCBIN_U8("graphics/cg/S3.8bpp.lz");
+static const u8 sCGS3_Pal[] = INCBIN_U8("graphics/cg/S3.gbapal");
+static const u8 sCGS4_Tiles[] = INCBIN_U8("graphics/cg/S4.8bpp.lz");
+static const u8 sCGS4_Pal[] = INCBIN_U8("graphics/cg/S4.gbapal");
 
 static const u8* sCGTable[][2] = 
 {
     [0] = {sCG1_Tiles, sCG1_Pal},
-    [1] = {sCG1_Tiles, sCG1_Pal},
+    [1] = {sCG2_Tiles, sCG2_Pal},
 };
 
 static const u8* sCGMessage[] = 
@@ -2544,8 +2558,6 @@ static const u8 sCGAnimList[][30] =
         PLAY_MESSAGE, 1,    // 播放对话
         PLAY_MESSAGE, 2,    // 播放对话
         WAIT_BUTTON, 0,     // 等待按钮
-        PLAY_FADE, 0,       // 隐藏cg
-        PLAY_MESSAGE, 0,    // 播放对话
         PLAY_CG, 1,         // 播放cg
         PLAY_MESSAGE, 2,    // 播放对话
         PLAY_MESSAGE, 2,    // 播放对话
@@ -2636,6 +2648,9 @@ static void Task_ChangeCG(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        LZ77UnCompVram((void*)sDefaultCG_TileMap, (void *)(BG_SCREEN_ADDR(29)));
+        LZ77UnCompVram((void*)sCGTable[gTasks[taskId].data[1]][0], (void *)(BG_CHAR_ADDR(0)));
+        LoadPalette((void*)sCGTable[gTasks[taskId].data[1]][1], BG_PLTT_ID(0), 15 * 32);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, 0);
         gTasks[taskId].func = Task_ReadCMD;
     }
@@ -2650,6 +2665,9 @@ static void Task_PlayMessage(u8 taskId)
     {
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_NONE);
         HideBg(0);
+        FillWindowPixelBuffer(0, PIXEL_FILL(0));
+        PutWindowTilemap(0);
+        CopyWindowToVram(0, COPYWIN_FULL);
         gTasks[taskId].func = Task_ReadCMD;
     }
 }
@@ -2681,24 +2699,13 @@ static void Task_ReadCMD(u8 taskId)
     {
         if (animID == PLAY_CG)
         {
-            ShowBg(2);
-            LZ77UnCompVram((void*)sDefaultCG_TileMap, (void *)(BG_SCREEN_ADDR(29)));
-            LZ77UnCompVram((void*)sCGTable[animParam][0], (void *)(BG_CHAR_ADDR(0)));
-            LoadPalette((void*)sCGTable[animParam][1], BG_PLTT_ID(0), 15 * 32);
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, 0);
+            gTasks[taskId].data[1] = animParam;
             gTasks[taskId].func = Task_ChangeCG;
         }
         else if (animID == WAIT_BUTTON)
         {
             gTasks[taskId].func = Task_WaitFadeAndButton;
-        }
-        else if (animID == PLAY_FADE)
-        {
-            HideBg(2);
-            FillWindowPixelBuffer(0, PIXEL_FILL(0));
-            PutWindowTilemap(0);
-            CopyWindowToVram(0, COPYWIN_FULL);
-            gTasks[taskId].func = Task_ChangeCG;
         }
         else
         {

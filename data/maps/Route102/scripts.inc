@@ -73,3 +73,4 @@ Wild_Battle01::
 
 Route102_MSG_4:
 	.string "有什么东西在靠近……$"
+

@@ -22,3 +22,4 @@ SlateportCity_Guanzhu_Event::
 
 SlateportCity_Guanzhu_MSG:
 	.string "灵魂记录:\n当初就不该告诉她\l十年前的那件事……$"
+

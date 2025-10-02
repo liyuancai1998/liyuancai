@@ -1,6 +1,6 @@
 	.include "MPlayDef.s"
 
-	.equ	mus_rustboro_grp, voicegroup000
+	.equ	mus_rustboro_grp, voicegroup191
 	.equ	mus_rustboro_pri, 0
 	.equ	mus_rustboro_rev, 0
 	.equ	mus_rustboro_mvl, 80

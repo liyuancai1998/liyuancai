@@ -85,3 +85,4 @@ OldaleTown_MSG_3:
 
 OldaleTown_MSG_4:
 	.string "有什么东西在靠近……$"
+

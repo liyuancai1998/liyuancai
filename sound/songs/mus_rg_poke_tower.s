@@ -1,6 +1,6 @@
 	.include "MPlayDef.s"
 
-	.equ	mus_rg_poke_tower_grp, voicegroup165
+	.equ	mus_rg_poke_tower_grp, voicegroup191
 	.equ	mus_rg_poke_tower_pri, 0
 	.equ	mus_rg_poke_tower_rev, 0
 	.equ	mus_rg_poke_tower_mvl, 80
