@@ -1,12 +1,55 @@
-.set LOCALID_MOM, 1
-.set LOCALID_RIVAL_MOM, 4
-.set LOCALID_RIVAL, 7
-
 LittlerootTown_BrendansHouse_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, LittlerootTown_BrendansHouse_1F_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_1F_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_BrendansHouse_1F_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_1F_1
 	.byte 0
+
+LittlerootTown_BrendansHouse_1F_1:
+	call_if_set FLAG_UNUSED_0x0E9,LittlerootTown_BrendansHouse_1F_2
+	setflag FLAG_UNUSED_0x1AA
+	end
+
+LittlerootTown_BrendansHouse_1F_2:
+	call_if_set FLAG_UNUSED_0x1AB, LittlerootTown_BrendansHouse_1F_3
+	clearflag FLAG_UNUSED_0x1AA
+	end
+
+LittlerootTown_BrendansHouse_1F_3:
+	setflag FLAG_UNUSED_0x1AA
+	end
+
+LittlerootTown_BrendansHouse_1F_4::
+	namebox LuoMan_MSG
+	shownpc 5, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_1F_MSG_6 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, PlayersHouse_1F_MSG_7
+	closeblacktext
+	setvar 0x8004, 9
+	special ShowCG
+	waitstate
+	removeobject 1
+	namebox Route108_LuoXi
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_1F_MSG_8 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	setflag FLAG_UNUSED_0x1AA
+	setflag FLAG_UNUSED_0x1AB
+	end
+
+PlayersHouse_1F_MSG_6:
+	.string "改好了……名单改好了！\n洛汐，你看到了吗？\l妈妈不用死了……\l妈妈可以活下去了！$"
+
+PlayersHouse_1F_MSG_7:
+	.string "你那是什么眼神？\n别用那种眼神看着我！\l不许那样看我！\p……………………\n是名单搞错了，\l一开始就错了,本来就不该是我,\l我只是……只是把它纠正过来而已。\p………………\n洛汐……妈妈做这一切，\l都是为了能留在你身边啊……\l你明白的，对不对？\p都是为了你！\n都是因为你我才不得不这么做！\l是你的错！不是我的错！$"
+
+PlayersHouse_1F_MSG_8:
+	.string "都是我不想回忆起来的事情……$"
 
 LittlerootTown_BrendansHouse_1F_OnLoad:
 	call_if_lt VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_BrendansHouse_1F_EventScript_SetMovingBoxes
@@ -373,3 +416,102 @@ PlayersHouse_1F_Text_WhatColorDidTheySay:
 
 PlayersHouse_1F_Text_StillUnknownPokemon:
     .string "妈妈：呵呵，真有趣！\n竟然还有未知的宝可梦。$"
+
+PlayersHouse_1F_Tigger::
+	call_if_set FLAG_UNUSED_0x032, PlayersHouse_1F_Script_1
+	setvar VAR_ROUTE115_STATE, 1
+	end
+
+PlayersHouse_1F_Script_1:
+	delay 30
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER PlayersHouse_1F_Move_3
+	waitmovement OBJ_EVENT_ID_PLAYER
+	namebox Route108_LuoXi
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_1F_MSG_1 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidemonpic
+	hidenamebox
+	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Move_1
+	waitmovement OBJ_EVENT_ID_PLAYER
+	delay 60
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER RustboroCity_EventScript_01_Movement
+	waitmovement OBJ_EVENT_ID_PLAYER
+	fadescreen FADE_TO_BLACK
+	playbgm MUS_GSC_PEWTER, 0
+	setvar 0x8004, 4
+	special ShowCG
+	waitstate
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, PlayersHouse_1F_MSG_2
+	closeblacktext
+	fadescreen FADE_FROM_BLACK
+	namebox Route108_LuoXi
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_1F_MSG_3 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidemonpic
+	hidenamebox
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, PlayersHouse_1F_MSG_4
+	closeblacktext
+	fadescreen FADE_FROM_BLACK
+	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Move_2
+	waitmovement OBJ_EVENT_ID_PLAYER
+	delay 30
+	fadescreen FADE_TO_BLACK
+	playbgm MUS_ROUTE120, 0
+	setvar 0x8004, 5
+	special ShowCG
+	waitstate
+	delay 30
+	applymovement OBJ_EVENT_ID_PLAYER PlayersHouse_1F_Move_4
+	waitmovement OBJ_EVENT_ID_PLAYER
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, PlayersHouse_1F_MSG_5
+	closeblacktext
+	fadescreen FADE_FROM_BLACK
+	setflag FLAG_UNUSED_0x040
+	setvar VAR_ROUTE120_STATE, 0
+	setvar VAR_ROUTE115_STATE, 1
+	end
+
+PlayersHouse_1F_MSG_1:
+	.string "好像有哭声？$"
+
+PlayersHouse_1F_Move_1:
+	walk_left
+	step_end
+
+PlayersHouse_1F_MSG_2:
+	.string "我想起来了……\n我不是迷失的灵魂……\l我是早已死去的亡魂……\l那天，我一直在等……\l等你来救我……凯伊……$"
+
+PlayersHouse_1F_MSG_3:
+	.string "你明明连我的求救都忽视了……\n你以为后来所做的事情\l可以获得我的原谅吗？$"
+
+PlayersHouse_1F_MSG_4:
+	.string "是你答应过我，\n会从黑暗中将我拯救出来的……\l以前我担心被你知道，\l所以我会将身上的伤隐藏的很好……\l但是渐渐的我受不了了……\l当我知道我被选为祭品的时候，\l我知道我要解脱了，\l甚至我的死可以帮助更多人，\l我很高兴。\l但，我没能去到暗古神坛现场，\l因为……$"
+
+PlayersHouse_1F_Move_2:
+	walk_right
+	walk_right
+	face_down
+	step_end
+
+PlayersHouse_1F_Move_3:
+	emote_question_mark
+	step_end
+
+PlayersHouse_1F_Move_4:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+PlayersHouse_1F_MSG_5:
+	.string "洛汐……$"
+

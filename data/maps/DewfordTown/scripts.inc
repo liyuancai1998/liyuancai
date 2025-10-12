@@ -716,3 +716,15 @@ DewfordTown_Text_HearOfAnyTrendsComeShareWithMe:
 
 DewfordTown_Text_YeahDefinitionOfInRightNow:
     .string "没错，完全正确！\p现在“{STR_VAR_1}”\n就是流行！$"
+
+DewfordTown_Scritps::
+	checkflag FLAG_UNUSED_0x1DE
+	goto_if TRUE, DewfordTown_Scritps_2
+	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_EventScript_ShiTi_Movement
+	waitmovement OBJ_EVENT_ID_PLAYER
+	warpsilent MAP_DEWFORD_TOWN, 8, 0
+	end
+	
+DewfordTown_Scritps_2:
+	setvar VAR_ROUTE125_STATE, 1
+	end

@@ -6,10 +6,38 @@
 .set LOCALID_BALL_CHIKORITA, 6
 
 LittlerootTown_ProfessorBirchsLab_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_ProfessorBirchsLab_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_ProfessorBirchsLab_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_ProfessorBirchsLab_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_ProfessorBirchsLab_Scripts_1
 	.byte 0
+
+LittlerootTown_ProfessorBirchsLab_Scripts_1:
+	call_if_set FLAG_UNUSED_0x055, LittlerootTown_ProfessorBirchsLab_Scripts_2
+	setflag FLAG_UNUSED_0x068
+	end
+
+LittlerootTown_ProfessorBirchsLab_Scripts_2:
+	call_if_set FLAG_UNUSED_0x0E9, LittlerootTown_ProfessorBirchsLab_Scripts_3
+	clearflag FLAG_UNUSED_0x068
+	end
+
+LittlerootTown_ProfessorBirchsLab_Scripts_3:
+	setflag FLAG_UNUSED_0x068
+	end
+
+LittlerootTown_ProfessorBirchsLab_Scripts_4::
+	namebox xiaoxuan_MSG
+	shownpc 2, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox LittlerootTown_ProfessorBirchsLab_MSG_1, MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	removeobject 2
+	setflag FLAG_UNUSED_0x068
+	setflag FLAG_UNUSED_0x0E9
+	end
+
+LittlerootTown_ProfessorBirchsLab_MSG_1:
+	.string "凭什么被选中的是我，\n该死的是洛汐……\l我没有做错……\l没有做错……\p我把名字偷偷改成洛汐了，\n这下子我不仅报仇了，\l说不定凯伊也会重新考虑我……\l哈哈哈哈……$"
 
 	@ State descriptions for VAR_DEX_UPGRADE_JOHTO_STARTER_STATE
 	@ 1: Beat Elite Four, Dex upgrade ready
@@ -819,7 +847,9 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 XiaoXuan_01::
 	shownpc 2, 208, 127
 	shownpcpic2 4, 208, 127, 0
+	namebox xiaoxuan_MSG
 	msgbox LittlerootTown_XiaoXuan_1 MSGBOX_DEFAULT
+	hidenamebox
 	closemessage
 	hidenpc2
 	hidemonpic
@@ -829,4 +859,7 @@ XiaoXuan_01::
 
 LittlerootTown_XiaoXuan_1:
 	.string "灵魂记录:\n不要怪我……\l不要怪我……\l不要怪我……\l不要怪我……$"
+
+xiaoxuan_MSG:
+	.string "晓暄$"
 

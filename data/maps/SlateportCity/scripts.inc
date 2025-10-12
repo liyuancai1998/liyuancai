@@ -15,11 +15,15 @@ True_Tile:
 ChunYu_MapEventScript_KaiYi::
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
 	msgbox ChunYu_MSG_1 MSGBOX_DEFAULT
+	hidenamebox
 	applymovement 1 MapEventScript_KaiYi_IntoPC
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER MapEventScript_KaiYi
+	namebox Route108_LuoXi
 	msgbox ChunYu_MSG_2 MSGBOX_DEFAULT
+	hidenamebox
 	waitmovement OBJ_EVENT_ID_PLAYER
 	waitmovement 1
 	closemessage
@@ -86,7 +90,9 @@ ChunYu_GuanZhu_1::
 	delay 60
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
 	msgbox ChunYu_MSG_4 MSGBOX_DEFAULT
+	hidenamebox
 	hidenpc2
 	hidemonpic
 	fadescreen FADE_TO_BLACK
@@ -102,7 +108,9 @@ ChunYu_GuanZhu_1::
 	playse SE_PIN
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
 	msgbox ChunYu_MSG_6 MSGBOX_DEFAULT
+	hidenamebox
 	hidenpc2
 	hidemonpic
 	closemessage
@@ -145,5 +153,5 @@ ChunYu_NPC_1::
 	end
 
 ChunYu_MSG_7:
-	.string "祭典好像要开始了，\n妈妈不让我天黑后还在外面。$"
+	.string "祭祀好像要开始了，\n妈妈不让我天黑后还在外面。$"
 

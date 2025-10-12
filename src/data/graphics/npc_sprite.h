@@ -7,11 +7,14 @@ const u32 gNpcPal_KaiYi[] = INCBIN_U32("graphics/character_heads/Kaiyi.gbapal.lz
 const u32 gNpcPic_Xiaoxuan[] = INCBIN_U32("graphics/character_heads/Xiaoxuan.4bpp.lz");
 const u32 gNpcPal_Xiaoxuan[] = INCBIN_U32("graphics/character_heads/Xiaoxuan.gbapal.lz");
 
-const u32 gNpcPic_Kaiyi_Black[] = INCBIN_U32("graphics/character_heads/Kaiyi_Black.4bpp.lz");
-const u32 gNpcPal_Kaiyi_Black[] = INCBIN_U32("graphics/character_heads/Kaiyi_Black.gbapal.lz");
+const u32 gNpcPic_Yanxing[] = INCBIN_U32("graphics/character_heads/Yanxing.4bpp.lz");
+const u32 gNpcPal_Yanxing[] = INCBIN_U32("graphics/character_heads/Yanxing.gbapal.lz");
 
 const u32 gNpcPic_frame[] = INCBIN_U32("graphics/character_heads/frame.4bpp.lz");
 const u32 gNpcPal_frame[] = INCBIN_U32("graphics/character_heads/frame.gbapal.lz");
+
+const u32 gNpcPic_Mom[] = INCBIN_U32("graphics/character_heads/Mom.4bpp.lz");
+const u32 gNpcPal_Mom[] = INCBIN_U32("graphics/character_heads/Mom.gbapal.lz");
 
 #define NPC_PICTURE_SIZE (64 * 64 / 2)
 
@@ -36,11 +39,15 @@ const struct NPCSpriteData gNPCSpriteTable[] =
         .palette = gNpcPal_Xiaoxuan
     },
     {
-        .frontPic = {gNpcPic_Kaiyi_Black, NPC_PICTURE_SIZE, 3},
-        .palette = gNpcPal_Kaiyi_Black
+        .frontPic = {gNpcPic_Yanxing, NPC_PICTURE_SIZE, 3},
+        .palette = gNpcPal_Yanxing
     },
     {
         .frontPic = {gNpcPic_frame, NPC_PICTURE_SIZE, 4},
         .palette = gNpcPal_frame
+    },
+    {
+        .frontPic = {gNpcPic_Mom, NPC_PICTURE_SIZE, 5},
+        .palette = gNpcPal_Mom
     }
 };

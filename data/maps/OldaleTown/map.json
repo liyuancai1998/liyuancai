@@ -60,10 +60,29 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_UNUSED_0x02F"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 6,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_UNUSED_0x049"
     }
   ],
   "warp_events": [
-
+    {
+      "x": 29,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE106",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
     {
@@ -101,6 +120,15 @@
       "var": "VAR_ROUTE106_STATE",
       "var_value": "0",
       "script": "OldaleTown_EventScript_NPC_2"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_ROUTE123_STATE",
+      "var_value": "0",
+      "script": "OldaleTown_Scripts_4"
     }
   ],
   "bg_events": [

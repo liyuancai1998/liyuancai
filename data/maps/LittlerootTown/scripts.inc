@@ -27,7 +27,9 @@ LittlerootTown_Text_CanUsePCToStoreItems:
 
 LittlerootTown_Guanzhu_Event::
 	shownpcpic2 4, 208, 127, 0
+	namebox Note_MSG
 	msgbox LittlerootTown_Guanzhu_Text, MSGBOX_DEFAULT
+	hidenamebox
 	closemessage
 	hidenpc2
 	removeobject 2
@@ -36,7 +38,7 @@ LittlerootTown_Guanzhu_Event::
 	end
 
 LittlerootTown_Guanzhu_Text:
-	.string "灵魂记录:\n晓暄的精神状态不太对劲，\l嘴里念叨着告诉我\l她把祭品的名字换掉了，\l如果我没猜错的话，\l她为了报仇居然做出了\l和当年一摸一样的事情，\l趁仪式还没开始，\l我要想想办法……$"
+	.string "晓暄的精神状态不太对劲，\n嘴里念叨着告诉我\l她把祭品的名字换掉了，\l如果我没猜错的话，\l她为了报仇居然做出了\l和当年一摸一样的事情，\l趁仪式还没开始，\l我要想想办法……$"
 
 LittlerootTown_NPC_1::
 	shownpcpic2 4, 208, 127, 0
@@ -53,7 +55,9 @@ LittlerootTown_NPCMSG_1:
 HealPlayerParty_Scripts::
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
 	msgbox Rest_MSG MSGBOX_DEFAULT
+	hidenamebox
 	closemessage
 	hidenpc2
 	hidemonpic

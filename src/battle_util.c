@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle.h"
+#include "config/battle.h"
 #include "battle_anim.h"
 #include "battle_arena.h"
 #include "battle_pyramid.h"
@@ -6192,10 +6193,13 @@ u32 IsAbilityPreventingEscape(u32 battler)
 
 bool32 CanBattlerEscape(u32 battler) // no ability check
 {
+    // 检查是否持有逃脱按键
     if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_SHED_SHELL)
         return TRUE;
+    // 检查是否是幽灵属性宝可梦且版本支持幽灵属性逃跑
     else if (B_GHOSTS_ESCAPE >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
         return TRUE;
+    // 检查是否被阻止逃跑（状态效果）
     else if (gBattleMons[battler].status2 & (STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED))
         return FALSE;
     else if (gStatuses3[battler] & STATUS3_ROOTED)
@@ -6203,6 +6207,9 @@ bool32 CanBattlerEscape(u32 battler) // no ability check
     else if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
         return FALSE;
     else if (gStatuses3[battler] & STATUS3_SKY_DROPPED)
+        return FALSE;
+    // 检查是否是野生对战且设置了禁止逃跑标志
+    else if (B_FLAG_NO_ESCAPE_WILD != 0 && FlagGet(B_FLAG_NO_ESCAPE_WILD) && !(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER)))
         return FALSE;
     else
         return TRUE;

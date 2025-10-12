@@ -60,12 +60,20 @@ RustboroCity_EventScript_01_Movement_2:
 RustboroCity_EventScript_ShiTi::
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
 	msgbox RustboroCity_MissonGuest_TEXT_ShiTi MSGBOX_DEFAULT
+	hidenamebox
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, RustboroCity_MissonGuest_TEXT_ShiTi_3
+	closeblacktext
+	fadescreen FADE_FROM_BLACK
 	removeobject 2
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER RustboroCity_EventScript_ShiTi_Movement
 	waitmovement OBJ_EVENT_ID_PLAYER
+	namebox Route108_LuoXi
 	msgbox RustboroCity_MissonGuest_TEXT_ShiTi_2 MSGBOX_DEFAULT
+	hidenamebox
 	closemessage
 	hidenpc2
 	hidemonpic
@@ -76,7 +84,10 @@ RustboroCity_MissonGuest_TEXT_ShiTi:
 	.string "这是人的骨头么……$"
 
 RustboroCity_MissonGuest_TEXT_ShiTi_2:
-	.string "诶？刚刚是我眼花么……$"
+	.string "诶？从我眼前消失了……\n刚刚听到的是谁的声音？$"
+
+RustboroCity_MissonGuest_TEXT_ShiTi_3:
+	.string "???:杀人灭口么……\n没想到你会这样……$"
 
 RustboroCity_EventScript_ShiTi_Movement:
 	emote_exclamation_mark

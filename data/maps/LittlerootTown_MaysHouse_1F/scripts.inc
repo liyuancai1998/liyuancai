@@ -343,3 +343,28 @@ RivalsHouse_1F_Text_BrendanWhoAreYou:
 
 RivalsHouse_1F_Text_DoYouHavePokemon:
     .string "嗨，邻居！\p你已经有自己的\n宝可梦了吗？$"
+
+LittlerootTown_MaysHouse_1F_1::
+	namebox Note_MSG_BIJI
+	shownpcpic2 4, 208, 127, 0
+	msgbox LittlerootTown_MaysHouse_MSG_1 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidenamebox
+	end
+
+LittlerootTown_MaysHouse_MSG_1:
+	.string "据说暗古神坛所镇压的\n是名为GHOST的东西，\l而它并不属于这个世界。$"
+
+LittlerootTown_MaysHouse_1F_2::
+	namebox Note_MSG
+	shownpcpic2 4, 208, 127, 0
+	msgbox LittlerootTown_MaysHouse_MSG_2 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidenamebox
+	removeobject 1
+	setflag FLAG_UNUSED_0x1E0
+	end
+
+LittlerootTown_MaysHouse_MSG_2:
+	.string "为镇压GHOST做出的牺牲，\n是一种荣耀……$"
+

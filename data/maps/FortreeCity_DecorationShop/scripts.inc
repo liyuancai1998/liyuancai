@@ -1,65 +1,40 @@
 FortreeCity_DecorationShop_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, FortreeCity_DecorationShop_Check
 	.byte 0
 
-FortreeCity_DecorationShop_EventScript_PokefanM::
-	msgbox FortreeCity_DecorationShop_Text_MerchandiseSentToPC, MSGBOX_NPC
+FortreeCity_DecorationShop_Check:
+	call_if_set FLAG_UNUSED_0x03D, FortreeCity_DecorationShop_Scripts_1
+	setflag FLAG_UNUSED_0x03E
 	end
 
-FortreeCity_DecorationShop_EventScript_Girl::
-	msgbox FortreeCity_DecorationShop_Text_BuyingDeskForDolls, MSGBOX_NPC
+FortreeCity_DecorationShop_Scripts_1:
+	clearflag FLAG_UNUSED_0x03E
+	call_if_set FLAG_UNUSED_0x03F, FortreeCity_DecorationShop_Scripts_2
 	end
 
-FortreeCity_DecorationShop_EventScript_ClerkDesks::
-	lock
-	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
-	pokemartdecoration FortreeCity_DecorationShop_PokemartDecor_Desks
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
+FortreeCity_DecorationShop_Scripts_2:
+	setflag FLAG_UNUSED_0x03E
 	end
 
-	.align 2
-FortreeCity_DecorationShop_PokemartDecor_Desks:
-	.2byte DECOR_SMALL_DESK
-	.2byte DECOR_POKEMON_DESK
-	.2byte DECOR_HEAVY_DESK
-	.2byte DECOR_RAGGED_DESK
-	.2byte DECOR_COMFORT_DESK
-	.2byte DECOR_BRICK_DESK
-	.2byte DECOR_CAMP_DESK
-	.2byte DECOR_HARD_DESK
-	.2byte DECOR_NONE
-	release
+FortreeCity_DecorationShop_Scripts_3::
+	namebox Kaiyi_MSG
+	shownpc 1, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox FortreeCity_DecorationShop_MSG_1 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	removeobject 1
+	setflag FLAG_UNUSED_0x03E
+	setflag FLAG_UNUSED_0x03F
+	shownpcpic2 4, 208, 127, 0
+	msgbox FortreeCity_DecorationShop_MSG_2 MSGBOX_AUTOCLOSE
+	hidenpc2
 	end
 
-FortreeCity_DecorationShop_EventScript_ClerkChairs::
-	lock
-	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
-	pokemartdecoration FortreeCity_DecorationShop_PokemartDecor_Chairs
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
+FortreeCity_DecorationShop_MSG_1:
+	.string "可恶，是我被选上了，\n我该怎么办，洛汐……$"
 
-	.align 2
-FortreeCity_DecorationShop_PokemartDecor_Chairs:
-	.2byte DECOR_SMALL_CHAIR
-	.2byte DECOR_POKEMON_CHAIR
-	.2byte DECOR_HEAVY_CHAIR
-	.2byte DECOR_RAGGED_CHAIR
-	.2byte DECOR_COMFORT_CHAIR
-	.2byte DECOR_BRICK_CHAIR
-	.2byte DECOR_CAMP_CHAIR
-	.2byte DECOR_HARD_CHAIR
-	.2byte DECOR_NONE
-	release
-	end
-
-FortreeCity_DecorationShop_Text_MerchandiseSentToPC:
-    .string "在这儿买的商品\n都会送到自己的电脑里，\p太奇妙了！如果也能让他们\n把我那样送回家就好了。$"
-
-FortreeCity_DecorationShop_Text_BuyingDeskForDolls:
-    .string "我要买张漂亮的桌子\n放我可爱的玩偶，\p否则我装扮我的\n秘密基地的时候我的玩偶\l会弄脏，还可能被戳坏。$"
+FortreeCity_DecorationShop_MSG_2:
+	.string "在他消失的地方有一把钥匙\n或许能开某个门的锁……$"
 

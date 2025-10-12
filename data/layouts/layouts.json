@@ -214,10 +214,10 @@
     {
       "id": "LAYOUT_ROUTE106",
       "name": "Route106_Layout",
-      "width": 80,
+      "width": 35,
       "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "primary_tileset": "gTileset_CAVE",
+      "secondary_tileset": "gTileset_CAVET1",
       "border_filepath": "data/layouts/Route106/border.bin",
       "blockdata_filepath": "data/layouts/Route106/map.bin"
     },
@@ -554,20 +554,20 @@
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
       "name": "LittlerootTown_MaysHouse_1F_Layout",
-      "width": 11,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "width": 29,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/LittlerootTown_MaysHouse_1F/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_MaysHouse_1F/map.bin"
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
       "name": "LittlerootTown_MaysHouse_2F_Layout",
-      "width": 9,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "width": 29,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/LittlerootTown_MaysHouse_2F/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_MaysHouse_2F/map.bin"
     },
@@ -624,10 +624,10 @@
     {
       "id": "LAYOUT_MART",
       "name": "Mart_Layout",
-      "width": 11,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "width": 29,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/Mart/border.bin",
       "blockdata_filepath": "data/layouts/Mart/map.bin"
     },
@@ -704,9 +704,9 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "name": "LavaridgeTown_PokemonCenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 16,
+      "height": 11,
+      "primary_tileset": "gTileset_pokecenter",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/LavaridgeTown_PokemonCenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_PokemonCenter_1F/map.bin"
@@ -734,10 +734,10 @@
     {
       "id": "LAYOUT_LILYCOVE_CITY_HOUSE2",
       "name": "LilycoveCity_House2_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "width": 29,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/LilycoveCity_House2/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveCity_House2/map.bin"
     },
@@ -2544,10 +2544,10 @@
     {
       "id": "LAYOUT_FORTREE_CITY_DECORATION_SHOP",
       "name": "FortreeCity_DecorationShop_Layout",
-      "width": 8,
-      "height": 6,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "width": 9,
+      "height": 9,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/FortreeCity_DecorationShop/border.bin",
       "blockdata_filepath": "data/layouts/FortreeCity_DecorationShop/map.bin"
     },
@@ -2984,10 +2984,10 @@
     {
       "id": "LAYOUT_LILYCOVE_CITY_COVE_LILY_MOTEL_1F",
       "name": "LilycoveCity_CoveLilyMotel_1F_Layout",
-      "width": 12,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "width": 29,
+      "height": 10,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/LilycoveCity_CoveLilyMotel_1F/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveCity_CoveLilyMotel_1F/map.bin"
     },

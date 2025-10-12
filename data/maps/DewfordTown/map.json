@@ -65,7 +65,24 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_ROUTE125_STATE",
+      "var_value": "0",
+      "script": "DewfordTown_Scritps"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_ROUTE125_STATE",
+      "var_value": "0",
+      "script": "DewfordTown_Scritps"
+    }
   ],
   "bg_events": [
 

@@ -11808,8 +11808,19 @@ static const struct TrainerMon sParty_MayLinkPlaceholder[] = {
 static const struct TrainerMon sParty_Yinlang[] = {
     {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .lvl = 10,
+    .lvl = 20,
     .species = SPECIES_MIGHTYENA,
+    .heldItem = ITEM_LIFE_ORB,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_SHADOW_SNEAK, MOVE_CRUNCH, MOVE_FIRE_FANG}
+    }
+};
+
+static const struct TrainerMon sParty_Nurse[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_CHANSEY,
     .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_MINIMIZE, MOVE_SOFT_BOILED, MOVE_TOXIC, MOVE_SEISMIC_TOSS}
     }
 };

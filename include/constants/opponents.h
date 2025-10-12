@@ -856,7 +856,7 @@
 #define TRAINER_EVERETT                     850
 #define TRAINER_RED                         851
 #define TRAINER_LEAF                        852
-#define TRAINER_BRENDAN_PLACEHOLDER         853
+#define TRAINER_NURSE         853
 #define TRAINER_YINLANG             854
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows

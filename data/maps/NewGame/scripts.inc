@@ -16,8 +16,9 @@ FuckThisTrigger_CG:
 	delay 60
 	blacktext 0xe0, 50, blackscreentext
 	closeblacktext
-	givemon SPECIES_PIKACHU, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_SURF, 0, 0, 0, TRUE
+	givemon SPECIES_PIKACHU, 20, ITEM_LIGHT_BALL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_SURF, MOVE_THUNDERBOLT, MOVE_THUNDER, MOVE_VOLT_SWITCH, FALSE
 	delay 60
+	setflag B_FLAG_NO_ESCAPE_WILD
 	PlaySE(SE_M_DIVE)
 	warpsilent MAP_ROUTE108, 14, 9	
 	end

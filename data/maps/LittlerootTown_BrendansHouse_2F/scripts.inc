@@ -1,9 +1,96 @@
 .set LOCALID_RIVAL, 1
 
 LittlerootTown_BrendansHouse_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_2F_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_BrendansHouse_2F_OnWarp
+	map_script MAP_SCRIPT_ON_TRANSITION, PlayersHouse_2F_Scripts_X
 	.byte 0
+
+PlayersHouse_2F_Scripts_X:
+	call PlayersHouse_2F_Scripts_4
+	call PlayersHouse_2F_Scripts_9
+	end
+
+PlayersHouse_2F_Scripts_4:
+	checkflag FLAG_UNUSED_0x040
+	goto_if TRUE, PlayersHouse_2F_Scripts_5
+	setflag FLAG_UNUSED_0x043
+	return
+
+PlayersHouse_2F_Scripts_5:
+	checkflag FLAG_UNUSED_0x044
+	goto_if TRUE, PlayersHouse_2F_Scripts_6
+	clearflag FLAG_UNUSED_0x043
+	return
+
+PlayersHouse_2F_Scripts_6:
+	setflag FLAG_UNUSED_0x043
+	return
+
+PlayersHouse_2F_Scripts_7::
+	namebox Route108_LuoXi
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_2F_MSG_2 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidemonpic
+	hidenamebox
+	fadescreen FADE_TO_BLACK
+	playbgm MUS_GSC_PEWTER, 0
+	setvar 0x8004, 6
+	special ShowCG
+	waitstate
+	namebox Route108_LuoXi
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_2F_MSG_3 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidemonpic
+	hidenamebox
+	setflag FLAG_UNUSED_0x043
+	setflag FLAG_UNUSED_0x044
+	removeobject 1
+	end
+
+PlayersHouse_2F_MSG_2:
+	.string "……妈妈$"
+
+PlayersHouse_2F_MSG_3:
+	.string "我看到的是妈妈的回忆……\n那到底是什么意思……$"
+
+
+PlayersHouse_2F_Scripts_9:
+	checkflag FLAG_UNUSED_0x046
+	goto_if TRUE, PlayersHouse_2F_Scripts_10
+	setflag FLAG_UNUSED_0x047
+	return
+
+PlayersHouse_2F_Scripts_10:
+	checkflag FLAG_UNUSED_0x048
+	goto_if TRUE, PlayersHouse_2F_Scripts_11
+	clearflag FLAG_UNUSED_0x047
+	return
+
+PlayersHouse_2F_Scripts_11:
+	setflag FLAG_UNUSED_0x047
+	return
+
+PlayersHouse_2F_Scripts_12::
+	delay 60
+	fadescreen FADE_TO_BLACK
+	setvar 0x8004, 7
+	special ShowCG
+	waitstate
+	delay 60
+	removeobject 2
+	setflag FLAG_UNUSED_0x047
+	setflag FLAG_UNUSED_0x048
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, PlayersHouse_2F_MSG_4
+	closeblacktext
+	fadescreen FADE_FROM_BLACK
+	end
+
+PlayersHouse_2F_MSG_4:
+	.string "这是我当初写的信……\n凯伊……\p其实，如果那天我们\n按照信上所说的见面的话，\l我会跟你说，我们一起私奔吧……\l如此一来，也不会再有\l暗古神坛祭祀这种事情了……$"
 
 LittlerootTown_BrendansHouse_2F_OnTransition:
 	call_if_lt VAR_LITTLEROOT_RIVAL_STATE, 2, LittlerootTown_BrendansHouse_2F_EventScript_CheckSetReadyToMeetBrendan
@@ -286,3 +373,43 @@ Common_Text_LookCloserAtMap:
 
 PlayersHouse_2F_Text_ItsAGameCube:
     .string "这是NGC，\p上面连着个GBA\n当做手柄。$"
+
+PlayersHouse_2F_Scripts_1::
+	call_if_set FLAG_UNUSED_0x040, PlayersHouse_2F_Scripts_2
+	namebox Note_MSG_BIJI
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_2F_Note MSGBOX_AUTOCLOSE
+	setflag FLAG_UNUSED_0x032
+	hidenpc2
+	hidenamebox
+	setvar VAR_ROUTE115_STATE, 0
+	end
+
+PlayersHouse_2F_Note:
+	.string "洛汐:你明明连我的求救都忽视了……$"
+
+PlayersHouse_2F_Scripts_2:
+	namebox Note_MSG_BIJI
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_2F_Note MSGBOX_AUTOCLOSE
+	setflag FLAG_UNUSED_0x032
+	hidenpc2
+	hidenamebox
+	end
+
+PlayersHouse_2F_Scripts_3::
+	delay 30
+	applymovement OBJ_EVENT_ID_PLAYER SootopolisCity_Player_Movement
+	waitmovement OBJ_EVENT_ID_PLAYER
+	namebox Route108_LuoXi
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox PlayersHouse_2F_MSG_1 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidemonpic
+	hidenamebox
+	setvar VAR_ROUTE117_STATE, 1
+	end
+
+PlayersHouse_2F_MSG_1:
+	.string "这是我的房间……$"

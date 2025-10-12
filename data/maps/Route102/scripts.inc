@@ -15,8 +15,9 @@ Route102_Tig::
 	applymovement OBJ_EVENT_ID_PLAYER Route102_Tig_1
 	waitmovement OBJ_EVENT_ID_PLAYER
 	shownpcpic2 4, 208, 127, 0
-	msgbox Route102_MSG_1 MSGBOX_DEFAULT
-	closemessage
+	namebox Wenhao
+	msgbox Route102_MSG_1 MSGBOX_AUTOCLOSE
+	hidenamebox
 	hidenpc2
 	playmoncry 92, CRY_MODE_NORMAL
 	waitmoncry
@@ -25,12 +26,15 @@ Route102_Tig::
 	applymovement OBJ_EVENT_ID_PLAYER MapEventScript102_1
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
-	msgbox Route102_MSG_2 MSGBOX_DEFAULT
+	namebox Route108_LuoXi
+	msgbox Route102_MSG_2 MSGBOX_AUTOCLOSE
+	hidenamebox
 	setflag FLAG_102ROUTE_NPC
 	removeobject 1
 	delay 60
-	msgbox Route102_MSG_3 MSGBOX_DEFAULT
-	closemessage
+	namebox Route108_LuoXi
+	msgbox Route102_MSG_3 MSGBOX_AUTOCLOSE
+	hidenamebox
 	hidenpc2
 	hidemonpic
 	setvar VAR_ROUTE102_STATE, 1
@@ -54,13 +58,15 @@ Route102_Tig_1:
 	step_end
 
 Wild_Battle01::
-	setwildbattle 92, 5, 0
+	setwildbattle 92, 10, 0
 	playmoncry 92, CRY_MODE_NORMAL
 	delay 28
 	waitmoncry
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
 	msgbox Route102_MSG_4 MSGBOX_DEFAULT
+	hidenamebox
 	hidenpc2
 	hidemonpic
 	closemessage
@@ -73,4 +79,17 @@ Wild_Battle01::
 
 Route102_MSG_4:
 	.string "有什么东西在靠近……$"
+
+Route102_Scripts_1::
+	namebox Note_MSG
+	shownpcpic2 4, 208, 127, 0
+	msgbox Route102_MSG_5 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidenamebox
+	setflag FLAG_UNUSED_0x1DA
+	removeobject 2
+	end
+
+Route102_MSG_5:
+	.string "暗古神坛的祭品，\n需要一男一女两人才能正常执行。$"
 

@@ -78,9 +78,9 @@ static const struct WindowTemplate sNamebox_WindowTemplate =
     .tilemapLeft = 1, 
     .tilemapTop = 12,
     .width = 6, 
-    .height = 2,                //required to be at least two
+    .height = 3,                //required to be at least two
     .paletteNum = 15,
-    .baseBlock = 0x188          //placed before the msgbox tiles
+    .baseBlock = 0x180          //placed before the msgbox tiles
 };
 
 
@@ -159,8 +159,8 @@ static void AddTextPrinterForName() {
     printer.currentChar = gStringVar3;
     printer.windowId = sNameboxWindowId;
     printer.fontId = 1;
-    printer.x = 5; 
-    printer.y = 0;
+    printer.x = 13; 
+    printer.y = 8;
     printer.currentX = printer.x;
     printer.currentY = printer.y;
     printer.fgColor = GetFontAttribute(1, FONTATTR_COLOR_FOREGROUND);

@@ -336,3 +336,17 @@ RivalsHouse_2F_Text_BrendanJustCheckingMyPokedex:
 
 RivalsHouse_2F_Text_BrendanWhereShouldIGoNext:
     .string "佑树：我正在头疼下面\n要去哪儿捉宝可梦。\p喂，{PLAYER}，我如果能在找\n宝可梦时碰见你，\l可以和你来场小小的战斗。$"
+
+LittlerootTown_MaysHouse_2F_Scripts_1::
+	namebox Note_MSG
+	shownpcpic2 4, 208, 127, 0
+	msgbox LittlerootTown_MaysHouse_2F_MSG_1, MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidenamebox
+	removeobject 1
+	setflag FLAG_UNUSED_0x1DF
+	end
+
+LittlerootTown_MaysHouse_2F_MSG_1:
+	.string "为什么一定要一男一女呢……\n不管怎么样，\l千万别选中我……$"
+

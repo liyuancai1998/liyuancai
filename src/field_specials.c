@@ -4255,8 +4255,15 @@ void TrySkyBattle(void)
 
     if (B_VAR_SKY_BATTLE == 0 || B_FLAG_SKY_BATTLE == 0)
     {
-        LockPlayerFieldControls();
-        ScriptContext_SetupScript(Debug_FlagsAndVarNotSetBattleConfigMessage);
+        #ifdef DEBUG_OVERWORLD_MENU
+        if (DEBUG_OVERWORLD_MENU == TRUE)
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(Debug_FlagsAndVarNotSetBattleConfigMessage);
+            return;
+        }
+        #endif
+        gSpecialVar_Result = FALSE;
         return;
     }
     for (i = 0; i < CalculatePlayerPartyCount(); i++)

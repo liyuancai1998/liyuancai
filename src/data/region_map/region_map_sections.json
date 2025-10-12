@@ -18,7 +18,7 @@
     },
     {
       "map_section": "MAPSEC_DEWFORD_TOWN",
-      "name": "武斗镇",
+      "name": "落霞镇",
       "x": 2,
       "y": 14,
       "width": 1,
@@ -34,7 +34,7 @@
     },
     {
       "map_section": "MAPSEC_FALLARBOR_TOWN",
-      "name": "秋叶镇",
+      "name": "秘密基地",
       "x": 3,
       "y": 0,
       "width": 1,

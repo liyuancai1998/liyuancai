@@ -8,18 +8,25 @@ SlateportCity_OnEnter_Guanzhu:
 	end
 
 SlateportCity_Guanzhu_Trigger:
+	call_if_set FLAG_UNUSED_0x1DE, SlateportCity_Guanzhu_Trigger_2
 	clearflag FLAG_UNUSED_0x02D
 	end
 
-SlateportCity_Guanzhu_Event::
-	shownpcpic2 4, 208, 127, 0
-	msgbox SlateportCity_Guanzhu_MSG MSGBOX_DEFAULT
-	closemessage
-	hidenpc2
+SlateportCity_Guanzhu_Trigger_2:
 	setflag FLAG_UNUSED_0x02D
+	end
+
+SlateportCity_Guanzhu_Event::
+	namebox Note_MSG
+	shownpcpic2 4, 208, 127, 0
+	msgbox SlateportCity_Guanzhu_MSG MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidenamebox
+	setflag FLAG_UNUSED_0x02D
+	setflag FLAG_UNUSED_0x1DE
 	removeobject 1
 	end
 
 SlateportCity_Guanzhu_MSG:
-	.string "灵魂记录:\n当初就不该告诉她\l十年前的那件事……$"
+	.string "当初就不该告诉她\l十年前的那件事……$"
 

@@ -29,10 +29,13 @@ EventScript_Note_TrainerCard::
 	shownpcpic2 4, 208, 127, 0
 	namebox Route108_LuoXi
 	msgbox Text_TrainerBag MSGBOX_DEFAULT
+	hidenamebox
 	fadescreen FADE_TO_BLACK
 	msgbox Text_TrainerCard MSGBOX_DEFAULT
 	fadescreen FADE_FROM_BLACK
+	namebox Route108_LuoXi
 	msgbox Text_TrainerResult MSGBOX_DEFAULT
+	hidenamebox
 	hidenpc2
 	hidemonpic
 	hidenamebox
@@ -46,11 +49,11 @@ EventScript_Note_TrainerCard::
 	end
 
 Route108_Text_FADE_TO_BLACK:
-	.string "头好痛……\n……喉咙里……\l有一股血腥味……$"
+	.string "这是哪儿，一转眼就……\n嘶！头好痛，\l……喉咙里……有一股血腥味……$"
 
 
 Text_TrainerBag:
-	.string "这是什么？上面有干涸的暗红色\n痕迹……$"
+	.string "这是什么？\n上面有暗红色的痕迹……$"
 
 Text_TrainerCard:
 	.string "(找到了一张带有名字的卡片)$"

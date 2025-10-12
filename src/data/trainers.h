@@ -10246,24 +10246,24 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Leaf),
     },
 
-    [TRAINER_BRENDAN_PLACEHOLDER] =
+    [TRAINER_NURSE] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_RS_BRENDAN,
-        .trainerName = _("佑树"),
-        .items = {},
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = F_TRAINER_FEMALE,
+        .trainerPic = TRAINER_PIC_CYCLING_TRIATHLETE_F,
+        .trainerName = _("？？？"),
+        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .party = TRAINER_PARTY(sParty_BrendanLinkPlaceholder),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_RISKY,
+        .party = TRAINER_PARTY(sParty_Nurse),
     },
 
     [TRAINER_YINLANG] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
-        .trainerName = _("银狼"),
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F,
+        .trainerName = _("？？？"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_RISKY,

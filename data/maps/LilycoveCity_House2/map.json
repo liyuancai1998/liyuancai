@@ -5,14 +5,14 @@
   "music": "MUS_LILYCOVE",
   "region_map_section": "MAPSEC_LILYCOVE_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
@@ -30,20 +30,24 @@
   ],
   "warp_events": [
     {
-      "x": 2,
-      "y": 7,
+      "x": 4,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY",
       "dest_warp_id": "9"
     },
     {
-      "x": 3,
-      "y": 7,
+      "x": 9,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY",
       "dest_warp_id": "9"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

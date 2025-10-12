@@ -2540,8 +2540,50 @@ static const u8 sCGS3_Tiles[] = INCBIN_U8("graphics/cg/S3.8bpp.lz");
 static const u8 sCGS3_Pal[] = INCBIN_U8("graphics/cg/S3.gbapal");
 static const u8 sCGS4_Tiles[] = INCBIN_U8("graphics/cg/S4.8bpp.lz");
 static const u8 sCGS4_Pal[] = INCBIN_U8("graphics/cg/S4.gbapal");
+static const u8 sCGB1_Tiles[] = INCBIN_U8("graphics/cg/B1.8bpp.lz");
+static const u8 sCGB1_Pal[] = INCBIN_U8("graphics/cg/B1.gbapal");
+static const u8 sCGB2_Tiles[] = INCBIN_U8("graphics/cg/B2.8bpp.lz");
+static const u8 sCGB2_Pal[] = INCBIN_U8("graphics/cg/B2.gbapal");
+static const u8 sCGB3_Tiles[] = INCBIN_U8("graphics/cg/B3.8bpp.lz");
+static const u8 sCGB3_Pal[] = INCBIN_U8("graphics/cg/B3.gbapal");
+static const u8 sCGB4_Tiles[] = INCBIN_U8("graphics/cg/B4.8bpp.lz");
+static const u8 sCGB4_Pal[] = INCBIN_U8("graphics/cg/B4.gbapal");
+static const u8 sCGB5_Tiles[] = INCBIN_U8("graphics/cg/B5.8bpp.lz");
+static const u8 sCGB5_Pal[] = INCBIN_U8("graphics/cg/B5.gbapal");
+static const u8 sCGB6_Tiles[] = INCBIN_U8("graphics/cg/B6.8bpp.lz");
+static const u8 sCGB6_Pal[] = INCBIN_U8("graphics/cg/B6.gbapal");
+static const u8 sCGC1_Tiles[] = INCBIN_U8("graphics/cg/C1.8bpp.lz");
+static const u8 sCGC1_Pal[] = INCBIN_U8("graphics/cg/C1.gbapal");
+static const u8 sCGC2_Tiles[] = INCBIN_U8("graphics/cg/C2.8bpp.lz");
+static const u8 sCGC2_Pal[] = INCBIN_U8("graphics/cg/C2.gbapal");
+static const u8 sCGC3_Tiles[] = INCBIN_U8("graphics/cg/C3.8bpp.lz");
+static const u8 sCGC3_Pal[] = INCBIN_U8("graphics/cg/C3.gbapal");
+static const u8 sCGD1_Tiles[] = INCBIN_U8("graphics/cg/D1.8bpp.lz");
+static const u8 sCGD1_Pal[] = INCBIN_U8("graphics/cg/D1.gbapal");
+static const u8 sCGD2_Tiles[] = INCBIN_U8("graphics/cg/D2.8bpp.lz");
+static const u8 sCGD2_Pal[] = INCBIN_U8("graphics/cg/D2.gbapal");
+static const u8 sCGD3_Tiles[] = INCBIN_U8("graphics/cg/D3.8bpp.lz");
+static const u8 sCGD3_Pal[] = INCBIN_U8("graphics/cg/D3.gbapal");
+static const u8 sCGD4_Tiles[] = INCBIN_U8("graphics/cg/D4.8bpp.lz");
+static const u8 sCGD4_Pal[] = INCBIN_U8("graphics/cg/D4.gbapal");
+static const u8 sCGD5_Tiles[] = INCBIN_U8("graphics/cg/D5.8bpp.lz");
+static const u8 sCGD5_Pal[] = INCBIN_U8("graphics/cg/D5.gbapal");
+static const u8 sCGE1_Tiles[] = INCBIN_U8("graphics/cg/E1.8bpp.lz");
+static const u8 sCGE1_Pal[] = INCBIN_U8("graphics/cg/E1.gbapal");
+static const u8 sCGE2_Tiles[] = INCBIN_U8("graphics/cg/E2.8bpp.lz");
+static const u8 sCGE2_Pal[] = INCBIN_U8("graphics/cg/E2.gbapal");
+static const u8 sCGF1_Tiles[] = INCBIN_U8("graphics/cg/F1.8bpp.lz");
+static const u8 sCGF1_Pal[] = INCBIN_U8("graphics/cg/F1.gbapal");
+static const u8 sCGG1_Tiles[] = INCBIN_U8("graphics/cg/G1.8bpp.lz");
+static const u8 sCGG1_Pal[] = INCBIN_U8("graphics/cg/G1.gbapal");
+static const u8 sCGG2_Tiles[] = INCBIN_U8("graphics/cg/G2.8bpp.lz");
+static const u8 sCGG2_Pal[] = INCBIN_U8("graphics/cg/G2.gbapal");
+static const u8 sCGG3_Tiles[] = INCBIN_U8("graphics/cg/G3.8bpp.lz");
+static const u8 sCGG3_Pal[] = INCBIN_U8("graphics/cg/G3.gbapal");
+static const u8 sCGH1_Tiles[] = INCBIN_U8("graphics/cg/H1.8bpp.lz");
+static const u8 sCGH1_Pal[] = INCBIN_U8("graphics/cg/H1.gbapal");
 
-static const u8* sCGTable[][2] = 
+static const u8* sCGTable[][10] = 
 {
     [0] = {sCG1_Tiles, sCG1_Pal},
     [1] = {sCG2_Tiles, sCG2_Pal},
@@ -2553,13 +2595,34 @@ static const u8* sCGTable[][2] =
     [7] = {sCGS4_Tiles, sCGS4_Pal},
     [8] = {sCGA1_Tiles, sCGA1_Pal},
     [9] = {sCGA2_Tiles, sCGA2_Pal},
+    [10] = {sCGB1_Tiles, sCGB1_Pal},
+    [11] = {sCGB2_Tiles, sCGB2_Pal},
+    [12] = {sCGB3_Tiles, sCGB3_Pal},
+    [13] = {sCGB4_Tiles, sCGB4_Pal},
+    [14] = {sCGB5_Tiles, sCGB5_Pal},
+    [15] = {sCGB6_Tiles, sCGB6_Pal},
+    [16] = {sCGC1_Tiles, sCGC1_Pal},
+    [17] = {sCGC2_Tiles, sCGC2_Pal},
+    [18] = {sCGC3_Tiles, sCGC3_Pal},
+    [19] = {sCGD1_Tiles, sCGD1_Pal},
+    [20] = {sCGD2_Tiles, sCGD2_Pal},
+    [21] = {sCGD3_Tiles, sCGD3_Pal},
+    [22] = {sCGD4_Tiles, sCGD4_Pal},
+    [23] = {sCGD5_Tiles, sCGD5_Pal},
+    [24] = {sCGE1_Tiles, sCGE1_Pal},
+    [25] = {sCGE2_Tiles, sCGE2_Pal},
+    [26] = {sCGF1_Tiles, sCGF1_Pal},
+    [27] = {sCGG1_Tiles, sCGG1_Pal},
+    [28] = {sCGG2_Tiles, sCGG2_Pal},
+    [29] = {sCGG3_Tiles, sCGG3_Pal},
+    [30] = {sCGH1_Tiles, sCGH1_Pal},
 };
 
 static const u8* sCGMessage[] = 
 {
     [0] = COMPOUND_STRING("?:如果时间能永远\n停留在这个时刻就好了。\p洛汐:是啊。"),
-    [1] = COMPOUND_STRING("洛汐:快看那颗星星，\n你知道启明星吗？\p?:当然知道啊。"),
-    [2] = COMPOUND_STRING("洛汐:在未来的某一天\n如果我遇到危机，\l你会将我从黑暗中拯救出来\l走向光明吗?\p?:当然会啊。\n你也要当我的启明星公主，\l如果我哪天踏入黑暗，\l你也要来拯救我。"),
+    [1] = COMPOUND_STRING("洛汐:你知道启明星吗？\n就是在太阳升起前，\l最后那颗最亮的星星。\p?:当然知道啊。"),
+    [2] = COMPOUND_STRING("洛汐:那……在未来的某一天，\n如果我遇到危机，\l你会像启明星一样，\l将我从黑暗中拯救出来吗？”\p?:嗯，当然会啦。\n你也要当我的启明星公主，\l如果我哪天不小心踏入了黑暗，\l你也要来拯救我哦。"),
     [3] = COMPOUND_STRING("洛汐:那说好了，不许反悔。\p?:嗯，当然。"),
     [4] = COMPOUND_STRING("洛汐:这是哪儿？\n我的名字……\l什么都想不起来……"),
     [5] = COMPOUND_STRING("洛汐:前面是什么地方……"),
@@ -2567,9 +2630,30 @@ static const u8* sCGMessage[] =
     [7] = COMPOUND_STRING("琰星:明明就是个废物……"),
     [8] = COMPOUND_STRING("凯伊:!!!!!!!!!!!!"),
     [9] = COMPOUND_STRING("………………………………"),
+    [10] = COMPOUND_STRING("琰星:什么意思？(他拿出来他的手机，\n打开了一个视频放在了我的眼前。)\l怎么样？心动了没有？\l我今天约好她晚上来我家玩了，\l她一定会来的，你也过来吧，\l我可以让你玩几回哦，\l只要你对我的事情保密的话……\l哎呀，你刚刚仅仅是\l想象了一下就一定那个了吧？\l如果她不愿意的话，来硬的也……"),
+    [11] = COMPOUND_STRING("凯伊:你这个混蛋！\n你竟然敢对洛汐做这种事！\l你简直是个禽兽！\l我一定要让你付出代价！"),
+    [12] = COMPOUND_STRING("琰星:喂……你出够气了吧……\n你知道吗？如果你泄露出去……\l倒霉的可是洛汐啊，\l你不怕我手里的东西泄露出去吗？"),
+    [13] = COMPOUND_STRING("琰星:(站起身来，\n从凯伊的口袋里拿出手机)\l哈哈哈哈！！\l而且，你做的这些事情\l可是小偷才会做的啊！\l你居然偷我的手机，还查看我的隐私。\l我知道你喜欢洛汐，\l但是！不管你怎么揍我，\l我都不会和洛汐分手的！\l不管你再怎么喜欢洛汐，\l用暴力手段是无法获得真爱的呀！\p凯伊:(刚刚偷偷把手机\n放我口袋里的吗？\l事到如今，玩这种把戏……)\p洛汐……你还是早点\n和这个人渣分手比较好！\p洛汐:你才是人渣吧？\p围观群众:小偷啊。\n围观群众:暴力狂滚出去，丢人！"),
+    [14] = COMPOUND_STRING("凯伊:洛汐！和他在一起\n你没有发现不对劲吗？\l你应该有感觉的吧？\p洛汐:不对劲的是你吧？\n(洛汐眼角凝聚着泪珠)"),
+    [15] = COMPOUND_STRING("凯伊:可恶……………………\n怎么会这样……\l(凯伊跪倒在地上，泪流满面)"),
+    [16] = COMPOUND_STRING("洛汐:呜呜呜呜……\n不要打了，疼……"),
+    [17] = COMPOUND_STRING("洛汐:凯伊……我该怎么办……\n我好害怕……"),
+    [18] = COMPOUND_STRING("(洛汐悲伤的啜咽声在屋内环绕)"),
+    [19] = COMPOUND_STRING("洛曼:\n反正你也成为祭品要死了……\l(她一边说出这样的话，\l一边对洛汐下了很重的手)"),
+    [20] = COMPOUND_STRING("(洛汐倒在地上奄奄一息，\n在拳打脚踢中直到断气……)"),
+    [21] = COMPOUND_STRING("(随着回忆仿佛回到了那天一般，\n陷入在暴力中已经感觉不到任何痛觉，\l只是临死的那一刻，\l还在幻想着凯伊会来拯救自己。)"),
+    [22] = COMPOUND_STRING("(最后一刻在幻觉中，\n看到了凯伊到身影，\l拉着自己的手。"),
+    [23] = COMPOUND_STRING("(飞奔着逃离了这个地方……)"),
+    [24] = COMPOUND_STRING("洛汐:这个背影……"),
+    [25] = COMPOUND_STRING("洛曼：由你来代替我的话……\n我就不用去死了……"),
+    [26] = COMPOUND_STRING("信件:晚上可以到我家附近吗？\n我有点事情想跟你说……\l我经常被我妈殴打，\l我不敢让别人看到身上的伤，\p一直以来都藏的很好，\n但是我感觉已经要忍受到极限了，\l如果我是你的启明星公主，\l你可以来拯救我吗？"),
+    [27] = COMPOUND_STRING("晓暄:凯伊……\n我一直……很喜欢你。\l你愿意……和我交往吗？"),
+    [28] = COMPOUND_STRING("凯伊:晓暄，谢谢你……\n能被你这样认可。\l但是，对不起……我的心意，\l早已全部交给了洛汐……"),
+    [29] = COMPOUND_STRING("洛汐:晓暄也喜欢凯伊么……"),
+    [30] = COMPOUND_STRING("犯错的孩子……\n需要好好纠正过来才行……"),
 };
 
-static const u8 sCGAnimList[][30] = 
+static const u8 sCGAnimList[][60] = 
 {
     [0] = {
         PLAY_CG, 0,         // 播放CG
@@ -2592,6 +2676,7 @@ static const u8 sCGAnimList[][30] =
         WAIT_BUTTON, 0,     // 等待按钮
         PLAY_CG, 9,         // 播放CG
         PLAY_MESSAGE, 5,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
         PLAY_END            // 结束
     },
     [2] = {
@@ -2606,6 +2691,90 @@ static const u8 sCGAnimList[][30] =
         WAIT_BUTTON, 0,     // 等待按钮
         PLAY_CG, 7,         // 播放cg
         PLAY_MESSAGE, 9,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [3] = {
+        PLAY_CG, 10,         // 播放CG
+        PLAY_MESSAGE, 10,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 11,         // 播放cg
+        PLAY_MESSAGE, 11,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 12,         // 播放cg
+        PLAY_MESSAGE, 12,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 13,         // 播放cg
+        PLAY_MESSAGE, 13,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 14,         // 播放cg
+        PLAY_MESSAGE, 14,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 15,         // 播放cg
+        PLAY_MESSAGE, 15,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [4] = {
+        PLAY_CG, 16,         // 播放CG
+        PLAY_MESSAGE, 16,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 18,         // 播放CG
+        PLAY_MESSAGE, 18,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 17,         // 播放CG
+        PLAY_MESSAGE, 17,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [5] = {
+        PLAY_CG, 19,         // 播放CG
+        PLAY_MESSAGE, 19,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 20,         // 播放cg
+        PLAY_MESSAGE, 20,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 21,         // 播放cg
+        PLAY_MESSAGE, 21,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 22,         // 播放cg
+        PLAY_MESSAGE, 22,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 23,         // 播放cg
+        PLAY_MESSAGE, 23,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [6] = {
+        PLAY_CG, 24,         // 播放CG
+        PLAY_MESSAGE, 24,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 25,         // 播放CG
+        PLAY_MESSAGE, 25,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [7] = {
+        PLAY_CG, 26,         // 播放CG
+        PLAY_MESSAGE, 26,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [8] = {
+        PLAY_CG, 27,         // 播放CG
+        PLAY_MESSAGE, 27,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 28,         // 播放CG
+        PLAY_MESSAGE, 28,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 29,         // 播放CG
+        PLAY_MESSAGE, 29,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [9] = {
+        PLAY_CG, 30,         // 播放CG
+        PLAY_MESSAGE, 30,    // 播放对话
         WAIT_BUTTON, 0,     // 等待按钮
         PLAY_END            // 结束
     },
