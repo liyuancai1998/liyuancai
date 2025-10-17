@@ -10234,16 +10234,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Red),
     },
 
-    [TRAINER_LEAF] =
+    [TRAINER_KAIYI] =
     {
-        .trainerClass = TRAINER_CLASS_RIVAL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LEAF,
-        .trainerName = _("立爱福"),
-        .items = {},
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_CHAMPION_WALLACE,
+        .trainerName = _("凯伊"),
+        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .party = TRAINER_PARTY(sParty_Leaf),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_RISKY,
+        .party = TRAINER_PARTY(sParty_Kaiyi),
     },
 
     [TRAINER_NURSE] =

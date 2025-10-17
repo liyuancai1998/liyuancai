@@ -148,3 +148,67 @@ Route108_EventScript_CoryRematch::
 	msgbox Route108_Text_CoryRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route108_EventScript_1::
+	checkflag FLAG_UNUSED_0x04A
+	call_if TRUE, Route108_EventScript_2
+	setvar VAR_ROUTE129_STATE, 1
+	end
+
+Route108_EventScript_2:
+	applymovement OBJ_EVENT_ID_PLAYER Player_Movement_5
+	waitmovement OBJ_EVENT_ID_PLAYER
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Route108_MSG_1 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	applymovement OBJ_EVENT_ID_PLAYER Player_Movement_6
+	waitmovement OBJ_EVENT_ID_PLAYER
+	fadescreen FADE_TO_BLACK
+	PlaySE(SE_M_DIVE)
+	applymovement OBJ_EVENT_ID_PLAYER Player_Movement_7
+	waitmovement OBJ_EVENT_ID_PLAYER
+	fadescreen FADE_FROM_BLACK
+	addobject 9, MAP_ROUTE108
+	setobjectxy 9, 13, 9
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Route108_MSG_2 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, Route108_MSG_3
+	closeblacktext
+	fadescreen FADE_FROM_BLACK
+	setflag FLAG_UNUSED_0x265
+	addvar VAR_EVENT_COUNTER, 1
+	setvar VAR_ROUTE129_STATE, 1
+	end
+
+Player_Movement_5:
+	face_down
+	step_end
+
+Route108_MSG_1:
+	.string "应该是这里了……\n难道在河里？\l我下去看看……$"
+
+Player_Movement_6:
+	jump_down
+	step_end
+
+Player_Movement_7:
+	walk_up
+	face_left
+	step_end
+
+Route108_MSG_2:
+	.string "…………………………\n这就是我的终局吗……$"
+
+Route108_MSG_3:
+	.string "声音:去暗古神坛……去那里可以……$"
+
+

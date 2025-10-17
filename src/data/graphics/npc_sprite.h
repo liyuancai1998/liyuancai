@@ -16,6 +16,9 @@ const u32 gNpcPal_frame[] = INCBIN_U32("graphics/character_heads/frame.gbapal.lz
 const u32 gNpcPic_Mom[] = INCBIN_U32("graphics/character_heads/Mom.4bpp.lz");
 const u32 gNpcPal_Mom[] = INCBIN_U32("graphics/character_heads/Mom.gbapal.lz");
 
+const u32 gNpcPic_MD[] = INCBIN_U32("graphics/character_heads/MD.4bpp.lz");
+const u32 gNpcPal_MD[] = INCBIN_U32("graphics/character_heads/MD.gbapal.lz");
+
 #define NPC_PICTURE_SIZE (64 * 64 / 2)
 
 struct NPCSpriteData
@@ -49,5 +52,9 @@ const struct NPCSpriteData gNPCSpriteTable[] =
     {
         .frontPic = {gNpcPic_Mom, NPC_PICTURE_SIZE, 5},
         .palette = gNpcPal_Mom
+    },
+    {
+        .frontPic = {gNpcPic_MD, NPC_PICTURE_SIZE, 6},
+        .palette = gNpcPal_MD
     }
 };

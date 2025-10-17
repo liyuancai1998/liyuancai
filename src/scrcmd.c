@@ -2582,6 +2582,30 @@ static const u8 sCGG3_Tiles[] = INCBIN_U8("graphics/cg/G3.8bpp.lz");
 static const u8 sCGG3_Pal[] = INCBIN_U8("graphics/cg/G3.gbapal");
 static const u8 sCGH1_Tiles[] = INCBIN_U8("graphics/cg/H1.8bpp.lz");
 static const u8 sCGH1_Pal[] = INCBIN_U8("graphics/cg/H1.gbapal");
+static const u8 sCGJ1_Tiles[] = INCBIN_U8("graphics/cg/J1.8bpp.lz");
+static const u8 sCGJ1_Pal[] = INCBIN_U8("graphics/cg/J1.gbapal");
+static const u8 sCGB7_Tiles[] = INCBIN_U8("graphics/cg/B7.8bpp.lz");
+static const u8 sCGB7_Pal[] = INCBIN_U8("graphics/cg/B7.gbapal");
+static const u8 sCGB8_Tiles[] = INCBIN_U8("graphics/cg/B8.8bpp.lz");
+static const u8 sCGB8_Pal[] = INCBIN_U8("graphics/cg/B8.gbapal");
+static const u8 sCGK1_Tiles[] = INCBIN_U8("graphics/cg/K1.8bpp.lz");
+static const u8 sCGK1_Pal[] = INCBIN_U8("graphics/cg/K1.gbapal");
+static const u8 sCGK2_Tiles[] = INCBIN_U8("graphics/cg/K2.8bpp.lz");
+static const u8 sCGK2_Pal[] = INCBIN_U8("graphics/cg/K2.gbapal");
+static const u8 sCGK3_Tiles[] = INCBIN_U8("graphics/cg/K3.8bpp.lz");
+static const u8 sCGK3_Pal[] = INCBIN_U8("graphics/cg/K3.gbapal");
+static const u8 sCGZ_Tiles[] = INCBIN_U8("graphics/cg/Z.8bpp.lz");
+static const u8 sCGZ_Pal[] = INCBIN_U8("graphics/cg/Z.gbapal");
+static const u8 sCGI1_Tiles[] = INCBIN_U8("graphics/cg/I1.8bpp.lz");
+static const u8 sCGI1_Pal[] = INCBIN_U8("graphics/cg/I1.gbapal");
+static const u8 sCGI2_Tiles[] = INCBIN_U8("graphics/cg/I2.8bpp.lz");
+static const u8 sCGI2_Pal[] = INCBIN_U8("graphics/cg/I2.gbapal");
+static const u8 sCGI3_Tiles[] = INCBIN_U8("graphics/cg/I3.8bpp.lz");
+static const u8 sCGI3_Pal[] = INCBIN_U8("graphics/cg/I3.gbapal");
+static const u8 sCGI4_Tiles[] = INCBIN_U8("graphics/cg/I4.8bpp.lz");
+static const u8 sCGI4_Pal[] = INCBIN_U8("graphics/cg/I4.gbapal");
+static const u8 sCGI5_Tiles[] = INCBIN_U8("graphics/cg/I5.8bpp.lz");
+static const u8 sCGI5_Pal[] = INCBIN_U8("graphics/cg/I5.gbapal");
 
 static const u8* sCGTable[][10] = 
 {
@@ -2616,6 +2640,19 @@ static const u8* sCGTable[][10] =
     [28] = {sCGG2_Tiles, sCGG2_Pal},
     [29] = {sCGG3_Tiles, sCGG3_Pal},
     [30] = {sCGH1_Tiles, sCGH1_Pal},
+    [31] = {sCGJ1_Tiles, sCGJ1_Pal},
+    [32] = {sCGB7_Tiles, sCGB7_Pal},
+    [33] = {sCGB8_Tiles, sCGB8_Pal},
+    [34] = {sCGK1_Tiles, sCGK1_Pal},
+    [35] = {sCGK2_Tiles, sCGK2_Pal},
+    [36] = {sCGK3_Tiles, sCGK3_Pal},
+    [37] = {sCGZ_Tiles, sCGZ_Pal},
+    [38] = {sCGI1_Tiles, sCGI1_Pal},
+    [39] = {sCGI2_Tiles, sCGI2_Pal},
+    [40] = {sCGI3_Tiles, sCGI3_Pal},
+    [41] = {sCGI4_Tiles, sCGI4_Pal},
+    [42] = {sCGI5_Tiles, sCGI5_Pal},
+
 };
 
 static const u8* sCGMessage[] = 
@@ -2630,7 +2667,7 @@ static const u8* sCGMessage[] =
     [7] = COMPOUND_STRING("琰星:明明就是个废物……"),
     [8] = COMPOUND_STRING("凯伊:!!!!!!!!!!!!"),
     [9] = COMPOUND_STRING("………………………………"),
-    [10] = COMPOUND_STRING("琰星:什么意思？(他拿出来他的手机，\n打开了一个视频放在了我的眼前。)\l怎么样？心动了没有？\l我今天约好她晚上来我家玩了，\l她一定会来的，你也过来吧，\l我可以让你玩几回哦，\l只要你对我的事情保密的话……\l哎呀，你刚刚仅仅是\l想象了一下就一定那个了吧？\l如果她不愿意的话，来硬的也……"),
+    [10] = COMPOUND_STRING("琰星:(他拿出来他的手机，\n打开了一个视频放在了我的眼前。)"),
     [11] = COMPOUND_STRING("凯伊:你这个混蛋！\n你竟然敢对洛汐做这种事！\l你简直是个禽兽！\l我一定要让你付出代价！"),
     [12] = COMPOUND_STRING("琰星:喂……你出够气了吧……\n你知道吗？如果你泄露出去……\l倒霉的可是洛汐啊，\l你不怕我手里的东西泄露出去吗？"),
     [13] = COMPOUND_STRING("琰星:(站起身来，\n从凯伊的口袋里拿出手机)\l哈哈哈哈！！\l而且，你做的这些事情\l可是小偷才会做的啊！\l你居然偷我的手机，还查看我的隐私。\l我知道你喜欢洛汐，\l但是！不管你怎么揍我，\l我都不会和洛汐分手的！\l不管你再怎么喜欢洛汐，\l用暴力手段是无法获得真爱的呀！\p凯伊:(刚刚偷偷把手机\n放我口袋里的吗？\l事到如今，玩这种把戏……)\p洛汐……你还是早点\n和这个人渣分手比较好！\p洛汐:你才是人渣吧？\p围观群众:小偷啊。\n围观群众:暴力狂滚出去，丢人！"),
@@ -2645,12 +2682,24 @@ static const u8* sCGMessage[] =
     [22] = COMPOUND_STRING("(最后一刻在幻觉中，\n看到了凯伊到身影，\l拉着自己的手。"),
     [23] = COMPOUND_STRING("(飞奔着逃离了这个地方……)"),
     [24] = COMPOUND_STRING("洛汐:这个背影……"),
-    [25] = COMPOUND_STRING("洛曼：由你来代替我的话……\n我就不用去死了……"),
+    [25] = COMPOUND_STRING("洛曼:由你来代替我的话……\n我就不用去死了……"),
     [26] = COMPOUND_STRING("信件:晚上可以到我家附近吗？\n我有点事情想跟你说……\l我经常被我妈殴打，\l我不敢让别人看到身上的伤，\p一直以来都藏的很好，\n但是我感觉已经要忍受到极限了，\l如果我是你的启明星公主，\l你可以来拯救我吗？"),
     [27] = COMPOUND_STRING("晓暄:凯伊……\n我一直……很喜欢你。\l你愿意……和我交往吗？"),
     [28] = COMPOUND_STRING("凯伊:晓暄，谢谢你……\n能被你这样认可。\l但是，对不起……我的心意，\l早已全部交给了洛汐……"),
     [29] = COMPOUND_STRING("洛汐:晓暄也喜欢凯伊么……"),
-    [30] = COMPOUND_STRING("犯错的孩子……\n需要好好纠正过来才行……"),
+    [30] = COMPOUND_STRING("洛曼:犯错的孩子……\n需要好好纠正过来才行……"),
+    [31] = COMPOUND_STRING("琰星:(掐着屁股往自己胯下按)\n对…就这个弧度…腰再扭得用力点…\l宝贝儿…你可真诱人…\l(喘粗气)比洛汐那死鱼样强十倍\l对，就这样……再贴近我一些……\p???:(指甲抠进他后背)哼……\n我们这样被洛汐知道怎么办？\p琰星:我早就玩腻了。\n她怎么比得上你……\l又软，又润，叫得也好听……\l现在知道怕了？\l(舔她耳垂)\l上次在更衣室扒老子拉链的骚劲呢\p???:(被顶得往前蹿)\n轻点…树枝扎着腿了…\p琰星:明天带你去买黑丝…\n现在给老子夹紧"),
+    [32] = COMPOUND_STRING("琰星:怎么样？心动了没有？\n我今天约好她晚上来我家玩了，\l她一定会来的，你也过来吧，\l我可以让你玩几回哦，\l只要你对我的事情保密的话……"),
+    [33] = COMPOUND_STRING("琰星:(哎呀，你刚刚仅仅是\n想象了一下就一定那个了吧？\l如果她不愿意的话，来硬的也……"),
+    [34] = COMPOUND_STRING("洛汐:嗯，是我，\n所有的事情我都知道了。\l不要哭，笑起来，\l一定很痛吧。"),
+    [35] = COMPOUND_STRING("洛汐:谢谢你还记得\n启明星公主的约定，\l当初要不是晓暄的阻挠，\l或许我们会很要好，\l甚至我们会……\l总之会有无限的可能吧。\l十年了，呆在这个地方一定痛苦吧，\l我们的约定，还有我承诺的那部分，\l我也要将你从黑暗中拯救出来，\l让我们完成十年前未完成的祭祀，\l然后走向往生……\l希望在来生，\l我们可以拥有一个完美的结局……"),
+    [36] = COMPOUND_STRING("()"),
+    [37] = COMPOUND_STRING("某个早晨，\n偷偷跑出去玩的少女\l在森林里邂逅了少年，\l那是自小就被称为\l恶魔怪物的少年，\l自幼父母双亡，\l独自一人在森林里生活。\l那天，他们玩耍的很开心，\l直到黄昏才回家。\l之后，少女经常跑出来找少年玩。"),
+    [38] = COMPOUND_STRING("但是，有一天，\n这件事被国王知道了，\l他下令逮捕了少年，但在少女要挟下，\l国王放男孩回去了。"),
+    [39] = COMPOUND_STRING("之后国王秘密逮捕少年\n准备流放到世外之岛。\l这件事被少女知道了，\l连夜从城堡逃出，\l躲到流放之船上。"),
+    [40] = COMPOUND_STRING("一个是阿尔法王国国王的傀儡少女，\n一个是从出生就不被允许存在的怪物。\l两个孩子最后的那一段旅程:\l丑陋不堪地挣扎求生，\l疼痛逐步侵染的慢性死亡，\l在绝境中任然挣扎着想要紧握在一起的双手，\l一起浅唱的那首仅存的记忆中的童谣，\l最后遗留的是2人相偎的臂怀。"),
+    [41] = COMPOUND_STRING("他们死后，\nGHOST席卷了整个阿尔法大陆。"),
+    [42] = COMPOUND_STRING("仪式失败再次导致了\n大范围的灾厄事件……"),
 };
 
 static const u8 sCGAnimList[][60] = 
@@ -2697,6 +2746,12 @@ static const u8 sCGAnimList[][60] =
     [3] = {
         PLAY_CG, 10,         // 播放CG
         PLAY_MESSAGE, 10,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 32,         // 播放CG
+        PLAY_MESSAGE, 32,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 33,         // 播放CG
+        PLAY_MESSAGE, 33,    // 播放对话
         WAIT_BUTTON, 0,     // 等待按钮
         PLAY_CG, 11,         // 播放cg
         PLAY_MESSAGE, 11,    // 播放对话
@@ -2777,6 +2832,50 @@ static const u8 sCGAnimList[][60] =
         PLAY_MESSAGE, 30,    // 播放对话
         WAIT_BUTTON, 0,     // 等待按钮
         PLAY_END            // 结束
+    },
+    [10] = {
+        PLAY_CG, 31,         // 播放CG
+        PLAY_MESSAGE, 31,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [11] = {
+        PLAY_CG, 34,         // 播放CG
+        PLAY_MESSAGE, 34,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 35,         // 播放CG
+        PLAY_MESSAGE, 35,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [12] = {
+        PLAY_CG, 37,         // 播放CG
+        WAIT_BUTTON, 0,     // 等待按钮
+    },
+    [13] = {
+        PLAY_CG, 38,         // 播放CG
+        PLAY_MESSAGE, 37,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 39,         // 播放cg
+        PLAY_MESSAGE, 38,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 40,         // 播放cg
+        PLAY_MESSAGE, 39,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 41,         // 播放cg
+        PLAY_MESSAGE, 40,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 42,         // 播放cg
+        PLAY_MESSAGE, 41,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
+    },
+    [14] = {
+        PLAY_CG, 42,         // 播放CG
+        PLAY_MESSAGE, 42,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 37,         // 播放CG
+        WAIT_BUTTON, 0,     // 等待按钮
     },
 };
 

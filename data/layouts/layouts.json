@@ -64,8 +64,8 @@
     {
       "id": "LAYOUT_MOSSDEEP_CITY",
       "name": "MossdeepCity_Layout",
-      "width": 80,
-      "height": 40,
+      "width": 39,
+      "height": 33,
       "primary_tileset": "gTileset_map04",
       "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/MossdeepCity/border.bin",

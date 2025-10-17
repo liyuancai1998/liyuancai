@@ -98,6 +98,7 @@ LavaridgeTown_Xiaoxuan_4::
 	closeblacktext
 	fadescreen FADE_FROM_BLACK
 	setflag FLAG_UNUSED_0x046
+	addvar VAR_EVENT_COUNTER, 1
 	setvar VAR_ROUTE122_STATE, 1
 	end
 

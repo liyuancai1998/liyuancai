@@ -11824,3 +11824,49 @@ static const struct TrainerMon sParty_Nurse[] = {
     .moves = {MOVE_MINIMIZE, MOVE_SOFT_BOILED, MOVE_TOXIC, MOVE_SEISMIC_TOSS}
     }
 };
+
+static const struct TrainerMon sParty_Kaiyi[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_FLUTTER_MANE,
+    .heldItem = ITEM_BOOSTER_ENERGY,
+    .moves = {MOVE_TERA_STARSTORM, MOVE_ANCIENT_POWER, MOVE_PROTECT, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_FLUTTER_MANE,
+    .heldItem = ITEM_BOOSTER_ENERGY,
+    .moves = {MOVE_TERA_STARSTORM, MOVE_ANCIENT_POWER, MOVE_PROTECT, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_FLUTTER_MANE,
+    .heldItem = ITEM_BOOSTER_ENERGY,
+    .moves = {MOVE_TERA_STARSTORM, MOVE_ANCIENT_POWER, MOVE_PROTECT, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_FLUTTER_MANE,
+    .heldItem = ITEM_BOOSTER_ENERGY,
+    .moves = {MOVE_TERA_STARSTORM, MOVE_ANCIENT_POWER, MOVE_PROTECT, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_FLUTTER_MANE,
+    .heldItem = ITEM_BOOSTER_ENERGY,
+    .moves = {MOVE_TERA_STARSTORM, MOVE_ANCIENT_POWER, MOVE_PROTECT, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_FLUTTER_MANE,
+    .heldItem = ITEM_BOOSTER_ENERGY,
+    .moves = {MOVE_TERA_STARSTORM, MOVE_ANCIENT_POWER, MOVE_PROTECT, MOVE_DAZZLING_GLEAM}
+    }
+};
+

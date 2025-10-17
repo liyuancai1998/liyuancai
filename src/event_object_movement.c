@@ -439,6 +439,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
 #define OBJ_EVENT_PAL_TAG_XIAOXUAN                0x1124
 #define OBJ_EVENT_PAL_TAG_LUOXI                   0x1125
+#define OBJ_EVENT_PAL_TAG_KAIYI                   0x1126
+#define OBJ_EVENT_PAL_TAG_MD                      0x1127
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -450,6 +452,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #include "data/object_events/object_event_graphics_info.h"
 
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
+    {gObjectEventPal_MD,                    OBJ_EVENT_PAL_TAG_MD},
+    {gObjectEventPal_KaiYi,                 OBJ_EVENT_PAL_TAG_KAIYI},
     {gObjectEventPal_Luoxi,                 OBJ_EVENT_PAL_TAG_LUOXI},
     {gObjectEventPal_Xiaoxuan,              OBJ_EVENT_PAL_TAG_XIAOXUAN},
     {gObjectEventPal_Npc1,                  OBJ_EVENT_PAL_TAG_NPC_1},

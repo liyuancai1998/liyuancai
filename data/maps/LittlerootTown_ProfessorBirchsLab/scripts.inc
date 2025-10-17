@@ -34,6 +34,7 @@ LittlerootTown_ProfessorBirchsLab_Scripts_4::
 	removeobject 2
 	setflag FLAG_UNUSED_0x068
 	setflag FLAG_UNUSED_0x0E9
+	addvar VAR_EVENT_COUNTER, 1
 	end
 
 LittlerootTown_ProfessorBirchsLab_MSG_1:

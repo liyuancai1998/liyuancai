@@ -47,6 +47,7 @@ PlayersHouse_2F_Scripts_7::
 	hidenamebox
 	setflag FLAG_UNUSED_0x043
 	setflag FLAG_UNUSED_0x044
+	addvar VAR_EVENT_COUNTER, 1
 	removeobject 1
 	end
 
@@ -83,6 +84,7 @@ PlayersHouse_2F_Scripts_12::
 	removeobject 2
 	setflag FLAG_UNUSED_0x047
 	setflag FLAG_UNUSED_0x048
+	addvar VAR_EVENT_COUNTER, 1
 	fadescreen FADE_TO_BLACK
 	blacktext 0xe0, 50, PlayersHouse_2F_MSG_4
 	closeblacktext

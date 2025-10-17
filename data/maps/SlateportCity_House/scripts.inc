@@ -47,6 +47,7 @@ SlateportCity_House_Scripts_4::
 	fadescreen FADE_FROM_BLACK
 	setflag FLAG_UNUSED_0x054
 	setflag FLAG_UNUSED_0x055
+	addvar VAR_EVENT_COUNTER, 1
 	end
 
 Zhenzhang_MSG:

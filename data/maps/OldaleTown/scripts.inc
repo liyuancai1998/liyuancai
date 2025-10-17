@@ -45,6 +45,7 @@ OldaleTown_Scripts_4::
 	setflag FLAG_UNUSED_0x049
 	setflag FLAG_UNUSED_0x04A
 	setvar VAR_ROUTE123_STATE, 1
+	setvar VAR_ROUTE129_STATE, 0
 	end
 
 OldaleTown_Move_1:

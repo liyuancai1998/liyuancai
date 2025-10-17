@@ -2123,7 +2123,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_FAIRY),
         .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
         .bodyColor = BODY_COLOR_YELLOW,
-        .speciesName = _("皮卡丘"),
+        .speciesName = _("血爆丘"),
         .cryId = CRY_PIKACHU,
         .natDexNum = NATIONAL_DEX_PIKACHU,
         .categoryName = _("鼠"),
@@ -8536,12 +8536,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_FAMILY_GASTLY
     [SPECIES_GASTLY] =
     {
-        .baseHP        = 30,
-        .baseAttack    = 35,
-        .baseDefense   = 30,
+        .baseHP        = 90,
+        .baseAttack    = 95,
+        .baseDefense   = 90,
         .baseSpeed     = 80,
         .baseSpAttack  = 100,
-        .baseSpDefense = 35,
+        .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_GHOST, TYPE_POISON),
         .catchRate = 190,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 62 : 95,
@@ -8581,7 +8581,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         FOOTPRINT(Gastly)
         .levelUpLearnset = sGastlyLevelUpLearnset,
         .teachableLearnset = sGastlyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_HAUNTER}),
+        // .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_HAUNTER}),
     },
 
     [SPECIES_HAUNTER] =
@@ -10537,7 +10537,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
         .abilities = { ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE, ABILITY_HEALER },
         .bodyColor = BODY_COLOR_PINK,
-        .speciesName = _("血之吉利蛋"),
+        .speciesName = _("猩红厄运蛋"),
         .cryId = CRY_CHANSEY,
         .natDexNum = NATIONAL_DEX_CHANSEY,
         .categoryName = _("蛋"),
@@ -10564,7 +10564,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         FOOTPRINT(Chansey)
         .levelUpLearnset = sChanseyLevelUpLearnset,
         .teachableLearnset = sChanseyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_BLISSEY}),
+        // .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_BLISSEY}),
     },
 
 #if P_GEN_2_CROSS_EVOS
@@ -11173,7 +11173,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_3),
         .abilities = { ABILITY_ILLUMINATE, ABILITY_NATURAL_CURE, ABILITY_ANALYTIC },
         .bodyColor = BODY_COLOR_PURPLE,
-        .speciesName = _("宝石海星"),
+        .speciesName = _("血瞳海星"),
         .cryId = CRY_STARMIE,
         .natDexNum = NATIONAL_DEX_STARMIE,
         .categoryName = _("谜"),

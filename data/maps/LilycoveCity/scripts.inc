@@ -35,6 +35,7 @@ LilycoveCity_Scripts_5::
 	setflag FLAG_UNUSED_0x04B
 	setvar VAR_ROUTE124_STATE, 1
 	setflag FLAG_UNUSED_0x04C
+	addvar VAR_EVENT_COUNTER, 1
 	end
 
 OldaleTown_MSG_8:
@@ -202,10 +203,36 @@ LilycoveCity_Scripts_3::
 	hidenamebox
 	hidenpc2
 	hidemonpic
+	addvar VAR_EVENT_COUNTER, 1
 	setvar VAR_ROUTE114_STATE, 1
 	end
 
 LilycoveCity_Scripts_6::
+	checkflag FLAG_UNUSED_0x03D
+	call_if TRUE, LilycoveCity_Scripts_8
+	applymovement OBJ_EVENT_ID_PLAYER, LilycoveCity_Move_3
+	waitmovement OBJ_EVENT_ID_PLAYER
+	namebox Route108_LuoXi
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	msgbox LilycoveCity_MSG_11 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	end
+
+LilycoveCity_Scripts_8:
+	setvar VAR_ROUTE127_STATE, 1
+	end
+
+LilycoveCity_Move_3:
+	walk_down
+	step_end
+
+LilycoveCity_MSG_11:
+	.string "先去其他地方看看吧$"
+
+LilycoveCity_Scripts_7::
 	namebox Route108_LuoXi
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
@@ -213,18 +240,49 @@ LilycoveCity_Scripts_6::
 	hidenamebox
 	hidenpc2
 	hidemonpic
+	applymovement 9 LilycoveCity_Move_4
 	applymovement OBJ_EVENT_ID_PLAYER LilycoveCity_Move_2
 	waitmovement OBJ_EVENT_ID_PLAYER
 	delay 60
 	applymovement OBJ_EVENT_ID_PLAYER PlayersHouse_1F_Move_3
 	waitmovement OBJ_EVENT_ID_PLAYER
 	delay 60
-	applymovement OBJ_EVENT_ID_CAMERA LilycoveCity_Move_3
-	waitmovement OBJ_EVENT_ID_CAMERA
+	fadescreen FADE_TO_BLACK
+	setvar 0x8004 10
+	special ShowCG
+	waitstate
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, LilycoveCity_MSG_10
+	closeblacktext
+	removeobject 7
+	removeobject 8
+	removeobject 9
+	setflag FLAG_UNUSED_0x264
+	setvar VAR_ROUTE126_STATE, 1
+	addvar VAR_EVENT_COUNTER, 1
+	fadescreen FADE_FROM_BLACK
+	end
 
+LilycoveCity_MSG_9:
+	.string "凯伊在这里做什么？$"
 
+LilycoveCity_Move_2:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
 
-yx:宝贝儿，你的身材真润啊，屁股翘高点……
-???:讨厌……我们这样被洛汐知道怎么办？
-yx:没事的，我早就玩腻了，你的身体比她好多了……
-???:哼……
+LilycoveCity_Move_4:
+	walk_right
+	walk_right
+	step_end
+
+LilycoveCity_MSG_10:
+	.string "原来这些事情，\n你早就知道么……\l为了我打抱不平，\l所以才……$"
+

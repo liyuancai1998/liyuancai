@@ -24,6 +24,7 @@ SlateportCity_PokemonCenter_1F_Memories_event:
 	removeobject 1
 	setflag FLAG_SlateportCity_PokemonCenter_1F_Memories_Text 
 	setvar VAR_SLATEPORT_CITY_POKEMON_CENTER_1F_MEMORIES, 1
+	addvar VAR_EVENT_COUNTER, 1
 	fadescreen FADE_FROM_BLACK
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0

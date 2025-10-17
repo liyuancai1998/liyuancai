@@ -24,6 +24,7 @@ SlateportCity_Guanzhu_Event::
 	hidenamebox
 	setflag FLAG_UNUSED_0x02D
 	setflag FLAG_UNUSED_0x1DE
+	addvar VAR_EVENT_COUNTER, 1
 	removeobject 1
 	end
 

@@ -12613,9 +12613,9 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
 
 #if P_FAMILY_FLUTTER_MANE
     const u32 gMonFrontPic_FlutterMane[] = INCBIN_U32("graphics/pokemon/flutter_mane/front.4bpp.lz");
-    const u32 gMonPalette_FlutterMane[] = INCBIN_U32("graphics/pokemon/flutter_mane/normal.gbapal.lz");
+    const u32 gMonPalette_FlutterMane[] = INCBIN_U32("graphics/pokemon/flutter_mane/front.gbapal.lz");
     const u32 gMonBackPic_FlutterMane[] = INCBIN_U32("graphics/pokemon/flutter_mane/back.4bpp.lz");
-    const u32 gMonShinyPalette_FlutterMane[] = INCBIN_U32("graphics/pokemon/flutter_mane/shiny.gbapal.lz");
+    const u32 gMonShinyPalette_FlutterMane[] = INCBIN_U32("graphics/pokemon/flutter_mane/back.gbapal.lz");
     const u8 gMonIcon_FlutterMane[] = INCBIN_U8("graphics/pokemon/flutter_mane/icon.4bpp");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_FlutterMane[] = INCBIN_U8("graphics/pokemon/flutter_mane/footprint.1bpp");
@@ -13027,9 +13027,9 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
 
 #if P_FAMILY_TERAPAGOS
     const u32 gMonFrontPic_TerapagosNormal[] = INCBIN_U32("graphics/pokemon/terapagos/anim_front.4bpp.lz");
-    const u32 gMonPalette_TerapagosNormal[] = INCBIN_U32("graphics/pokemon/terapagos/normal.gbapal.lz");
+    const u32 gMonPalette_TerapagosNormal[] = INCBIN_U32("graphics/pokemon/terapagos/anim_front.gbapal.lz");
     const u32 gMonBackPic_TerapagosNormal[] = INCBIN_U32("graphics/pokemon/terapagos/back.4bpp.lz");
-    const u32 gMonShinyPalette_TerapagosNormal[] = INCBIN_U32("graphics/pokemon/terapagos/shiny.gbapal.lz");
+    const u32 gMonShinyPalette_TerapagosNormal[] = INCBIN_U32("graphics/pokemon/terapagos/back.gbapal.lz");
     const u8 gMonIcon_TerapagosNormal[] = INCBIN_U8("graphics/pokemon/terapagos/icon.4bpp");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_TerapagosNormal[] = INCBIN_U8("graphics/pokemon/terapagos/footprint.1bpp");
