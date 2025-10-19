@@ -2518,6 +2518,7 @@ static const struct WindowTemplate sWindowTemplates[] =
 #define WAIT_BUTTON         (2)
 #define PLAY_FADE           (3)
 #define PLAY_END            (4)
+#define PAUSE_TIME          (5)
 
 static const u8 sDefaultCG_TileMap[] = INCBIN_U8("graphics/cg/raw.bin.lz");
 static const u8 sCGA1_Tiles[] = INCBIN_U8("graphics/cg/A1.8bpp.lz");
@@ -3016,6 +3017,10 @@ static void Task_ReadCMD(u8 taskId)
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, 0);
             gTasks[taskId].data[1] = animParam;
             gTasks[taskId].func = Task_ChangeCG;
+        }
+        else if (animID == PAUSE_TIME)
+        {
+            gTasks[taskId].func = TaskDummy;
         }
         else if (animID == WAIT_BUTTON)
         {
