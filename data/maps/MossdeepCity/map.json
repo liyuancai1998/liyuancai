@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MossdeepCity_Kaiyi",
+      "script": "NULL",
       "flag": "0"
     }
   ],
@@ -146,6 +146,24 @@
       "var": "VAR_ROUTE132_STATE",
       "var_value": "0",
       "script": "MossdeepCity_1"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MossdeepCity_Kaiyi_L"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MossdeepCity_Kaiyi_R"
     }
   ],
   "bg_events": [

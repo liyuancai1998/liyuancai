@@ -27,5 +27,5 @@ gText_BrawlyDefeat_2:
 	.string "我在宝可梦中心治疗宝可梦，\n突然之间就被不知道\l从那里来的瘴气给……$"
 
 ChenXi_PokemonCenter_MSG_1:
-	.string "血之银狼加入了队伍。$"
+	.string "血祭银狼加入了队伍。$"
 

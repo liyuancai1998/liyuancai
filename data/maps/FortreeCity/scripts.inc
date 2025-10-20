@@ -5,15 +5,18 @@ FortreeCity_MapScripts::
 FortreeCity_Scripts_X:
 	call FortreeCity_Scripts_1
 	call FortreeCity_Scripts_9
+	end
 
 FortreeCity_Scripts_1:
-	call_if_set FLAG_UNUSED_0x040, FortreeCity_Scripts_2
+	checkflag FLAG_UNUSED_0x040
+	goto_if TRUE, FortreeCity_Scripts_2
 	setflag FLAG_UNUSED_0x042
 	setvar VAR_ROUTE120_STATE, 1
 	return
 
 FortreeCity_Scripts_2:
-	call_if_set FLAG_UNUSED_0x04D, FortreeCity_Scripts_5
+	checkflag FLAG_UNUSED_0x04D
+	goto_if TRUE, FortreeCity_Scripts_5
 	clearflag FLAG_UNUSED_0x042
 	return
 
@@ -202,6 +205,7 @@ FortreeCity_Scripts_4::
 	hidenamebox
 	removeobject 3
 	setvar VAR_ROUTE120_STATE, 1
+	addvar VAR_EVENT_COUNTER, 1
 	special RemoveCameraObject
 	end
 
@@ -373,8 +377,20 @@ FortreeCity_MSG_17:
 	.string "我知道的，\n我想我或许知道为什么\l他会变成那样。\l我有办法……\l冥帝，\l这里对你来说才是最危险的，\l离开这里吧，\l后面交给我。$"
 
 FortreeCity_MSG_18:
-	.string "好，那暗古神坛的\n事情就拜托你了，\l为了不再有新的悲剧与灾难……"
+	.string "好，那暗古神坛的\n事情就拜托你了，\l为了不再有新的悲剧与灾难……$"
 
 FortreeCity_MSG_19:
 	.string "我会在这里停留一段时间，\n祝你好运。$"
 
+FortreeCity_Scripts_14::
+	checkflag FLAG_UNUSED_0x266
+	goto_if TRUE, FortreeCity_Scripts_15
+	checkflag FLAG_UNUSED_0x269
+	goto_if TRUE, FortreeCity_Scripts_15
+	faceplayer
+	goto FortreeCity_Scripts_12
+	end
+
+FortreeCity_Scripts_15:
+	setvar VAR_UNUSED_0x408B, 1
+	end

@@ -18,6 +18,7 @@ Route108_01:
 	hidenamebox
 	hidenpc2
 	hidemonpic
+	setrespawn HEAL_LOCATION_ROUTE108
 	end
 
 Route108_LuoXi:
@@ -206,7 +207,7 @@ Player_Movement_7:
 	step_end
 
 Route108_MSG_2:
-	.string "…………………………\n这就是我的终局吗……$"
+	.string "…………………………\n这就是我人生最终的模样吗……$"
 
 Route108_MSG_3:
 	.string "声音:去暗古神坛……去那里可以……$"

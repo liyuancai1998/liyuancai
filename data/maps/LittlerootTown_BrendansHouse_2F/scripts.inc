@@ -92,7 +92,7 @@ PlayersHouse_2F_Scripts_12::
 	end
 
 PlayersHouse_2F_MSG_4:
-	.string "这是我当初写的信……\n凯伊……\p其实，如果那天我们\n按照信上所说的见面的话，\l我会跟你说，我们一起私奔吧……\l如此一来，也不会再有\l暗古神坛祭祀这种事情了……$"
+	.string "这是我当初写的信……\n凯伊……\p其实，如果那天我们\n按照信上所说的见面的话，\l我会跟你说，我们一起私奔吧……\l如此一来，也不会再有\l后面那么悲伤的事情了……$"
 
 LittlerootTown_BrendansHouse_2F_OnTransition:
 	call_if_lt VAR_LITTLEROOT_RIVAL_STATE, 2, LittlerootTown_BrendansHouse_2F_EventScript_CheckSetReadyToMeetBrendan

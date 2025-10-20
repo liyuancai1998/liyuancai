@@ -34,6 +34,7 @@ SlateportCity_PokemonCenter_1F_Memories_event:
 	closemessage
 	hidenpc2
 	hidemonpic
+	setrespawn HEAL_LOCATION_SLATEPORT_CITY
 	releaseall
 	end
 

@@ -219,7 +219,7 @@ LavaridgeTown_Kaiyi_Script_MSG_1:
 LavaridgeTown_LXHouse_T::
 	call_if_set 0x3F, LavaridgeTown_LXHouse_T_2
 	delay 60
-	applymovement OBJ_EVENT_ID_PLAYER OldaleTown_Movement_NPC2
+	applymovement OBJ_EVENT_ID_PLAYER LavaridgeTown_Movement_2
 	waitmovement OBJ_EVENT_ID_PLAYER
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
@@ -238,6 +238,12 @@ LavaridgeTown_Text_1:
 
 LavaridgeTown_Movement_1:
 	walk_down
+	step_end
+
+LavaridgeTown_Movement_2:
+	face_up
+	delay_16
+	emote_exclamation_mark
 	step_end
 
 LavaridgeTown_LXHouse_T_2:

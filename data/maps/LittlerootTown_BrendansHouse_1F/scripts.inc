@@ -488,7 +488,7 @@ PlayersHouse_1F_Move_1:
 	step_end
 
 PlayersHouse_1F_MSG_2:
-	.string "我想起来了……\n我不是迷失的灵魂……\l我是早已死去的亡魂……\l那天，我一直在等……\l等你来救我……凯伊……$"
+	.string "我想起来了……\n我是迷失的灵魂……\l是早已死去的亡魂……\l那天，我一直在等……\l等你来救我……凯伊……$"
 
 PlayersHouse_1F_MSG_3:
 	.string "你明明连我的求救都忽视了……\n你以为后来所做的事情\l可以获得我的原谅吗？$"
@@ -513,5 +513,5 @@ PlayersHouse_1F_Move_4:
 	step_end
 
 PlayersHouse_1F_MSG_5:
-	.string "洛汐……$"
+	.string "???:洛汐……$"
 
