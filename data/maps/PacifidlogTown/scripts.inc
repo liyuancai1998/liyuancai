@@ -70,6 +70,7 @@ PacifidlogTown_Scripts_1::
 	hidenpc2
 	hidemonpic
 	setflag FLAG_UNUSED_0x266
+	setvar VAR_UNUSED_0x408B, 0
 	warpsilent MAP_FORTREE_CITY, 32, 7
 	end
 
@@ -136,5 +137,6 @@ gText_UseFlashQuestion:
 	.string "再往前就无法回头了……\n确定继续向前吗？$"
 
 EventScript_UseFlash_Yes:
-	warpdoor MAP_NEW_MAP1, 0
+	warpdoor MAP_ROUTE103, 1, 12
 	end
+

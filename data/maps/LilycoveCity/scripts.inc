@@ -158,7 +158,7 @@ LilycoveCity_MSG_4:
 	.string "我知道你想的什么，\n看她那诱人的身材\l是不是非常心动呢，\l只要你想的话，\l也可以爽一爽哦，\l跟我混以后机会多的是啊。\l而且不仅仅是她，\l还有更多的……$"
 
 LilycoveCity_MSG_5:
-	.string "凯伊:你什么意思？$"
+	.string "你什么意思？$"
 
 LilycoveCity_MSG_6:
 	.string "唔…\n这也是曾经发生过的事情么……$"

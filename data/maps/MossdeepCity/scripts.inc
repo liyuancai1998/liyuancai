@@ -1,8 +1,43 @@
 MossdeepCity_MapScripts::
 	.byte 0
 
-MossdeepCity_Kaiyi::
-	faceplayer
+MossdeepCity_Kaiyi_L::
+	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Move_4
+	waitmovement OBJ_EVENT_ID_PLAYER
+	goto MossdeepCity_Kaiyi
+	end
+
+MossdeepCity_Kaiyi_R::
+	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Move_5
+	waitmovement OBJ_EVENT_ID_PLAYER
+	goto MossdeepCity_Kaiyi
+	end
+
+MossdeepCity_Move_5:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_down
+	step_end
+
+MossdeepCity_Move_4:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	face_down
+	step_end
+
+MossdeepCity_Kaiyi:
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
 	namebox Route108_LuoXi
@@ -19,7 +54,7 @@ MossdeepCity_Kaiyi::
 	hidemonpic
 	playbgm MUS_SLATEPORT, 1
 	fadescreen FADE_TO_BLACK
-	setvar 0x8004 13
+	setvar 0x8004, 13
 	special ShowCG
 	waitstate
 	shownpc 0, 208, 127

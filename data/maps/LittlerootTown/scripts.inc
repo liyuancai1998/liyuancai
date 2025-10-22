@@ -65,6 +65,7 @@ HealPlayerParty_Scripts::
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE
 	fadescreen FADE_FROM_BLACK
 	end
 

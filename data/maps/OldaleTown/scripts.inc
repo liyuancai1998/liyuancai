@@ -159,4 +159,4 @@ OldaleTown_MSG_4:
 	.string "有什么东西在靠近……$"
 
 OldaleTown_MSG_7:
-	.string "血之鬼斯加入了队伍。$"
+	.string "血影鬼斯加入了队伍。$"

@@ -1,5 +1,10 @@
 LavaridgeTown_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CrescentIsland_OnTransition
 	.byte 0
+
+CrescentIsland_OnTransition:
+    setrespawn HEAL_LOCATION_LAVARIDGE_TOWN
+    end
 
 Chansey_battle::
 	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_NURSE, 1, Chansey_gText_BrawlyDefeat, Chansey_gText_BrawlyDefeat, Chansey_AfterBattle
@@ -28,5 +33,5 @@ Chansey_gText_BrawlyDefeat_2:
 	.string "吉利蛋无法治愈\n暗古神坛带来的瘴气……$"
 
 Chansey_PokemonCenter_MSG_1:
-	.string "血之吉利蛋加入了队伍。$"
+	.string "猩红厄运蛋加入了队伍。$"
 

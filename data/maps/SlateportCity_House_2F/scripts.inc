@@ -29,5 +29,5 @@ SlateportCity_Guanzhu_Event::
 	end
 
 SlateportCity_Guanzhu_MSG:
-	.string "当初就不该告诉她\l十年前的那件事……$"
+	.string "没找到洛汐人……\n当初就不该告诉晓暄\l十年前的那件事……\l要来不及了……$"
 
