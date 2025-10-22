@@ -954,7 +954,6 @@ static void Task_PokemonPicWindow(u8 taskId)
         task->tState++;
         break;
     case 3:
-        ClearToTransparentAndRemoveWindow(task->tWindowId);
         DestroyTask(taskId);
         break;
     }
@@ -979,7 +978,6 @@ bool8 ScriptMenu_ShowPokemonPicSlot2(u16 species, u8 x, u8 y, u8 isleft)
     {
         spriteId = CreateMonSprite_PicBox(species, x, y, 0);
         taskId = CreateTask(Task_PokemonPicWindowSlot2, 0x50);
-        gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 8, 8);
         gTasks[taskId].tState = 0;
         gTasks[taskId].tMonSpecies = species;
         gTasks[taskId].tMonSpriteId = spriteId;
@@ -1026,16 +1024,13 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
         else
             spriteId = CreateMonSprite_PicBox(species, x * 8 + 40, y * 8 + 40, 0);
         taskId = CreateTask(Task_PokemonPicWindow, 0x50);
-        gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 8, 8);
         gTasks[taskId].tState = 0;
         gTasks[taskId].tMonSpecies = species;
         gTasks[taskId].tMonSpriteId = spriteId;
         gTasks[taskId].data[7] = FlagGet(FLAG_SHOW_NPC_PICTURE);
         gSprites[spriteId].callback = SpriteCallbackDummy;
         gSprites[spriteId].oam.priority = 0;
-        if (!FlagGet(FLAG_SHOW_NPC_PICTURE))
-            SetStandardWindowBorderStyle(gTasks[taskId].tWindowId, TRUE);
-        else
+        if (FlagGet(FLAG_SHOW_NPC_PICTURE))
             FlagClear(FLAG_SHOW_NPC_PICTURE);
         ScheduleBgCopyTilemapToVram(0);
         return TRUE;
