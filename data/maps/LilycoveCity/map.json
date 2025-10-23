@@ -67,7 +67,7 @@
       "flag": "FLAG_UNUSED_0x03D"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 21,
       "y": 12,
       "elevation": 0,
@@ -119,17 +119,43 @@
       "flag": "FLAG_UNUSED_0x264"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 55,
       "y": 35,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_UNUSED_0x264"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 31,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LilycoveCity_Scripts_9",
+      "flag": "FLAG_UNUSED_0x26C"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 60,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LilycoveCity_Scripts_11",
+      "flag": "FLAG_UNUSED_0x270"
     }
   ],
   "warp_events": [
@@ -148,8 +174,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 23,
-      "y": 12,
+      "x": 22,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
@@ -406,6 +432,29 @@
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LilycoveCity_Scripts_10"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LilycoveCity_Scripts_10"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LilycoveCity_Scripts_10"
+    }
   ]
 }

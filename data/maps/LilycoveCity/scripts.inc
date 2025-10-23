@@ -286,3 +286,39 @@ LilycoveCity_Move_4:
 LilycoveCity_MSG_10:
 	.string "原来这些事情，\n你早就知道么……\l为了我打抱不平，\l所以才……$"
 
+LilycoveCity_Scripts_9::
+	namebox Note_MSG
+	shownpcpic2 4, 208, 127, 0
+	msgbox LilycoveCity_MSG_12 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidenamebox
+	removeobject 10
+	setflag FLAG_UNUSED_0x26C
+	end
+
+LilycoveCity_MSG_12:
+	.string "十年了……又快到了。\n昨晚我又听见神坛深处传来哭声，\l是GHOST醒来了……\l它在提醒我们，\l时候快到了。$"
+
+LilycoveCity_Scripts_10::
+	shownpcpic2 4, 208, 127, 0
+	msgbox LilycoveCity_MSG_13 MSGBOX_AUTOCLOSE
+	hidenpc2
+	end
+
+LilycoveCity_MSG_13:
+	.string "这个房间进不去……$"
+
+LilycoveCity_Scripts_11::
+	shownpcpic2 4, 208, 127, 0
+	namebox Note_MSG
+	msgbox LilycoveCity_MSG_14 MSGBOX_AUTOCLOSE
+	hidenamebox
+	closemessage
+	hidenpc2
+	removeobject 11
+	setflag FLAG_UNUSED_0x270
+	end
+
+LilycoveCity_MSG_14:
+	.string "镇压？嘿嘿……\n你们真以为\l那是什么‘神灵’吗？\l我爷爷跟我说过，\l那根本就是无数\l失败祭品的怨念集合体！\l每一次失败的祭祀，\l不是在安抚它，\l而是在喂饱它，\l让它变得更强大！$"
+

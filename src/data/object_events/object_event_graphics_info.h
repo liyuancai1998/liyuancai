@@ -152,7 +152,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Twin = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Boy1 = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_3,
+    .paletteTag = OBJ_EVENT_PAL_TAG_KAIYI_2,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -171,7 +171,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Boy1 = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Girl1 = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_2,
+    .paletteTag = OBJ_EVENT_PAL_TAG_LUOMAN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -323,7 +323,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RichBoy = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Woman1 = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BLACK,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -1615,7 +1615,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RooftopSaleWoman =
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Teala = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BLACK_2,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

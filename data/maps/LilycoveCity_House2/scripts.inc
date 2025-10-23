@@ -2,24 +2,15 @@ LilycoveCity_House2_MapScripts::
 	.byte 0
 
 LilycoveCity_House2_EventScript_FatMan::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_REST, LilycoveCity_House2_EventScript_ReceivedRest
-	msgbox LilycoveCity_House2_Text_NotAwakeYetHaveThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM_REST
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_REST
-	msgbox LilycoveCity_House2_Text_SleepIsEssential, MSGBOX_DEFAULT
-	release
+	namebox Note_MSG
+	shownpcpic2 4, 208, 127, 0
+	msgbox LilycoveCity_House2_1 MSGBOX_AUTOCLOSE
+	hidenpc2
+	hidenamebox
+	removeobject 1
+	setflag FLAG_UNUSED_0x26D
 	end
 
-LilycoveCity_House2_EventScript_ReceivedRest::
-	msgbox LilycoveCity_House2_Text_SleepIsEssential, MSGBOX_DEFAULT
-	release
-	end
+LilycoveCity_House2_1:
+	.string "贡品准备好了吗？\n要最好的果实和纯净的泉水……\l不是给GHOST吃的，\l是给那两个孩子的……\l让他们上路前，\l能尝到人世间最后一丝甜。$"
 
-LilycoveCity_House2_Text_NotAwakeYetHaveThis:
-    .string "嗯？什么？那是什么？\p我还想睡…\n这个给你吧…$"
-
-LilycoveCity_House2_Text_SleepIsEssential:
-    .string "呵欠…\p睡得好才会身体好…\n睡觉让身体恢复…$"

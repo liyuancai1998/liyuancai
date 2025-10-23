@@ -29,3 +29,15 @@ gText_BrawlyDefeat_2:
 ChenXi_PokemonCenter_MSG_1:
 	.string "血祭银狼加入了队伍。$"
 
+ChenXi_PokemonCenter_1::
+	shownpcpic2 4, 208, 127, 0
+	namebox Note_MSG_BIJI
+	msgbox ChenXi_PokemonCenter_MSG_2 MSGBOX_AUTOCLOSE
+	hidenamebox
+	closemessage
+	hidenpc2
+	end
+
+ChenXi_PokemonCenter_MSG_2:
+	.string "……仪式之核心，\n在于‘真实的奉献’与‘爱的终结’。\l须由女方，以祭坛之石刃，\l亲手终结男方的生命。\l此一击，非为恨，\l实为极致之爱\l与其同赴使命之决绝。\p若心存犹豫、\n怨恨或被外力所迫，\l则仪式之力将逆流……$"
+	

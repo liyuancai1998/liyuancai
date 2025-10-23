@@ -224,10 +224,10 @@
     {
       "id": "LAYOUT_ROUTE107",
       "name": "Route107_Layout",
-      "width": 60,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "width": 39,
+      "height": 19,
+      "primary_tileset": "gTileset_MAP02",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route107/border.bin",
       "blockdata_filepath": "data/layouts/Route107/map.bin"
     },
@@ -984,10 +984,10 @@
     {
       "id": "LAYOUT_FORTREE_CITY_HOUSE1",
       "name": "FortreeCity_House1_Layout",
-      "width": 8,
-      "height": 6,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_room",
+      "secondary_tileset": "gTileset_roomT1",
       "border_filepath": "data/layouts/FortreeCity_House1/border.bin",
       "blockdata_filepath": "data/layouts/FortreeCity_House1/map.bin"
     },
