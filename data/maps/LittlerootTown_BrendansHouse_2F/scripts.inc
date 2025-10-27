@@ -388,7 +388,7 @@ PlayersHouse_2F_Scripts_1::
 	end
 
 PlayersHouse_2F_Note:
-	.string "洛汐:你明明连我的求救都忽视了……$"
+	.string "洛汐:你明明\n连我的求救都忽视了……$"
 
 PlayersHouse_2F_Scripts_2:
 	namebox Note_MSG_BIJI

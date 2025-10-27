@@ -120,3 +120,91 @@ Route103_Kaiyi_AfterBattle:
 Route103_MSG_8:
 	.string "周围的景象渐渐消失了……$"
 
+Route103_3_2::
+	applymovement OBJ_EVENT_ID_PLAYER Player_Movement_4
+	waitmovement OBJ_EVENT_ID_PLAYER
+	delay 60
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Route103_MSG_3 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	addobject 3, MAP_ROUTE103
+	setobjectxy 3, 42, 9
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER Route103_Move_3
+	waitmovement OBJ_EVENT_ID_PLAYER
+	delay 60
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, Route103_MSG_4
+	closeblacktext
+	removeobject 3
+	setvar VAR_UNUSED_0x4083, 1
+	setflag FLAG_UNUSED_0x26B
+	fadescreen FADE_FROM_BLACK
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Route103_MSG_2 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	end	
+
+Route103_Move_3:
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	walk_right
+	walk_right
+	walk_down
+	face_right
+	step_end
+
+Route103_3_3::
+	applymovement OBJ_EVENT_ID_PLAYER Player_Movement_4
+	waitmovement OBJ_EVENT_ID_PLAYER
+	delay 60
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Route103_MSG_3 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	addobject 3, MAP_ROUTE103
+	setobjectxy 3, 42, 9
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER Route103_Move_4
+	waitmovement OBJ_EVENT_ID_PLAYER
+	delay 60
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, Route103_MSG_4
+	closeblacktext
+	removeobject 3
+	setvar VAR_UNUSED_0x4083, 1
+	setflag FLAG_UNUSED_0x26B
+	fadescreen FADE_FROM_BLACK
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Route103_MSG_2 MSGBOX_AUTOCLOSE
+	hidenamebox
+	hidenpc2
+	hidemonpic
+	end	
+
+Route103_Move_4:
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	walk_right
+	walk_right
+	walk_up
+	face_right
+	step_end
+

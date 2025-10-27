@@ -1,61 +1,31 @@
 .set LOCALID_NURSE, 1
 
 LilycoveCity_PokemonCenter_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_PokemonCenter_1F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
-LilycoveCity_PokemonCenter_1F_OnTransition:
-	setrespawn HEAL_LOCATION_LILYCOVE_CITY
-	goto LilycoveCity_PokemonCenter_1F_EventScript_SetLilycoveLadyGfx
+LilycoveCity_PokemonCenter_1F_1::
+	shownpcpic2 4, 208, 127, 0
+	namebox Note_MSG_BIJI
+	msgbox LilycoveCity_PokemonCenter_1F_MSG_1 MSGBOX_AUTOCLOSE
+	hidenamebox
+	closemessage
+	hidenpc2
 	end
 
-@ SetLilycoveLadyGfx returns TRUE if its the Contest Lady
-LilycoveCity_PokemonCenter_1F_EventScript_SetLilycoveLadyGfx::
-	special SetLilycoveLadyGfx
-	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_PokemonCenter_1F_EventScript_HideContestLadyMon
-	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_PokemonCenter_1F_EventScript_ShowContestLadyMon
+LilycoveCity_PokemonCenter_1F_MSG_1:
+	.string "……二人之遗体，\n需共同沉于神坛深渊，\l此为‘同归’。\p以此向GHOST展示，\n世间最纯粹之联结亦可被其拆散，\l满足其怨念，\l使其重归沉寂。\l若二人未能‘同归’，或一方缺失，\l则GHOST将破封而出，\l视其为彻底的背叛与嘲弄，\l灾祸将降临大地……$"
+
+LilycoveCity_PokemonCenter_1F_2::
+	shownpcpic2 4, 208, 127, 0
+	namebox Note_MSG
+	msgbox LilycoveCity_PokemonCenter_1F_MSG_2 MSGBOX_AUTOCLOSE
+	hidenamebox
+	closemessage
+	hidenpc2
+	removeobject 1
+	setflag FLAG_UNUSED_0x271
 	end
 
-LilycoveCity_PokemonCenter_1F_EventScript_HideContestLadyMon::
-	setflag FLAG_HIDE_LILYCOVE_POKEMON_CENTER_CONTEST_LADY_MON
-	end
-
-LilycoveCity_PokemonCenter_1F_EventScript_ShowContestLadyMon::
-	clearflag FLAG_HIDE_LILYCOVE_POKEMON_CENTER_CONTEST_LADY_MON
-	end
-
-LilycoveCity_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
-LilycoveCity_PokemonCenter_1F_EventScript_Boy::
-	msgbox LilycoveCity_PokemonCenter_1F_Text_HowManyKindsOfPokemon, MSGBOX_NPC
-	end
-
-LilycoveCity_PokemonCenter_1F_EventScript_Maniac::
-	lock
-	faceplayer
-	goto_if_set FLAG_BADGE07_GET, LilycoveCity_PokemonCenter_1F_EventScript_ManiacBadTeamGone
-	msgbox LilycoveCity_PokemonCenter_1F_Text_HeardAboutRottenScoundrels, MSGBOX_DEFAULT
-	release
-	end
-
-LilycoveCity_PokemonCenter_1F_EventScript_ManiacBadTeamGone::
-	msgbox LilycoveCity_PokemonCenter_1F_Text_HaventSeenRottenScoundrels, MSGBOX_DEFAULT
-	release
-	end
-
-LilycoveCity_PokemonCenter_1F_Text_HowManyKindsOfPokemon:
-    .string "我想知道世界上\n有多少种宝可梦。\p穿越海洋和远方的人\n交换宝可梦一定不错。$"
-
-LilycoveCity_PokemonCenter_1F_Text_HeardAboutRottenScoundrels:
-    .string "我听说过那些\n偷宝可梦抢陨石的\l流氓的事情。$"
-
-LilycoveCity_PokemonCenter_1F_Text_HaventSeenRottenScoundrels:
-    .string "那些偷宝可梦\n抢陨石的流氓…\p最近在这附近没看到他们。$"
+LilycoveCity_PokemonCenter_1F_MSG_2:
+	.string "我们什么都不知道，\n我们只是……遵从传统。$"
 

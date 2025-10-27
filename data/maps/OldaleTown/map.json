@@ -36,7 +36,7 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
       "x": 23,
       "y": 24,
       "elevation": 0,
@@ -62,7 +62,7 @@
       "flag": "FLAG_UNUSED_0x02F"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
       "x": 6,
       "y": 16,
       "elevation": 0,
