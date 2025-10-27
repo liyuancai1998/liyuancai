@@ -150,6 +150,8 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
+	trainerbattle_single TRAINER_BRICE, Route112_Text_BriceIntro, Route112_Text_BriceDefeat
+	msgbox Route112_Text_BricePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Debug_EventScript_Script_3::
