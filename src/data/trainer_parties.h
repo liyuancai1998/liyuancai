@@ -11870,3 +11870,23 @@ static const struct TrainerMon sParty_Kaiyi[] = {
     }
 };
 
+static const struct TrainerMon sParty_Mom[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_STARMIE,
+    .heldItem = ITEM_WISE_GLASSES,
+    .moves = {MOVE_PSYCHIC, MOVE_HYDRO_PUMP, MOVE_ICE_PUNCH, MOVE_RECOVER}
+    }
+};
+
+static const struct TrainerMon sParty_Yanxing[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 20,
+    .species = SPECIES_GLALIE,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_EXPLOSION, MOVE_EARTHQUAKE, MOVE_DOUBLE_EDGE, MOVE_SPIKES}
+    }
+};
+

@@ -16,7 +16,6 @@ Chansey_AfterBattle:
 	msgbox Chansey_gText_BrawlyDefeat_2 MSGBOX_AUTOCLOSE
 	hidenpc2
 	hidenamebox
-	setflag FLAG_UNUSED_0x02E
 	removeobject 1
 	setflag FLAG_UNUSED_0x1E3
 	fadescreen FADE_TO_BLACK

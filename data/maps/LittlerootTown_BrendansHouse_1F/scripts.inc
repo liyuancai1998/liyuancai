@@ -30,6 +30,10 @@ LittlerootTown_BrendansHouse_1F_4::
 	setvar 0x8004, 9
 	special ShowCG
 	waitstate
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_MOM, 1, gText_BrawlyDefeat, gText_BrawlyDefeat, Mom_AfterBattle
+	end
+
+Mom_AfterBattle:
 	removeobject 1
 	namebox Route108_LuoXi
 	shownpc 0, 208, 127
@@ -38,8 +42,14 @@ LittlerootTown_BrendansHouse_1F_4::
 	hidenamebox
 	hidenpc2
 	hidemonpic
+	givemon SPECIES_STARMIE, 20, ITEM_WISE_GLASSES, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_PSYCHIC, MOVE_HYDRO_PUMP, MOVE_ICE_PUNCH, MOVE_RECOVER, FALSE
+	fadescreen FADE_TO_BLACK
+	blacktext 0xe0, 50, PlayersHouse_1F_MSG_9
+	closeblacktext
+	fadescreen FADE_FROM_BLACK
 	setflag FLAG_UNUSED_0x1AA
 	setflag FLAG_UNUSED_0x1AB
+	addvar VAR_EVENT_COUNTER, 1
 	end
 
 PlayersHouse_1F_MSG_6:
@@ -50,6 +60,9 @@ PlayersHouse_1F_MSG_7:
 
 PlayersHouse_1F_MSG_8:
 	.string "都是我不想回忆起来的事情……$"
+
+PlayersHouse_1F_MSG_9:
+	.string "血瞳海星加入了队伍。$"
 
 LittlerootTown_BrendansHouse_1F_OnLoad:
 	call_if_lt VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_BrendansHouse_1F_EventScript_SetMovingBoxes

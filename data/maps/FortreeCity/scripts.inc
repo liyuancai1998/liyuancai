@@ -147,6 +147,7 @@ FortreeCity_Move_3:
 	step_end
 
 FortreeCity_Scripts_4::
+	setflag FLAG_UNUSED_0x04D
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
 	namebox Route108_LuoXi
@@ -204,6 +205,7 @@ FortreeCity_Scripts_4::
 	hidenpc2
 	hidenamebox
 	removeobject 3
+	setflag FLAG_UNUSED_0x042
 	setvar VAR_ROUTE120_STATE, 1
 	addvar VAR_EVENT_COUNTER, 1
 	special RemoveCameraObject

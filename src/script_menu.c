@@ -947,10 +947,7 @@ static void Task_PokemonPicWindow(u8 taskId)
         // Wait until state is advanced by ScriptMenu_HidePokemonPic
         break;
     case 2:
-        if (gTasks[taskId].data[7] == FALSE)
-            FreeResourcesAndDestroySprite(&gSprites[task->tMonSpriteId], task->tMonSpriteId);
-        else
-            DestroySpriteAndFreeResources(&gSprites[task->tMonSpriteId]);
+    FreeResourcesAndDestroySprite(&gSprites[task->tMonSpriteId], task->tMonSpriteId);
         task->tState++;
         break;
     case 3:

@@ -142,6 +142,7 @@ LilycoveCity_Scripts_2::
 	hidenamebox
 	hidenpc2
 	hidemonpic
+	addvar VAR_EVENT_COUNTER, 1
 	setvar VAR_ROUTE114_STATE, 1
 	end
 

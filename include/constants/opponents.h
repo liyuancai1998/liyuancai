@@ -854,7 +854,7 @@
 #define TRAINER_MARIELA                     848
 #define TRAINER_ALVARO                      849
 #define TRAINER_EVERETT                     850
-#define TRAINER_RED                         851
+#define TRAINER_MOM                         851
 #define TRAINER_KAIYI                        852
 #define TRAINER_NURSE         853
 #define TRAINER_YINLANG             854

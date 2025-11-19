@@ -19,7 +19,7 @@ NewMap1_1::
 	hidenamebox
 	hidenpc2
 	hidemonpic
-	compare VAR_EVENT_COUNTER, 13
+	compare VAR_EVENT_COUNTER, 15
 	goto_if_eq EventScript_AllEventsComplete
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0

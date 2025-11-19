@@ -2,6 +2,7 @@ Route103_MapScripts::
 	.byte 0
 
 Route103_1::
+	setrespawn HEAL_LOCATION_ROUTE103
 	shownpc 0, 208, 127
 	shownpcpic2 4, 208, 127, 0
 	namebox Route108_LuoXi

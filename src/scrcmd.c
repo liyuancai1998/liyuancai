@@ -2607,6 +2607,10 @@ static const u8 sCGI4_Tiles[] = INCBIN_U8("graphics/cg/I4.8bpp.lz");
 static const u8 sCGI4_Pal[] = INCBIN_U8("graphics/cg/I4.gbapal");
 static const u8 sCGI5_Tiles[] = INCBIN_U8("graphics/cg/I5.8bpp.lz");
 static const u8 sCGI5_Pal[] = INCBIN_U8("graphics/cg/I5.gbapal");
+static const u8 sCGL1_Tiles[] = INCBIN_U8("graphics/cg/L1.8bpp.lz");
+static const u8 sCGL1_Pal[] = INCBIN_U8("graphics/cg/L1.gbapal");
+static const u8 sCGL2_Tiles[] = INCBIN_U8("graphics/cg/L2.8bpp.lz");
+static const u8 sCGL2_Pal[] = INCBIN_U8("graphics/cg/L2.gbapal");
 
 static const u8* sCGTable[][10] = 
 {
@@ -2653,6 +2657,8 @@ static const u8* sCGTable[][10] =
     [40] = {sCGI3_Tiles, sCGI3_Pal},
     [41] = {sCGI4_Tiles, sCGI4_Pal},
     [42] = {sCGI5_Tiles, sCGI5_Pal},
+    [43] = {sCGL1_Tiles, sCGL1_Pal},
+    [44] = {sCGL2_Tiles, sCGL2_Pal},
 
 };
 
@@ -2701,6 +2707,8 @@ static const u8* sCGMessage[] =
     [40] = COMPOUND_STRING("一个是阿尔法王国国王的傀儡少女，\n一个是从出生就不被允许存在的怪物。\l两个孩子最后的那一段旅程:\l丑陋不堪地挣扎求生，\l疼痛逐步侵染的慢性死亡，\l在绝境中任然挣扎着想要紧握在一起的双手，\l一起浅唱的那首仅存的记忆中的童谣，\l最后遗留的是2人相偎的臂怀。"),
     [41] = COMPOUND_STRING("他们死后，\nGHOST席卷了整个阿尔法大陆。"),
     [42] = COMPOUND_STRING("仪式失败再次导致了\n大范围的灾厄事件……"),
+    [43] = COMPOUND_STRING("洛汐:在这里…不好吧？\n万一有人…\p琰星:怕什么？\n就是这里…才够刺激…"),
+    [44] = COMPOUND_STRING("洛汐:……嗯哼…\p琰星:对，就这样…宝贝，叫出来…\n啊……啊啊……\l洛汐，你真棒……\l比我想象中的还要厉害……\l叫我的名字…\l让我听听…你有多动情…"),
 };
 
 static const u8 sCGAnimList[][60] = 
@@ -2879,6 +2887,15 @@ static const u8 sCGAnimList[][60] =
         PLAY_CG, 37,         // 播放CG
         WAIT_BUTTON, 0,     // 等待按钮
         PAUSE_TIME, 0,     // 暂停时间
+    },
+    [15] = {
+        PLAY_CG, 43,         // 播放CG
+        PLAY_MESSAGE, 43,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_CG, 44,         // 播放CG
+        PLAY_MESSAGE, 44,    // 播放对话
+        WAIT_BUTTON, 0,     // 等待按钮
+        PLAY_END            // 结束
     },
 };
 

@@ -23,7 +23,11 @@ LittlerootTown_ProfessorBirchsLab_Scripts_3:
 	setflag FLAG_UNUSED_0x068
 	end
 
-LittlerootTown_ProfessorBirchsLab_Scripts_4::
+Yinlang_battle::
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_YINLANG, 1, gText_BrawlyDefeat, gText_BrawlyDefeat, LittlerootTown_ProfessorBirchsLab_Scripts_4
+	end
+
+LittlerootTown_ProfessorBirchsLab_Scripts_4:
 	namebox xiaoxuan_MSG
 	shownpc 2, 208, 127
 	shownpcpic2 4, 208, 127, 0
@@ -32,10 +36,21 @@ LittlerootTown_ProfessorBirchsLab_Scripts_4::
 	hidenpc2
 	hidemonpic
 	removeobject 2
+	fadescreen FADE_TO_BLACK
+	givemon SPECIES_MIGHTYENA, 20, ITEM_LIFE_ORB, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_PLAY_ROUGH, MOVE_SHADOW_SNEAK, MOVE_CRUNCH, MOVE_FIRE_FANG, FALSE
+	blacktext 0xe0, 50, ChenXi_PokemonCenter_MSG_1
+	closeblacktext
+	fadescreen FADE_FROM_BLACK
 	setflag FLAG_UNUSED_0x068
 	setflag FLAG_UNUSED_0x0E9
 	addvar VAR_EVENT_COUNTER, 1
 	end
+	
+gText_BrawlyDefeat:
+	.string "……$"
+
+ChenXi_PokemonCenter_MSG_1:
+	.string "血祭银狼加入了队伍。$"
 
 LittlerootTown_ProfessorBirchsLab_MSG_1:
 	.string "凭什么被选中的是我，\n该死的是洛汐……\l我没有做错……\l没有做错……\p我把名字偷偷改成洛汐了，\n这下子我不仅报仇了，\l说不定凯伊也会重新考虑我……\l哈哈哈哈……$"
