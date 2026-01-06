@@ -157,7 +157,7 @@ static void SpriteCb_ClearBox(struct Sprite* sprite)
 {
     if (sFieldMessageClearBox == TRUE)
     {
-        DestroySprite(sprite);
+        DestroySpriteAndFreeResources(sprite);
     }
 }
 

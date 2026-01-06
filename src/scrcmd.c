@@ -2647,7 +2647,7 @@ static const u8* sCGTable[][10] =
     [30] = {sCGH1_Tiles, sCGH1_Pal},
     [31] = {sCGJ1_Tiles, sCGJ1_Pal},
     [32] = {sCGB7_Tiles, sCGB7_Pal},
-    [33] = {sCGB8_Tiles, sCGB8_Pal},
+    // [33] = {sCGB8_Tiles, sCGB8_Pal},
     [34] = {sCGK1_Tiles, sCGK1_Pal},
     [35] = {sCGK2_Tiles, sCGK2_Pal},
     [36] = {sCGK3_Tiles, sCGK3_Pal},
@@ -2759,7 +2759,7 @@ static const u8 sCGAnimList[][60] =
         PLAY_CG, 32,         // 播放CG
         PLAY_MESSAGE, 32,    // 播放对话
         WAIT_BUTTON, 0,     // 等待按钮
-        PLAY_CG, 33,         // 播放CG
+        // PLAY_CG, 33,         // 播放CG
         PLAY_MESSAGE, 33,    // 播放对话
         WAIT_BUTTON, 0,     // 等待按钮
         PLAY_CG, 11,         // 播放cg
