@@ -2464,18 +2464,38 @@ void BtlController_HandleReturnMonToBall(u32 battler)
 
 #define sSpeedX data[0]
 
-// static const u32 gTestTrainerPicture[] = INCBIN_U32("graphics/test/test.4bpp.lz");
-// static const u32 gTestTrainerPal[] = INCBIN_U32("graphics/test/test.gbapal.lz");
+static const u32 g80x64MonTiles[] = INCBIN_U32("graphics/test/Mom.4bpp.lz");
+static const u32 g80x64MonPal[] = INCBIN_U32("graphics/test/Mom.gbapal.lz");
 
-// static const u32* const g80x64TrainerTable[] = 
-// {
-//     [TRAINER_PIC_HIKER] = gTestTrainerPicture,
-// };
+static const u32 g80x64GirlTiles[] = INCBIN_U32("graphics/test/MainGirl.4bpp.lz");
+static const u32 g80x64GirlPal[] = INCBIN_U32("graphics/test/MainGirl.gbapal.lz");
 
-// static const u32* const g80x64TrainerPalTable[] = 
-// {
-//     [TRAINER_PIC_HIKER] = gTestTrainerPal,
-// };
+static const u32 g80x64Girl2Tiles[] = INCBIN_U32("graphics/test/Girl2.4bpp.lz");
+static const u32 g80x64Girl2Pal[] = INCBIN_U32("graphics/test/Girl2.gbapal.lz");
+
+static const u32 g80x64BoyTiles[] = INCBIN_U32("graphics/test/MainBoy.4bpp.lz");
+static const u32 g80x64BoyPal[] = INCBIN_U32("graphics/test/MainBoy.gbapal.lz");
+
+static const u32 g80x64Boy2Tiles[] = INCBIN_U32("graphics/test/Boy2.4bpp.lz");
+static const u32 g80x64Boy2Pal[] = INCBIN_U32("graphics/test/Boy2.gbapal.lz");
+
+static const u32* const g80x64TrainerTable[] = 
+{
+    [TRAINER_PIC_MAY] = g80x64GirlTiles,
+    [TRAINER_PIC_CHAMPION_WALLACE] = g80x64BoyTiles,
+    [TRAINER_PIC_ELITE_FOUR_GLACIA] = g80x64MonTiles,
+    [TRAINER_PIC_ELITE_FOUR_PHOEBE] = g80x64Girl2Tiles,
+    [TRAINER_PIC_ELITE_FOUR_SIDNEY] = g80x64Boy2Tiles
+};
+
+static const u32* const g80x64TrainerPalTable[] = 
+{
+    [TRAINER_PIC_MAY] = g80x64GirlPal,
+    [TRAINER_PIC_CHAMPION_WALLACE] = g80x64BoyPal,
+    [TRAINER_PIC_ELITE_FOUR_GLACIA] = g80x64MonPal,
+    [TRAINER_PIC_ELITE_FOUR_PHOEBE] = g80x64Girl2Pal,
+    [TRAINER_PIC_ELITE_FOUR_SIDNEY] = g80x64Boy2Pal
+};
 
 // static const struct Subsprite s80x80Subsprites[] =
 // {
@@ -2530,19 +2550,40 @@ void BtlController_HandleDrawTrainerPic(u32 battler, u32 trainerPicId, bool32 is
 {
     if (GetBattlerSide(battler) == B_SIDE_OPPONENT) // Always the front sprite for the opponent.
     {
-        DecompressTrainerFrontPic(trainerPicId, battler);
-        SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(battler));
+        //DecompressTrainerFrontPic(trainerPicId, battler);
+        DebugPrintf("trainerPicId: %d", trainerPicId);
+        u8 spriteId;
+        struct CompressedSpriteSheet mytest;
+        struct CompressedSpritePalette mytestPal;
+
+        mytest.data = g80x64TrainerTable[trainerPicId];
+        mytest.size = 80 * 64 / 2;
+        mytest.tag = 0x4396;
+        
+        mytestPal.data = g80x64TrainerPalTable[trainerPicId];
+        mytestPal.tag = 0x4396;
+
+        gMultiuseSpriteTemplate.tileTag = 0x4396;
+        gMultiuseSpriteTemplate.anims = gDummySpriteAnimTable;
+        gMultiuseSpriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
+        gMultiuseSpriteTemplate.callback = SpriteCallbackDummy;
+        
+        LoadCompressedSpriteSheet(&mytest);
+        LoadCompressedSpritePalette(&mytestPal);
+        // DecompressTrainerFrontPic(trainerPicId, battler);
+        // SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(battler));
         if (subpriority == -1)
             subpriority = GetBattlerSpriteSubpriority(battler);
         gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate,
-                                                   xPos,
-                                                   yPos,
+                                                   xPos - 32,
+                                                   yPos - 32,
                                                    subpriority);
 
-        gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(gTrainerSprites[trainerPicId].palette.tag);
+        gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(0x4396);
         gSprites[gBattlerSpriteIds[battler]].x2 = -DISPLAY_WIDTH;
         gSprites[gBattlerSpriteIds[battler]].sSpeedX = 2;
         gSprites[gBattlerSpriteIds[battler]].oam.affineParam = trainerPicId;
+        SetSubspriteTables(&gSprites[gBattlerSpriteIds[battler]], s80x80SubspriteTable);
     }
     else // Player's side
     {
