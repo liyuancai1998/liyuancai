@@ -209,3 +209,20 @@ Route103_Move_4:
 	face_right
 	step_end
 
+Route103_Scripts::
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Rest_MSG MSGBOX_DEFAULT
+	hidenamebox
+	closemessage
+	hidenpc2
+	hidemonpic
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	setrespawn HEAL_LOCATION_ROUTE103
+	fadescreen FADE_FROM_BLACK
+	end
+

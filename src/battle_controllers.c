@@ -2464,6 +2464,9 @@ void BtlController_HandleReturnMonToBall(u32 battler)
 
 #define sSpeedX data[0]
 
+static const u32 g80x64QeTiles[] = INCBIN_U32("graphics/test/cycling_triathlete_f.4bpp.lz");
+static const u32 g80x64QePal[] = INCBIN_U32("graphics/test/cycling_triathlete_f.gbapal.lz");
+
 static const u32 g80x64MonTiles[] = INCBIN_U32("graphics/test/Mom.4bpp.lz");
 static const u32 g80x64MonPal[] = INCBIN_U32("graphics/test/Mom.gbapal.lz");
 
@@ -2481,6 +2484,7 @@ static const u32 g80x64Boy2Pal[] = INCBIN_U32("graphics/test/Boy2.gbapal.lz");
 
 static const u32* const g80x64TrainerTable[] = 
 {
+    [TRAINER_PIC_CYCLING_TRIATHLETE_F] = g80x64QeTiles,
     [TRAINER_PIC_MAY] = g80x64GirlTiles,
     [TRAINER_PIC_CHAMPION_WALLACE] = g80x64BoyTiles,
     [TRAINER_PIC_ELITE_FOUR_GLACIA] = g80x64MonTiles,
@@ -2490,6 +2494,7 @@ static const u32* const g80x64TrainerTable[] =
 
 static const u32* const g80x64TrainerPalTable[] = 
 {
+    [TRAINER_PIC_CYCLING_TRIATHLETE_F] = g80x64QePal,
     [TRAINER_PIC_MAY] = g80x64GirlPal,
     [TRAINER_PIC_CHAMPION_WALLACE] = g80x64BoyPal,
     [TRAINER_PIC_ELITE_FOUR_GLACIA] = g80x64MonPal,
@@ -2497,54 +2502,54 @@ static const u32* const g80x64TrainerPalTable[] =
     [TRAINER_PIC_ELITE_FOUR_SIDNEY] = g80x64Boy2Pal
 };
 
-// static const struct Subsprite s80x80Subsprites[] =
-// {
-//     {
-//         .x = 0,
-//         .y = 0,
-//         .shape = SPRITE_SHAPE(64x64),
-//         .size = SPRITE_SIZE(64x64),
-//         .tileOffset = 0,
-//         .priority = 2
-//     },
-//     {
-//         .x = 0,
-//         .y = 64,
-//         .shape = SPRITE_SHAPE(32x8),
-//         .size = SPRITE_SIZE(32x8),
-//         .tileOffset = 64,
-//         .priority = 2
-//     },
-//     {
-//         .x = 32,
-//         .y = 64,
-//         .shape = SPRITE_SHAPE(32x8),
-//         .size = SPRITE_SIZE(32x8),
-//         .tileOffset = 68,
-//         .priority = 2
-//     },
-//     {
-//         .x =  0,
-//         .y =  72,
-//         .shape = SPRITE_SHAPE(32x8),
-//         .size = SPRITE_SIZE(32x8),
-//         .tileOffset = 72,
-//         .priority = 2
-//     },
-//     {
-//         .x =  32,
-//         .y =  72,
-//         .shape = SPRITE_SHAPE(32x8),
-//         .size = SPRITE_SIZE(32x8),
-//         .tileOffset = 76,
-//         .priority = 2
-//     },
-// };
+static const struct Subsprite s80x80Subsprites[] =
+{
+    {
+        .x = 0,
+        .y = 0,
+        .shape = SPRITE_SHAPE(64x64),
+        .size = SPRITE_SIZE(64x64),
+        .tileOffset = 0,
+        .priority = 2
+    },
+    {
+        .x = 0,
+        .y = 64,
+        .shape = SPRITE_SHAPE(32x8),
+        .size = SPRITE_SIZE(32x8),
+        .tileOffset = 64,
+        .priority = 2
+    },
+    {
+        .x = 32,
+        .y = 64,
+        .shape = SPRITE_SHAPE(32x8),
+        .size = SPRITE_SIZE(32x8),
+        .tileOffset = 68,
+        .priority = 2
+    },
+    {
+        .x =  0,
+        .y =  72,
+        .shape = SPRITE_SHAPE(32x8),
+        .size = SPRITE_SIZE(32x8),
+        .tileOffset = 72,
+        .priority = 2
+    },
+    {
+        .x =  32,
+        .y =  72,
+        .shape = SPRITE_SHAPE(32x8),
+        .size = SPRITE_SIZE(32x8),
+        .tileOffset = 76,
+        .priority = 2
+    },
+};
 
-// static const struct SubspriteTable s80x80SubspriteTable[] =
-// {
-//     {ARRAY_COUNT(s80x80Subsprites), s80x80Subsprites},
-// };
+static const struct SubspriteTable s80x80SubspriteTable[] =
+{
+    {ARRAY_COUNT(s80x80Subsprites), s80x80Subsprites},
+};
 
 void BtlController_HandleDrawTrainerPic(u32 battler, u32 trainerPicId, bool32 isFrontPic, s16 xPos, s16 yPos, s32 subpriority)
 {

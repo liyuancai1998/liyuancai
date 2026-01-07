@@ -304,3 +304,20 @@ LavaridgeTown_Text_5:
 LavaridgeTown_Text_6:
 	.string "先进去看看吧……$"
 
+LavaridgeTown_HealPlayerParty_Scripts::
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Rest_MSG MSGBOX_DEFAULT
+	hidenamebox
+	closemessage
+	hidenpc2
+	hidemonpic
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	setrespawn HEAL_LOCATION_LAVARIDGE_TOWN
+	fadescreen FADE_FROM_BLACK
+	end
+

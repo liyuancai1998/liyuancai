@@ -155,3 +155,20 @@ ChunYu_NPC_1::
 ChunYu_MSG_7:
 	.string "祭祀好像要开始了，\n妈妈不让我天黑后还在外面。$"
 
+ChunYu_HealPlayerParty_Scripts::
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Rest_MSG MSGBOX_DEFAULT
+	hidenamebox
+	closemessage
+	hidenpc2
+	hidemonpic
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	setrespawn HEAL_LOCATION_SLATEPORT_CITY
+	fadescreen FADE_FROM_BLACK
+	end
+

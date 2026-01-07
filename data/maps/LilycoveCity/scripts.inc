@@ -323,3 +323,20 @@ LilycoveCity_Scripts_11::
 LilycoveCity_MSG_14:
 	.string "镇压？嘿嘿……\n你们真以为\l那是什么‘神灵’吗？\l我爷爷跟我说过，\l那根本就是无数\l失败祭品的怨念集合体！\l每一次失败的祭祀，\l不是在安抚它，\l而是在喂饱它，\l让它变得更强大！$"
 
+LilycoveCity_HealPlayerParty_Scripts::
+	shownpc 0, 208, 127
+	shownpcpic2 4, 208, 127, 0
+	namebox Route108_LuoXi
+	msgbox Rest_MSG MSGBOX_DEFAULT
+	hidenamebox
+	closemessage
+	hidenpc2
+	hidemonpic
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	setrespawn HEAL_LOCATION_LILYCOVE_CITY
+	fadescreen FADE_FROM_BLACK
+	end
+
