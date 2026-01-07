@@ -298,15 +298,19 @@ static u16 LoadPicSpriteInWindow(u16 species, bool8 isShiny, u32 personality, bo
     return 0;
 }
 
+extern const u32 g80x64GirlTiles[];
+extern const u32 g80x64GirlPal[];
+
 static u16 CreateTrainerCardSprite(u16 species, bool8 isShiny, u32 personality, bool8 isFrontPic, u16 destX, u16 destY, u8 paletteSlot, u8 windowId, bool8 isTrainer)
 {
     u8 *framePics;
 
     framePics = Alloc(TRAINER_PIC_SIZE * MAX_TRAINER_PIC_FRAMES);
-    if (framePics && !DecompressPic(species, personality, isFrontPic, framePics, isTrainer))
+    LZ77UnCompWram(g80x64GirlTiles, framePics);
+    if (framePics)
     {
-        BlitBitmapRectToWindow(windowId, framePics, 0, 0, TRAINER_PIC_WIDTH, TRAINER_PIC_HEIGHT, destX, destY, TRAINER_PIC_WIDTH, TRAINER_PIC_HEIGHT);
-        LoadPicPaletteBySlot(species, isShiny, personality, paletteSlot, isTrainer);
+        BlitBitmapRectToWindow(windowId, framePics, 0, 0, TRAINER_PIC_WIDTH, 80, destX, destY, TRAINER_PIC_WIDTH, 80);
+        LoadCompressedPalette(g80x64GirlPal, BG_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
         Free(framePics);
         return 0;
     }

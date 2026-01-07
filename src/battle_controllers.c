@@ -2470,8 +2470,8 @@ static const u32 g80x64QePal[] = INCBIN_U32("graphics/test/cycling_triathlete_f.
 static const u32 g80x64MonTiles[] = INCBIN_U32("graphics/test/Mom.4bpp.lz");
 static const u32 g80x64MonPal[] = INCBIN_U32("graphics/test/Mom.gbapal.lz");
 
-static const u32 g80x64GirlTiles[] = INCBIN_U32("graphics/test/MainGirl.4bpp.lz");
-static const u32 g80x64GirlPal[] = INCBIN_U32("graphics/test/MainGirl.gbapal.lz");
+const u32 g80x64GirlTiles[] = INCBIN_U32("graphics/test/MainGirl.4bpp.lz");
+const u32 g80x64GirlPal[] = INCBIN_U32("graphics/test/MainGirl.gbapal.lz");
 
 static const u32 g80x64Girl2Tiles[] = INCBIN_U32("graphics/test/Girl2.4bpp.lz");
 static const u32 g80x64Girl2Pal[] = INCBIN_U32("graphics/test/Girl2.gbapal.lz");
