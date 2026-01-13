@@ -332,11 +332,45 @@ LilycoveCity_HealPlayerParty_Scripts::
 	closemessage
 	hidenpc2
 	hidemonpic
+LilycoveCity_HealPlayerParty_Loop:
+	multichoice 20, 2, MULTI_LILYCOVE_HEAL_WARP, TRUE
+	compare VAR_RESULT, 0
+	goto_if_eq LilycoveCity_HealPlayerParty_Heal
+	compare VAR_RESULT, 1
+	goto_if_eq LilycoveCity_HealPlayerParty_WarpPetalburg
+	compare VAR_RESULT, 2
+	goto_if_eq LilycoveCity_HealPlayerParty_WarpSlateport
+	compare VAR_RESULT, 3
+	goto_if_eq LilycoveCity_HealPlayerParty_WarpRustboro
+	compare VAR_RESULT, 4
+	goto_if_eq LilycoveCity_HealPlayerParty_Exit
+	goto LilycoveCity_HealPlayerParty_Loop
+LilycoveCity_HealPlayerParty_Heal:
 	fadescreen FADE_TO_BLACK
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
 	setrespawn HEAL_LOCATION_LILYCOVE_CITY
 	fadescreen FADE_FROM_BLACK
+	goto LilycoveCity_HealPlayerParty_Loop
+LilycoveCity_HealPlayerParty_WarpPetalburg:
+	fadescreen FADE_TO_BLACK
+	warp MAP_SLATEPORT_CITY, 28, 45
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+LilycoveCity_HealPlayerParty_WarpSlateport:
+	fadescreen FADE_TO_BLACK
+	warp MAP_LITTLEROOT_TOWN, 29, 32
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+LilycoveCity_HealPlayerParty_WarpRustboro:
+	fadescreen FADE_TO_BLACK
+	warp MAP_LAVARIDGE_TOWN, 4, 18
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+LilycoveCity_HealPlayerParty_Exit:
 	end
 

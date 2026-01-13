@@ -170,7 +170,7 @@ LavaridgeTown_Xiaoxuan_MSG_4:
 	.string "凯伊……\n是我误会你了……$"
 
 LavaridgeTown_Xiaoxuan_MSG_3:
-	.string "焚烧炉？\n等等，\l她手里拿的是我给凯伊写的信？\p为什么你要这么做……\n难道说我和凯伊从始至终\l都是一场蒙在鼓里的误会么？$"
+	.string "焚烧炉？\n等等，\l她手里拿的是我给凯伊写的信？\p为什么你要这么做……\n难道说我和凯伊从始至终\l都是一场蒙在鼓里的误会么？\p这封信当时在我房间写了好久……$"
 
 LavaridgeTown_Xiaoxuan_MSG_1:
 	.string "这好像是我给凯伊送信的时候……\n那天他家里没有人，\l我就把信塞在了他家的门缝里了。$"
@@ -313,11 +313,54 @@ LavaridgeTown_HealPlayerParty_Scripts::
 	closemessage
 	hidenpc2
 	hidemonpic
+	checkflag FLAG_UNUSED_0x03C
+	goto_if_eq LavaridgeTown_HealPlayerParty_Loop
 	fadescreen FADE_TO_BLACK
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
 	setrespawn HEAL_LOCATION_LAVARIDGE_TOWN
 	fadescreen FADE_FROM_BLACK
+	end
+LavaridgeTown_HealPlayerParty_Loop:
+	multichoice 20, 2, MULTI_LAVARIDGE_HEAL_WARP, TRUE
+	compare VAR_RESULT, 0
+	goto_if_eq LavaridgeTown_HealPlayerParty_Heal
+	compare VAR_RESULT, 1
+	goto_if_eq LavaridgeTown_HealPlayerParty_WarpChunyu
+	compare VAR_RESULT, 2
+	goto_if_eq LavaridgeTown_HealPlayerParty_WarpChenxi
+	compare VAR_RESULT, 3
+	goto_if_eq LavaridgeTown_HealPlayerParty_WarpLuoxia
+	compare VAR_RESULT, 4
+	goto_if_eq LavaridgeTown_HealPlayerParty_Exit
+	goto LavaridgeTown_HealPlayerParty_Loop
+LavaridgeTown_HealPlayerParty_Heal:
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	setrespawn HEAL_LOCATION_LAVARIDGE_TOWN
+	fadescreen FADE_FROM_BLACK
+	goto LavaridgeTown_HealPlayerParty_Loop
+LavaridgeTown_HealPlayerParty_WarpChunyu:
+	fadescreen FADE_TO_BLACK
+	warp MAP_SLATEPORT_CITY, 28, 45
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+LavaridgeTown_HealPlayerParty_WarpChenxi:
+	fadescreen FADE_TO_BLACK
+	warp MAP_LITTLEROOT_TOWN, 29, 32
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+LavaridgeTown_HealPlayerParty_WarpLuoxia:
+	fadescreen FADE_TO_BLACK
+	warp MAP_LILYCOVE_CITY, 32, 15
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+LavaridgeTown_HealPlayerParty_Exit:
 	end
 

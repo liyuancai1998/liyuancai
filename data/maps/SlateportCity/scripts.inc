@@ -164,11 +164,54 @@ ChunYu_HealPlayerParty_Scripts::
 	closemessage
 	hidenpc2
 	hidemonpic
+	checkflag FLAG_UNUSED_0x03C
+	goto_if_eq ChunYu_HealPlayerParty_Loop
 	fadescreen FADE_TO_BLACK
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
 	setrespawn HEAL_LOCATION_SLATEPORT_CITY
 	fadescreen FADE_FROM_BLACK
+	end
+ChunYu_HealPlayerParty_Loop:
+	multichoice 20, 2, MULTI_SLATEPORT_HEAL_WARP, TRUE
+	compare VAR_RESULT, 0
+	goto_if_eq ChunYu_HealPlayerParty_Heal
+	compare VAR_RESULT, 1
+	goto_if_eq ChunYu_HealPlayerParty_WarpChenxi
+	compare VAR_RESULT, 2
+	goto_if_eq ChunYu_HealPlayerParty_WarpWuye
+	compare VAR_RESULT, 3
+	goto_if_eq ChunYu_HealPlayerParty_WarpLuoxia
+	compare VAR_RESULT, 4
+	goto_if_eq ChunYu_HealPlayerParty_Exit
+	goto ChunYu_HealPlayerParty_Loop
+ChunYu_HealPlayerParty_Heal:
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	setrespawn HEAL_LOCATION_SLATEPORT_CITY
+	fadescreen FADE_FROM_BLACK
+	goto ChunYu_HealPlayerParty_Loop
+ChunYu_HealPlayerParty_WarpChenxi:
+	fadescreen FADE_TO_BLACK
+	warp MAP_LITTLEROOT_TOWN, 29, 32
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+ChunYu_HealPlayerParty_WarpWuye:
+	fadescreen FADE_TO_BLACK
+	warp MAP_LAVARIDGE_TOWN, 4, 18
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+ChunYu_HealPlayerParty_WarpLuoxia:
+	fadescreen FADE_TO_BLACK
+	warp MAP_LILYCOVE_CITY, 32, 15
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	end
+ChunYu_HealPlayerParty_Exit:
 	end
 

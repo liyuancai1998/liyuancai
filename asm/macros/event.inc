@@ -2216,3 +2216,4 @@
 	.macro hidenamebox
 	.byte 0xeb
 	.endm
+

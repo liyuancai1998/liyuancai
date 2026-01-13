@@ -1064,6 +1064,11 @@ extern const u8 gText_Number2[];
 
 extern const u8 gText_Petalburg[];
 extern const u8 gText_Slateport[];
+extern const u8 gText_ChunYu[];
+extern const u8 gText_Chenxi[];
+extern const u8 gText_Wuye[];
+extern const u8 gText_Luoxia[];
+extern const u8 gText_HealParty[];
 extern const u8 gText_Enter2[];
 extern const u8 gText_Info2[];
 extern const u8 gText_WhatsAContest[];
